@@ -1,0 +1,16 @@
+{
+  "app": {
+    "title": "Expérience Moto Urbaine",
+    "footer": "Créé avec Vue 3, Vuetify & TypeScript"
+  },
+  "pages": {
+    "home": {
+      "title": "Bienvenue",
+      "description": "Découvrez l'expérience ultime du voyage à moto urbain"
+    },
+    "about": {
+      "title": "À propos",
+      "description": "En savoir plus sur l'expérience moto urbaine"
+    }
+  }
+}
