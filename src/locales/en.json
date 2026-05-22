@@ -1,0 +1,16 @@
+{
+  "app": {
+    "title": "Urban Moto Experience",
+    "footer": "Made with Vue 3, Vuetify & TypeScript"
+  },
+  "pages": {
+    "home": {
+      "title": "Welcome",
+      "description": "Experience the ultimate urban motorcycle journey"
+    },
+    "about": {
+      "title": "About Us",
+      "description": "Learn more about Urban Moto Experience"
+    }
+  }
+}
