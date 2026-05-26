@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <v-app-bar app color="white" height="118" flat>
-      <v-toolbar-title>
+    <v-app-bar app color="white" height="118" flat class="topbar">
+      <div class="topbar-content">
         <a
           class="brand"
           href="#"
@@ -18,26 +18,23 @@
             <span class="brand-city">CDMX</span>
           </div>
         </a>
-      </v-toolbar-title>
 
-      <v-spacer />
-
-      <nav class="nav-links" aria-label="Main navigation">
-        <v-btn text @click="scrollTo('experience')" data-testid="nav-experience">{{
-          $t('nav.experience')
-        }}</v-btn>
-        <v-btn text @click="scrollTo('route')" data-testid="nav-route">{{ $t('nav.route') }}</v-btn>
-        <v-btn text @click="scrollTo('about')" data-testid="nav-about">{{ $t('nav.about') }}</v-btn>
-        <v-btn text @click="scrollTo('faq')" data-testid="nav-faq">{{ $t('nav.faq') }}</v-btn>
-        <v-btn
-          class="nav-cta"
-          color="dark-green"
-          dark
-          @click="scrollTo('book')"
-          data-testid="nav-book-a-ride"
-          >{{ $t('nav.book_a_ride') }}</v-btn
-        >
-      </nav>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a class="nav-link" @click="scrollTo('experience')" data-testid="nav-experience">{{
+            $t('nav.experience')
+          }}</a>
+          <a class="nav-link" @click="scrollTo('route')" data-testid="nav-route">{{
+            $t('nav.route')
+          }}</a>
+          <a class="nav-link" @click="scrollTo('about')" data-testid="nav-about">{{
+            $t('nav.about')
+          }}</a>
+          <a class="nav-link" @click="scrollTo('faq')" data-testid="nav-faq">{{ $t('nav.faq') }}</a>
+          <a class="nav-cta" @click="scrollTo('book')" data-testid="nav-book-a-ride">{{
+            $t('nav.book_a_ride')
+          }}</a>
+        </nav>
+      </div>
     </v-app-bar>
 
     <v-main>
@@ -65,12 +62,25 @@ const scrollTo = (id: string) => {
 </script>
 
 <style scoped>
+.topbar {
+  padding: 0 36px 0 46px !important;
+}
+
+.topbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+
 .brand {
   display: flex;
   align-items: center;
   gap: 18px;
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
 }
 
 .brand-shield {
@@ -148,9 +158,23 @@ const scrollTo = (id: string) => {
   font-family: 'Oswald', sans-serif;
 }
 
-.nav-links .v-btn {
+.nav-link {
   color: #101820;
   text-decoration: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  transition: opacity 0.2s ease;
+}
+
+.nav-link:hover {
+  opacity: 0.7;
 }
 
 .nav-cta {
@@ -160,5 +184,43 @@ const scrollTo = (id: string) => {
   background: #06240f;
   border-radius: 8px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.16);
+  cursor: pointer;
+  text-decoration: none;
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  transition: background 0.2s ease;
+  display: inline-block;
+}
+
+.nav-cta:hover {
+  background: #0a3618;
+}
+
+@media (max-width: 900px) {
+  .topbar {
+    height: auto !important;
+    min-height: 96px;
+    padding: 18px 22px !important;
+  }
+
+  .brand-title {
+    font-size: 28px;
+  }
+
+  .brand-shield {
+    width: 64px;
+    height: 68px;
+  }
+
+  .nav-link:not(.nav-cta) {
+    display: none;
+  }
+
+  .nav-links {
+    gap: 0;
+  }
 }
 </style>
