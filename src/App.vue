@@ -20,17 +20,17 @@
         </a>
 
         <nav class="nav-links" aria-label="Main navigation">
-          <a class="nav-link" @click="scrollTo('experience')" data-testid="nav-experience">{{
+          <a class="nav-link" @click="scrollTo('about')" data-testid="nav-experience">{{
             $t('nav.experience')
           }}</a>
           <a class="nav-link" @click="scrollTo('route')" data-testid="nav-route">{{
             $t('nav.route')
           }}</a>
-          <a class="nav-link" @click="scrollTo('about')" data-testid="nav-about">{{
-            $t('nav.about')
+          <a class="nav-link" @click="scrollTo('gallery')" data-testid="nav-gallery">{{
+            $t('nav.gallery')
           }}</a>
-          <a class="nav-link" @click="scrollTo('faq')" data-testid="nav-faq">{{ $t('nav.faq') }}</a>
-          <a class="nav-cta" @click="scrollTo('book')" data-testid="nav-book-a-ride">{{
+          <a class="nav-link" @click="scrollTo('socials')" data-testid="nav-socials">{{ $t('nav.socials') }}</a>
+          <a class="nav-cta" @click="scrollTo('contact')" data-testid="nav-book-a-ride">{{
             $t('nav.book_a_ride')
           }}</a>
         </nav>
@@ -199,28 +199,123 @@ const scrollTo = (id: string) => {
   background: #0a3618;
 }
 
+@media (max-width: 1200px) {
+  .nav-links {
+    gap: 28px;
+    font-size: 16px;
+  }
+
+  .nav-link {
+    font-size: 16px;
+  }
+
+  .nav-cta {
+    font-size: 16px;
+    padding: 14px 20px;
+    margin-left: 4px;
+  }
+}
+
 @media (max-width: 900px) {
   .topbar {
     height: auto !important;
-    min-height: 96px;
-    padding: 18px 22px !important;
+    min-height: 80px;
+    padding: 12px 16px !important;
   }
 
-  .brand-title {
-    font-size: 28px;
+  .topbar-content {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .brand {
+    gap: 12px;
   }
 
   .brand-shield {
-    width: 64px;
-    height: 68px;
+    width: 52px;
+    height: 56px;
+    border: 2px solid #0e2230;
+    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.45);
   }
 
-  .nav-link:not(.nav-cta) {
-    display: none;
+  .shield-city {
+    top: 12px;
+    left: 12px;
+    font-size: 16px;
+    letter-spacing: -6px;
+  }
+
+  .shield-road {
+    left: 26px;
+    bottom: 8px;
+    width: 10px;
+    height: 42px;
+  }
+
+  .brand-title {
+    font-size: 24px;
+    letter-spacing: 2px;
+  }
+
+  .brand-sub {
+    font-size: 13px;
+    letter-spacing: 4px;
+    margin-top: 4px;
+  }
+
+  .brand-city {
+    font-size: 14px;
+    letter-spacing: 6px;
+    margin-top: 6px;
   }
 
   .nav-links {
-    gap: 0;
+    width: 100%;
+    justify-content: space-between;
+    gap: 8px;
+    font-size: 13px;
+  }
+
+  .nav-link {
+    font-size: 13px;
+    letter-spacing: 0.4px;
+  }
+
+  .nav-cta {
+    font-size: 13px;
+    padding: 10px 16px;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .brand-title {
+    font-size: 20px;
+  }
+
+  .brand-sub {
+    font-size: 11px;
+    letter-spacing: 3px;
+  }
+
+  .brand-city {
+    font-size: 12px;
+    letter-spacing: 4px;
+  }
+
+  .nav-links {
+    font-size: 11px;
+    gap: 6px;
+  }
+
+  .nav-link {
+    font-size: 11px;
+  }
+
+  .nav-cta {
+    font-size: 11px;
+    padding: 8px 12px;
   }
 }
 </style>

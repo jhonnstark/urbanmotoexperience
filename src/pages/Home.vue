@@ -26,29 +26,16 @@
         </div>
       </section>
     </main>
-    <div :class="{ visible: animatedSections.experience }">
-      <ExperienceSection />
-    </div>
-    <div :class="{ visible: animatedSections.route }">
-      <RouteSection />
-    </div>
-    <div :class="{ visible: animatedSections.about }">
-      <AboutSection />
-    </div>
-    <div :class="{ visible: animatedSections.gallery }">
-      <GallerySection />
-    </div>
-    <div :class="{ visible: animatedSections.contact }">
-      <ContactSection />
-    </div>
-    <div :class="{ visible: animatedSections.socials }">
-      <SocialsSection />
-    </div>
+    <AboutSection />
+    <RouteSection />
+    <GallerySection />
+    <ExperienceSection />
+    <SocialsSection />
+    <ContactSection />
   </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
 import ExperienceSection from '@/components/sections/ExperienceSection.vue'
 import RouteSection from '@/components/sections/RouteSection.vue'
 import AboutSection from '@/components/sections/AboutSection.vue'
@@ -59,16 +46,9 @@ import { useScrollAnimation } from '@/composables/useScrollAnimation'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
-const { animatedSections, observeSection } = useScrollAnimation()
 
-onMounted(() => {
-  observeSection('experience')
-  observeSection('route')
-  observeSection('about')
-  observeSection('gallery')
-  observeSection('contact')
-  observeSection('socials')
-})
+// Setup scroll animations
+useScrollAnimation()
 
 const scrollTo = (id: string) => {
   if (id === 'home') {

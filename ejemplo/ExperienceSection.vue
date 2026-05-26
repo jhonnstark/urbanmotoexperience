@@ -3,16 +3,16 @@
     <div class="experience-shell">
       <header class="experience-header">
         <p class="experience-eyebrow reveal reveal-1">
-          {{ $t('experience.header.subtitle') }}
+          {{ t('experience.header.subtitle') }}
         </p>
         <div class="eyebrow-line reveal reveal-2" aria-hidden="true"></div>
 
         <h2 id="experience-title" class="experience-title reveal reveal-3">
-          {{ $t('experience.header.title') }}
+          {{ t('experience.header.title') }}
         </h2>
 
         <p class="experience-subtitle reveal reveal-4">
-          {{ $t('experience.header.description') }}
+          {{ t('experience.header.description') }}
         </p>
       </header>
 
@@ -24,7 +24,7 @@
           :style="{ '--delay': `${460 + index * 120}ms` }"
         >
           <div class="feature-image-wrap">
-            <div class="feature-image-placeholder"></div>
+            <img class="feature-image" :src="feature.image" :alt="feature.title" loading="lazy" />
           </div>
 
           <div class="feature-content">
@@ -49,6 +49,7 @@ type Feature = {
   key: string
   title: string
   description: string
+  image: string
   icon: typeof ShieldCheck
 }
 
@@ -57,30 +58,35 @@ const features = computed<Feature[]>(() => [
     key: 'helmet',
     title: t('experience.features.helmet.title'),
     description: t('experience.features.helmet.description'),
+    image: '/images/experience/extra-helmet.png',
     icon: ShieldCheck,
   },
   {
     key: 'photos',
     title: t('experience.features.photos.title'),
     description: t('experience.features.photos.description'),
+    image: '/images/experience/photo-stops.png',
     icon: Camera,
   },
   {
     key: 'stories',
     title: t('experience.features.stories.title'),
     description: t('experience.features.stories.description'),
+    image: '/images/experience/local-stories.png',
     icon: Mic,
   },
   {
     key: 'driver',
     title: t('experience.features.driver.title'),
     description: t('experience.features.driver.description'),
+    image: '/images/experience/driver-included.png',
     icon: Bike,
   },
   {
     key: 'coffee',
     title: t('experience.features.coffee.title'),
     description: t('experience.features.coffee.description'),
+    image: '/images/experience/coffee-stop.png',
     icon: Coffee,
   },
 ])
@@ -173,16 +179,24 @@ const features = computed<Feature[]>(() => [
   aspect-ratio: 1 / 1.31;
   overflow: hidden;
   border-radius: 10px;
-}
-
-.feature-image-placeholder {
-  width: 100%;
-  height: 100%;
   background:
     radial-gradient(circle at 32% 20%, rgba(121, 184, 63, 0.35), transparent 28%),
     linear-gradient(135deg, #dce9f4, #567655 55%, #142a1d);
+}
+
+.feature-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transform: scale(1.045);
   animation: imageSettle 0.95s ease forwards;
   animation-delay: calc(var(--delay) + 80ms);
+}
+
+.feature-image:not([src]),
+.feature-image[src=''] {
+  display: none;
 }
 
 .feature-content {
@@ -251,9 +265,6 @@ const features = computed<Feature[]>(() => [
 }
 
 @keyframes imageSettle {
-  from {
-    transform: scale(1.045);
-  }
   to {
     transform: scale(1);
   }

@@ -1,78 +1,330 @@
 <template>
-  <section id="contact" class="bg-grey-darken-4 text-white py-16">
-    <v-container>
-      <v-row>
-        <v-col cols="12" md="6">
-          <h2 class="text-h3 font-weight-bold" style="line-height: 1.2">
-            {{ $t('contact.title_part1') }}
-            <span style="color: #4caf50">{{ $t('contact.title_part2') }}</span>
-          </h2>
-          <p class="text-h6 font-weight-light mt-4">{{ $t('contact.subtitle') }}</p>
+  <section id="contact" class="contact-section" aria-labelledby="contact-title">
+    <div class="contact-card">
+      <div class="contact-bg" aria-hidden="true"></div>
+      <div class="contact-overlay" aria-hidden="true"></div>
 
-          <v-btn
-            size="large"
-            color="success"
-            class="mt-8"
-            href="https://wa.me/yourphonenumber"
-            target="_blank"
-            block
+      <div class="contact-content">
+        <h2 id="contact-title" class="contact-title reveal c1" v-html="contactTitle"></h2>
+        <div class="accent reveal c2" aria-hidden="true"></div>
+        <p class="tagline reveal c3">{{ $t('contact.subtitle') }}</p>
+
+        <div class="contact-actions reveal c4">
+          <a class="cta whatsapp" href="https://wa.me/" target="_blank" rel="noreferrer"
+            ><span>☏</span> {{ $t('contact.whatsapp_button') }} <b>→</b></a
           >
-            <v-icon left class="mr-2">mdi-whatsapp</v-icon>
-            {{ $t('contact.whatsapp_button') }}
-          </v-btn>
-
-          <v-btn
-            size="large"
-            variant="outlined"
-            color="white"
-            class="mt-4"
-            href="https://instagram.com/yourprofile"
+          <a
+            class="cta instagram"
+            href="https://instagram.com/urbanmotoexperiencecdmx"
             target="_blank"
-            block
+            rel="noreferrer"
+            ><span>◎</span> {{ $t('contact.instagram_button') }} <b>→</b></a
           >
-            <v-icon left class="mr-2">mdi-instagram</v-icon>
-            {{ $t('contact.instagram_button') }}
-          </v-btn>
+        </div>
 
-          <v-divider class="my-8"></v-divider>
+        <div class="quick-features reveal c5">
+          <article v-for="item in quickFeatures" :key="item.text">
+            <v-icon :icon="item.icon" size="38"></v-icon>
+            <strong>{{ item.text }}</strong>
+          </article>
+        </div>
+      </div>
 
-          <div class="d-flex justify-space-around">
-            <div v-for="(feature, i) in 4" :key="i" class="text-center">
-              <v-icon>{{ $t(`contact.features[${i}].icon`) }}</v-icon>
-              <p class="mt-1 text-caption">{{ $t(`contact.features[${i}].text`) }}</p>
-            </div>
+      <div class="benefit-bar">
+        <article v-for="benefit in benefits" :key="benefit.title">
+          <v-icon :icon="benefit.icon" size="36"></v-icon>
+          <div>
+            <strong>{{ benefit.title }}</strong>
+            <p>{{ benefit.description }}</p>
           </div>
-        </v-col>
-
-        <v-col cols="12" md="6">
-          <v-img
-            src="https://via.placeholder.com/600x700?text=Contact+Image"
-            class="rounded-lg"
-            height="100%"
-            cover
-          ></v-img>
-        </v-col>
-      </v-row>
-
-      <v-row class="mt-12 text-center">
-        <v-col v-for="(item, i) in 3" :key="i" cols="12" md="4">
-          <v-card flat color="transparent">
-            <div class="text-center">
-              <v-icon size="x-large" color="green-lighten-1">{{
-                $t(`contact.highlights[${i}].icon`)
-              }}</v-icon>
-              <h3 class="text-h6 font-weight-bold mt-4">
-                {{ $t(`contact.highlights[${i}].title`) }}
-              </h3>
-              <p class="mt-2">{{ $t(`contact.highlights[${i}].description`) }}</p>
-            </div>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container>
+        </article>
+      </div>
+    </div>
   </section>
 </template>
 
 <script setup lang="ts">
-//
+import { useI18n } from 'vue-i18n'
+import { computed } from 'vue'
+
+const { t } = useI18n()
+
+const contactTitle = computed(() => {
+  const part1 = t('contact.title_part1')
+  const part2 = t('contact.title_part2')
+  return `<span>${part1}</span><span><em>${part2}</em></span>`
+})
+
+const quickFeatures = computed(() => {
+  const features = t('contact.features')
+  return Array.isArray(features) ? features : []
+})
+
+const benefits = computed(() => {
+  const highlights = t('contact.highlights')
+  return Array.isArray(highlights) ? highlights : []
+})
 </script>
+
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&display=swap');
+.contact-section {
+  background: #fff;
+  padding: 44px 8px 72px;
+  font-family: 'Oswald', system-ui, sans-serif;
+  color: white;
+  overflow: hidden;
+}
+.contact-card {
+  width: min(1540px, calc(100% - 16px));
+  min-height: 980px;
+  margin: 0 auto;
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 18px 55px rgba(7, 26, 44, 0.18);
+}
+.contact-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/contact-bg.png'), linear-gradient(135deg, #111, #4a5f40);
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.04);
+  animation: bgSettle 1.6s ease forwards;
+}
+.contact-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.62) 34%, rgba(0, 0, 0, 0.08) 68%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.5), transparent 52%);
+}
+.contact-content {
+  position: relative;
+  z-index: 2;
+  width: min(640px, calc(100% - 90px));
+  padding: 150px 0 0 78px;
+}
+.contact-title {
+  margin: 0;
+  font-family: 'Bebas Neue', Impact, sans-serif;
+  font-size: clamp(76px, 7.2vw, 132px);
+  line-height: 0.92;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.contact-title span {
+  display: block;
+}
+.contact-title em {
+  font-style: normal;
+  color: #79b83f;
+}
+.accent {
+  width: 90px;
+  height: 4px;
+  background: #79b83f;
+  margin: 34px 0 30px;
+}
+.tagline {
+  font: 500 clamp(24px, 2vw, 34px) system-ui, sans-serif;
+  margin: 0 0 28px;
+}
+.contact-actions {
+  display: grid;
+  gap: 18px;
+  margin-top: 30px;
+}
+.cta {
+  width: min(540px, 100%);
+  height: 76px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 0 34px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 23px;
+  letter-spacing: 0.02em;
+}
+.cta span {
+  font-size: 34px;
+}
+.cta b {
+  margin-left: auto;
+  font-size: 36px;
+}
+.whatsapp {
+  background: #68b936;
+  color: white;
+}
+.instagram {
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  color: white;
+  background: rgba(0, 0, 0, 0.16);
+}
+.quick-features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-top: 46px;
+  width: 650px;
+  max-width: calc(100vw - 150px);
+}
+.quick-features article {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 20px;
+  border-right: 1px solid rgba(255, 255, 255, 0.38);
+}
+.quick-features article:first-child {
+  padding-left: 0;
+}
+.quick-features article:last-child {
+  border-right: 0;
+}
+.quick-features :deep(.v-icon) {
+  color: #79b83f;
+}
+.quick-features strong {
+  font-size: 17px;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+.benefit-bar {
+  position: absolute;
+  z-index: 3;
+  left: 72px;
+  right: 72px;
+  bottom: 0;
+  min-height: 138px;
+  padding: 24px 62px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  background: rgba(255, 255, 245, 0.96);
+  color: #071a2c;
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 -14px 40px rgba(0, 0, 0, 0.12);
+  opacity: 0;
+  transform: translateY(34px);
+  animation: benefitIn 0.75s ease forwards 780ms;
+}
+.benefit-bar article {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-right: 1px solid rgba(7, 26, 44, 0.14);
+}
+.benefit-bar article:last-child {
+  border-right: 0;
+}
+.benefit-bar :deep(.v-icon) {
+  width: 64px;
+  height: 64px;
+  border: 2px solid #79b83f;
+  border-radius: 999px;
+  color: #79b83f;
+  display: grid;
+  place-items: center;
+}
+.benefit-bar strong {
+  color: #65a936;
+  text-transform: uppercase;
+  font-size: 18px;
+}
+.benefit-bar p {
+  margin: 6px 0 0;
+  font: 18px system-ui, sans-serif;
+  color: #24313a;
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  animation: fadeUp 0.7s ease forwards;
+}
+.c1 {
+  animation-delay: 120ms;
+}
+.c2 {
+  animation-delay: 230ms;
+}
+.c3 {
+  animation-delay: 320ms;
+}
+.c4 {
+  animation-delay: 430ms;
+}
+.c5 {
+  animation-delay: 560ms;
+}
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes benefitIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes bgSettle {
+  to {
+    transform: scale(1);
+  }
+}
+@media (max-width: 900px) {
+  .contact-card {
+    min-height: 900px;
+  }
+  .contact-content {
+    padding: 90px 28px 0;
+    width: auto;
+  }
+  .quick-features {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 100%;
+    width: auto;
+    gap: 18px;
+  }
+  .quick-features article {
+    border-right: 0;
+    padding: 0;
+  }
+  .benefit-bar {
+    position: relative;
+    left: auto;
+    right: auto;
+    margin: 60px 22px 0;
+    grid-template-columns: 1fr;
+    padding: 24px;
+    gap: 22px;
+    border-radius: 18px;
+  }
+  .benefit-bar article {
+    border-right: 0;
+  }
+  .cta {
+    font-size: 18px;
+    padding: 0 22px;
+  }
+  .contact-bg {
+    background-position: 65% center;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+</style>
