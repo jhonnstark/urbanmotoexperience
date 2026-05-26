@@ -7,7 +7,10 @@ import 'vuetify/styles'
 import App from './App.vue'
 import router from './router'
 import en from './locales/en.json'
+import es from './locales/es.json'
+import ru from './locales/ru.json'
 import fr from './locales/fr.json'
+import de from './locales/de.json'
 
 const i18n = createI18n({
   legacy: false,
@@ -15,7 +18,10 @@ const i18n = createI18n({
   fallbackLocale: 'en',
   messages: {
     en,
+    es,
+    ru,
     fr,
+    de,
   },
 })
 

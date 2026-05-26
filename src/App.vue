@@ -8,13 +8,21 @@
         </div>
       </v-toolbar-title>
       <v-spacer />
-      <v-btn text @click="scrollTo('home')">Home</v-btn>
-      <v-btn text @click="scrollTo('experience')">Experience</v-btn>
-      <v-btn text @click="scrollTo('route')">Route</v-btn>
-      <v-btn text @click="scrollTo('about')">About Us</v-btn>
-      <v-btn text @click="scrollTo('gallery')">Gallery</v-btn>
-      <v-btn text @click="scrollTo('contact')">Contact</v-btn>
-      <v-btn color="success" class="ml-4">BOOK A RIDE</v-btn>
+      <v-btn text @click="scrollTo('home')" data-testid="nav-home">{{ $t('nav.home') }}</v-btn>
+      <v-btn text @click="scrollTo('experience')" data-testid="nav-experience">{{
+        $t('nav.experience')
+      }}</v-btn>
+      <v-btn text @click="scrollTo('route')" data-testid="nav-route">{{ $t('nav.route') }}</v-btn>
+      <v-btn text @click="scrollTo('about')" data-testid="nav-about">{{ $t('nav.about') }}</v-btn>
+      <v-btn text @click="scrollTo('gallery')" data-testid="nav-gallery">{{
+        $t('nav.gallery')
+      }}</v-btn>
+      <v-btn text @click="scrollTo('contact')" data-testid="nav-contact">{{
+        $t('nav.contact')
+      }}</v-btn>
+      <v-btn color="success" class="ml-4" data-testid="nav-book-a-ride">{{
+        $t('nav.book_a_ride')
+      }}</v-btn>
     </v-app-bar>
 
     <v-main>

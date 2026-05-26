@@ -35,21 +35,60 @@
       </v-img>
     </section>
 
-    <!-- Other Sections -->
-    <ExperienceSection />
-    <RouteSection />
-    <AboutSection />
-    <GallerySection />
-    <ContactSection />
-    <SocialsSection />
+    <div class="anim-container" :class="{ visible: animatedSections.experience }">
+      <ExperienceSection />
+    </div>
+    <div class="anim-container" :class="{ visible: animatedSections.route }">
+      <RouteSection />
+    </div>
+    <div class="anim-container" :class="{ visible: animatedSections.about }">
+      <AboutSection />
+    </div>
+    <div class="anim-container" :class="{ visible: animatedSections.gallery }">
+      <GallerySection />
+    </div>
+    <div class="anim-container" :class="{ visible: animatedSections.contact }">
+      <ContactSection />
+    </div>
+    <div class="anim-container" :class="{ visible: animatedSections.socials }">
+      <SocialsSection />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { onMounted } from 'vue'
 import ExperienceSection from '@/components/sections/ExperienceSection.vue'
 import RouteSection from '@/components/sections/RouteSection.vue'
 import AboutSection from '@/components/sections/AboutSection.vue'
 import GallerySection from '@/components/sections/GallerySection.vue'
 import ContactSection from '@/components/sections/ContactSection.vue'
 import SocialsSection from '@/components/sections/SocialsSection.vue'
+import { useScrollAnimation } from '@/composables/useScrollAnimation'
+
+const { animatedSections, observeSection } = useScrollAnimation()
+
+onMounted(() => {
+  observeSection('experience')
+  observeSection('route')
+  observeSection('about')
+  observeSection('gallery')
+  observeSection('contact')
+  observeSection('socials')
+})
 </script>
+
+<style scoped>
+.anim-container {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
+}
+
+.anim-container.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>

@@ -1,7 +1,16 @@
 {
   "app": {
-    "title": "Expérience Moto Urbaine",
-    "footer": "Créé avec Vue 3, Vuetify & TypeScript"
+    "title": "Urban Moto Experience",
+    "footer": "Hecho con Vue 3, Vuetify y TypeScript"
+  },
+  "nav": {
+    "home": "Inicio",
+    "experience": "Experiencia",
+    "route": "Ruta",
+    "about": "Nosotros",
+    "gallery": "Galería",
+    "contact": "Contacto",
+    "book_a_ride": "RESERVAR UN PASEO"
   },
   "pages": {
     "home": {
@@ -12,88 +21,6 @@
       "title": "Sobre Nosotros",
       "description": "Conoce más sobre Urban Moto Experience"
     }
-  },
-  "home": {
-    "hero": {
-      "title": "EXPLORA<br>CIUDAD DE MÉXICO<br>EN DOS RUEDAS",
-      "subtitle": "Paseos urbanos en motocicleta por lugares emblemáticos, arquitectura, áreas verdes y lugares locales en CDMX.",
-      "book_button": "RESERVAR UN PASEO",
-      "route_button": "VER RUTA"
-    }
-  },
-  "experience": {
-    "header": {
-      "subtitle": "Características de la Experiencia",
-      "title": "QUÉ ESTÁ INCLUIDO",
-      "description": "Nos encargamos de los detalles para que puedas disfrutar de la ciudad, el paseo y la experiencia."
-    },
-    "features": [
-      {
-        "title": "CASCO EXTRA",
-        "description": "Cascos de alta calidad para tu seguridad y comodidad.",
-        "icon": "mdi-motorbike-helmet"
-      },
-      {
-        "title": "PARADAS PARA FOTOS",
-        "description": "Hermosos lugares a lo largo de la ruta para tomar fotos increíbles.",
-        "icon": "mdi-camera-outline"
-      },
-      {
-        "title": "HISTORIAS LOCALES",
-        "description": "Descubre la ciudad a través de historias, historia y conocimientos locales.",
-        "icon": "mdi-microphone-outline"
-      },
-      {
-        "title": "CONDUCTOR INCLUIDO",
-        "description": "Relájate y disfruta del paseo. Nuestros conductores profesionales se encargan de todo.",
-        "icon": "mdi-road-variant"
-      },
-      {
-        "title": "PARADA DE CAFÉ OPCIONAL",
-        "description": "Podemos hacer una parada en un excelente café local si lo deseas.",
-        "icon": "mdi-coffee-outline"
-      }
-    ]
-  },
-  "route": {
-    "header": {
-      "subtitle": "La Ruta",
-      "title": "RUTA URBANA PRINCIPAL",
-      "description": "Un relajado paseo urbano que combina arquitectura, historia, parques y vistas icónicas de la ciudad."
-    },
-    "stops": [
-      { "name": "PARQUE ESPAÑA", "description": "Comenzamos en este vibrante lugar en el corazón de la Condesa." },
-      { "name": "ÁNGEL DE LA INDEPENDENCIA", "description": "Recorre la Avenida Reforma hasta el monumento más icónico de la ciudad." },
-      { "name": "LAGO DE CHAPULTEPEC", "description": "Disfruta de las vistas verdes y una parada relajante junto al lago." },
-      { "name": "MUSEO DE ANTROPOLOGÍA", "description": "Explora uno de los hitos culturales más importantes de México." },
-      { "name": "PALACIO DE BELLAS ARTES", "description": "Admira la arquitectura de este impresionante edificio histórico." },
-      { "name": "MONUMENTO A LA REVOLUCIÓN", "description": "Terminamos en este impresionante ícono de la historia de México." }
-    ]
-  },
-  "about": {
-    "header": {
-      "subtitle": "Sobre la Experiencia",
-      "title": "UNA FORMA DIFERENTE<br>DE EXPLORAR <span style=\"color: #4caf50;\">CDMX</span>",
-      "description": "Experiencias de motociclismo urbano en grupos pequeños por los lugares más icónicos de la Ciudad de México. Recorre Reforma, Chapultepec, Bellas Artes y calles históricas mientras descubres la ciudad desde una perspectiva local."
-    },
-    "features": [
-      { "icon": "mdi-account-group-outline", "text": "GUÍAS LOCALES" },
-      { "icon": "mdi-motorbike-helmet", "text": "CASCOS INCLUIDOS" },
-      { "icon": "mdi-camera-outline", "text": "PARADAS PARA FOTOS" },
-      { "icon": "mdi-account-multiple", "text": "GRUPOS PEQUEÑOS" },
-      { "icon": "mdi-map-marker-path", "text": "PASEOS PRIVADOS FLEXIBLES" }
-    ],
-    "learn_more_button": "SABER MÁS"
-  },
-  "gallery": {
-    "header": {
-      "subtitle": "GALERÍA",
-      "title": "LA EXPERIENCIA",
-      "description": "Momentos, lugares y vistas del paseo."
-    }
-  }
-}
-
   },
   "home": {
     "hero": {
@@ -184,5 +111,42 @@
       { "icon": "mdi-map-marker-path", "text": "PASEOS PRIVADOS FLEXIBLES" }
     ],
     "learn_more_button": "SABER MÁS"
+  },
+  "gallery": {
+    "header": {
+      "subtitle": "GALERÍA",
+      "title": "LA EXPERIENCIA",
+      "description": "Momentos, lugares y vistas del paseo."
+    }
+  },
+  "contact": {
+    "title_part1": "LISTO PARA EXPLORAR",
+    "title_part2": "CDMX?",
+    "subtitle": "Recorre la ciudad como un local.",
+    "whatsapp_button": "RESERVA TU VIAJE EN WHATSAPP",
+    "instagram_button": "VER INSTAGRAM",
+    "features": [
+      { "icon": "mdi-account-multiple", "text": "GRUPOS PEQUEÑOS" },
+      { "icon": "mdi-calendar-clock", "text": "HORARIOS FLEXIBLES" },
+      { "icon": "mdi-motorbike-helmet", "text": "CASCOS INCLUIDOS" },
+      { "icon": "mdi-shield-check-outline", "text": "LA SEGURIDAD ES PRIMERO" }
+    ],
+    "highlights": [
+      {
+        "icon": "mdi-map-marker-account-outline",
+        "title": "GUÍAS LOCALES",
+        "description": "Nacidos y criados en CDMX."
+      },
+      {
+        "icon": "mdi-camera-iris",
+        "title": "PARADAS INOLVIDABLES",
+        "description": "Lugares icónicos y joyas ocultas."
+      },
+      {
+        "icon": "mdi-heart-outline",
+        "title": "EXPERIENCIA AUTÉNTICA",
+        "description": "Más que un tour, es un recuerdo."
+      }
+    ]
   }
 }

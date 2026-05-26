@@ -36,7 +36,10 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   // SEO Meta Tags
-  document.title = `Urban Moto Experience - ${(to.params.section as string) || 'Home'}`
+  const section = to.params.section as string
+  const title = section ? section.charAt(0).toUpperCase() + section.slice(1) : 'Home'
+  document.title = `Urban Moto Experience - ${title}`
+
   const metaDescription = document.querySelector('meta[name="description"]')
   if (metaDescription) {
     metaDescription.setAttribute('content', (to.meta.description as string) || '')

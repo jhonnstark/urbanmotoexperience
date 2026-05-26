@@ -1,0 +1,152 @@
+{
+  "app": {
+    "title": "Urban Moto Experience",
+    "footer": "Erstellt mit Vue 3, Vuetify & TypeScript"
+  },
+  "nav": {
+    "home": "Startseite",
+    "experience": "Erlebnis",
+    "route": "Route",
+    "about": "Über uns",
+    "gallery": "Galerie",
+    "contact": "Kontakt",
+    "book_a_ride": "FAHRT BUCHEN"
+  },
+  "pages": {
+    "home": {
+      "title": "Willkommen",
+      "description": "Erleben Sie die ultimative urbane Motorradreise"
+    },
+    "about": {
+      "title": "Über uns",
+      "description": "Erfahren Sie mehr über die Urban Moto Experience"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "ERKUNDEN<br>MEXIKO-STADT<br>AUF ZWEI RÄDERN",
+      "subtitle": "Urbane Motorradfahrten durch ikonische Wahrzeichen, Architektur, Grünflächen und lokale Orte in CDMX.",
+      "book_button": "FAHRT BUCHEN",
+      "route_button": "ROUTE ANZEIGEN"
+    }
+  },
+  "experience": {
+    "header": {
+      "subtitle": "Erlebnisfunktionen",
+      "title": "WAS IST INBEGRIFFEN",
+      "description": "Wir kümmern uns um die Details, damit Sie die Stadt, die Fahrt und das Erlebnis genießen können."
+    },
+    "features": [
+      {
+        "title": "EXTRA HELM",
+        "description": "Hochwertige Helme für Ihre Sicherheit und Ihren Komfort.",
+        "icon": "mdi-motorbike-helmet"
+      },
+      {
+        "title": "FOTOSTOPPS",
+        "description": "Schöne Orte entlang der Route, um tolle Bilder zu machen.",
+        "icon": "mdi-camera-outline"
+      },
+      {
+        "title": "LOKALE GESCHICHTEN",
+        "description": "Entdecken Sie die Stadt durch Geschichten, Geschichte und lokale Einblicke.",
+        "icon": "mdi-microphone-outline"
+      },
+      {
+        "title": "FAHRER INBEGRIFFEN",
+        "description": "Entspannen Sie sich und genießen Sie die Fahrt. Unsere professionellen Fahrer kümmern sich um alles.",
+        "icon": "mdi-road-variant"
+      },
+      {
+        "title": "OPTIONALER KAFFEESTOPP",
+        "description": "Wir können auf Wunsch einen Stopp in einem großartigen lokalen Café einlegen.",
+        "icon": "mdi-coffee-outline"
+      }
+    ]
+  },
+  "route": {
+    "header": {
+      "subtitle": "Die Route",
+      "title": "HAUPTSTÄDTISCHE ROUTE",
+      "description": "Eine entspannte Stadtfahrt, die Architektur, Geschichte, Parks und ikonische Stadtansichten kombiniert."
+    },
+    "stops": [
+      {
+        "name": "PARQUE ESPAÑA",
+        "description": "Wir starten an diesem lebhaften Ort im Herzen von Condesa."
+      },
+      {
+        "name": "ÁNGEL DE LA INDEPENDENCIA",
+        "description": "Fahren Sie die Reforma Avenue entlang zum berühmtesten Denkmal der Stadt."
+      },
+      {
+        "name": "CHAPULTEPEC-SEE",
+        "description": "Genießen Sie die grüne Aussicht und einen entspannenden Halt am See."
+      },
+      {
+        "name": "MUSEO DE ANTROPOLOGÍA",
+        "description": "Erkunden Sie eines der wichtigsten kulturellen Wahrzeichen Mexikos."
+      },
+      {
+        "name": "PALACIO DE BELLAS ARTES",
+        "description": "Bewundern Sie die Architektur dieses atemberaubenden historischen Gebäudes."
+      },
+      {
+        "name": "MONUMENT DER REVOLUTION",
+        "description": "Wir enden an diesem beeindruckenden Symbol der mexikanischen Geschichte."
+      }
+    ]
+  },
+  "about": {
+    "header": {
+      "subtitle": "Über das Erlebnis",
+      "title": "EINE ANDERE ART<br>CDMX ZU ERKUNDEN <span style=\"color: #4caf50;\">CDMX</span>",
+      "description": "Kleingruppen-Motorraderlebnisse in der Stadt durch die berühmtesten Teile von Mexiko-Stadt. Fahren Sie durch Reforma, Chapultepec, Bellas Artes und historische Straßen und entdecken Sie die Stadt aus lokaler Perspektive."
+    },
+    "features": [
+      { "icon": "mdi-account-group-outline", "text": "LOKALE FÜHRER" },
+      { "icon": "mdi-motorbike-helmet", "text": "HELME INBEGRIFFEN" },
+      { "icon": "mdi-camera-outline", "text": "FOTOSTOPPS" },
+      { "icon": "mdi-account-multiple", "text": "KLEINE GRUPPEN" },
+      { "icon": "mdi-map-marker-path", "text": "FLEXIBLE PRIVATE FAHRTEN" }
+    ],
+    "learn_more_button": "MEHR ERFAHREN"
+  },
+  "gallery": {
+    "header": {
+      "subtitle": "GALERIE",
+      "title": "DAS ERLEBNIS",
+      "description": "Momente, Orte und Ansichten von der Fahrt."
+    }
+  },
+  "contact": {
+    "title_part1": "BEREIT ZU ERKUNDEN",
+    "title_part2": "CDMX?",
+    "subtitle": "Fahren Sie wie ein Einheimischer durch die Stadt.",
+    "whatsapp_button": "BUCHEN SIE IHRE FAHRT AUF WHATSAPP",
+    "instagram_button": "INSTAGRAM ANZEIGEN",
+    "features": [
+      { "icon": "mdi-account-multiple", "text": "KLEINE GRUPPEN" },
+      { "icon": "mdi-calendar-clock", "text": "FLEXIBLE ZEITPLÄNE" },
+      { "icon": "mdi-motorbike-helmet", "text": "HELME INBEGRIFFEN" },
+      { "icon": "mdi-shield-check-outline", "text": "SICHERHEIT ZUERST" }
+    ],
+    "highlights": [
+      {
+        "icon": "mdi-map-marker-account-outline",
+        "title": "LOKALE FÜHRER",
+        "description": "Geboren und aufgewachsen in CDMX."
+      },
+      {
+        "icon": "mdi-camera-iris",
+        "title": "UNVERGESSLICHE STOPPS",
+        "description": "Ikonische Orte & versteckte Juwelen."
+      },
+      {
+        "icon": "mdi-heart-outline",
+        "title": "AUTHENTISCHES ERLEBNIS",
+        "description": "Mehr als eine Tour, es ist eine Erinnerung."
+      }
+    ]
+  }
+}

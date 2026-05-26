@@ -1,16 +1,152 @@
 {
   "app": {
-    "title": "Expérience Moto Urbaine",
-    "footer": "Créé avec Vue 3, Vuetify & TypeScript"
+    "title": "Urban Moto Experience",
+    "footer": "Fait avec Vue 3, Vuetify & TypeScript"
+  },
+  "nav": {
+    "home": "Accueil",
+    "experience": "Expérience",
+    "route": "Route",
+    "about": "À propos de nous",
+    "gallery": "Galerie",
+    "contact": "Contact",
+    "book_a_ride": "RÉSERVER UNE BALADE"
   },
   "pages": {
     "home": {
       "title": "Bienvenue",
-      "description": "Découvrez l'expérience ultime du voyage à moto urbain"
+      "description": "Vivez l'ultime voyage à moto en milieu urbain"
     },
     "about": {
-      "title": "À propos",
-      "description": "En savoir plus sur l'expérience moto urbaine"
+      "title": "À propos de nous",
+      "description": "En savoir plus sur Urban Moto Experience"
     }
+  },
+  "home": {
+    "hero": {
+      "title": "EXPLOREZ<br>MEXICO<br>SUR DEUX ROUES",
+      "subtitle": "Balades à moto en ville à travers des sites emblématiques, l'architecture, les espaces verts et les lieux locaux de CDMX.",
+      "book_button": "RÉSERVER UNE BALADE",
+      "route_button": "VOIR LA ROUTE"
+    }
+  },
+  "experience": {
+    "header": {
+      "subtitle": "Caractéristiques de l'expérience",
+      "title": "CE QUI EST INCLUS",
+      "description": "Nous nous occupons des détails pour que vous puissiez profiter de la ville, de la balade et de l'expérience."
+    },
+    "features": [
+      {
+        "title": "CASQUE SUPPLÉMENTAIRE",
+        "description": "Casques de haute qualité pour votre sécurité et votre confort.",
+        "icon": "mdi-motorbike-helmet"
+      },
+      {
+        "title": "ARRÊTS PHOTO",
+        "description": "De beaux endroits le long du parcours pour prendre des photos incroyables.",
+        "icon": "mdi-camera-outline"
+      },
+      {
+        "title": "HISTOIRES LOCALES",
+        "description": "Découvrez la ville à travers des histoires, l'histoire et des connaissances locales.",
+        "icon": "mdi-microphone-outline"
+      },
+      {
+        "title": "CHAUFFEUR INCLUS",
+        "description": "Détendez-vous et profitez de la balade. Nos chauffeurs professionnels s'occupent de tout.",
+        "icon": "mdi-road-variant"
+      },
+      {
+        "title": "ARRÊT CAFÉ OPTIONNEL",
+        "description": "Nous pouvons nousarrêter dans un excellent café local if you'd like.",
+        "icon": "mdi-coffee-outline"
+      }
+    ]
+  },
+  "route": {
+    "header": {
+      "subtitle": "La Route",
+      "title": "ROUTE URBAINE PRINCIPALE",
+      "description": "Une balade urbaine détendue combinant architecture, histoire, parcs et vues emblématiques de la ville."
+    },
+    "stops": [
+      {
+        "name": "PARQUE ESPAÑA",
+        "description": "Nous commençons à cet endroit animé au cœur de Condesa."
+      },
+      {
+        "name": "ÁNGEL DE LA INDEPENDENCIA",
+        "description": "Descendez l'avenue Reforma jusqu'au monument le plus emblématique de la ville."
+      },
+      {
+        "name": "LAC DE CHAPULTEPEC",
+        "description": "Profitez de la vue sur la verdure et d'un arrêt relaxant au bord du lac."
+      },
+      {
+        "name": "MUSÉE D'ANTHROPOLOGIE",
+        "description": "Explorez l'un des monuments culturels les plus importants du Mexique."
+      },
+      {
+        "name": "PALAIS DES BEAUX-ARTS",
+        "description": "Admirez l'architecture de ce magnifique bâtiment historique."
+      },
+      {
+        "name": "MONUMENT À LA RÉVOLUTION",
+        "description": "Nous terminons à cette icône impressionnante de l'histoire mexicaine."
+      }
+    ]
+  },
+  "about": {
+    "header": {
+      "subtitle": "À propos de l'expérience",
+      "title": "UNE MANIÈRE DIFFÉRENTE<br>D'EXPLORER <span style=\"color: #4caf50;\">CDMX</span>",
+      "description": "Expériences de moto en milieu urbain en petits groupes à travers les parties les plus emblématiques de Mexico. Parcourez Reforma, Chapultepec, Bellas Artes et les rues historiques tout en découvrant la ville d'un point de vue local."
+    },
+    "features": [
+      { "icon": "mdi-account-group-outline", "text": "GUIDES LOCAUX" },
+      { "icon": "mdi-motorbike-helmet", "text": "CASQUES INCLUS" },
+      { "icon": "mdi-camera-outline", "text": "ARRÊTS PHOTO" },
+      { "icon": "mdi-account-multiple", "text": "PETITS GROUPES" },
+      { "icon": "mdi-map-marker-path", "text": "BALADES PRIVÉES FLEXIBLES" }
+    ],
+    "learn_more_button": "EN SAVOIR PLUS"
+  },
+  "gallery": {
+    "header": {
+      "subtitle": "GALERIE",
+      "title": "L'EXPÉRIENCE",
+      "description": "Moments, lieux et vues de la balade."
+    }
+  },
+  "contact": {
+    "title_part1": "PRÊT À EXPLORER",
+    "title_part2": "CDMX?",
+    "subtitle": "Parcourez la ville comme un local.",
+    "whatsapp_button": "RÉSERVEZ VOTRE BALADE SUR WHATSAPP",
+    "instagram_button": "VOIR INSTAGRAM",
+    "features": [
+      { "icon": "mdi-account-multiple", "text": "PETITS GROUPES" },
+      { "icon": "mdi-calendar-clock", "text": "HORAIRES FLEXIBLES" },
+      { "icon": "mdi-motorbike-helmet", "text": "CASQUES INCLUS" },
+      { "icon": "mdi-shield-check-outline", "text": "LA SÉCURITÉ D'ABORD" }
+    ],
+    "highlights": [
+      {
+        "icon": "mdi-map-marker-account-outline",
+        "title": "GUIDES LOCAUX",
+        "description": "Nés et élevés à CDMX."
+      },
+      {
+        "icon": "mdi-camera-iris",
+        "title": "ARRÊTS INOUBLIABLES",
+        "description": "Lieux emblématiques et joyaux cachés."
+      },
+      {
+        "icon": "mdi-heart-outline",
+        "title": "EXPÉRIENCE AUTHENTIQUE",
+        "description": "Plus qu'un tour, c'est un souvenir."
+      }
+    ]
   }
 }
