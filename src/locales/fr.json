@@ -10,6 +10,7 @@
     "about": "À propos de nous",
     "gallery": "Galerie",
     "contact": "Contact",
+    "faq": "FAQ",
     "book_a_ride": "RÉSERVER UNE BALADE"
   },
   "pages": {
@@ -24,7 +25,9 @@
   },
   "home": {
     "hero": {
-      "title": "EXPLOREZ<br>MEXICO<br>SUR DEUX ROUES",
+      "title_line1": "EXPLOREZ",
+      "title_line2": "MEXICO",
+      "title_line3": "SUR <strong style=\"color: #8cc63f;\">DEUX ROUES</strong>",
       "subtitle": "Balades à moto en ville à travers des sites emblématiques, l'architecture, les espaces verts et les lieux locaux de CDMX.",
       "book_button": "RÉSERVER UNE BALADE",
       "route_button": "VOIR LA ROUTE"

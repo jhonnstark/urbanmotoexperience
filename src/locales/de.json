@@ -10,6 +10,7 @@
     "about": "Über uns",
     "gallery": "Galerie",
     "contact": "Kontakt",
+    "faq": "FAQ",
     "book_a_ride": "FAHRT BUCHEN"
   },
   "pages": {
@@ -24,7 +25,9 @@
   },
   "home": {
     "hero": {
-      "title": "ERKUNDEN<br>MEXIKO-STADT<br>AUF ZWEI RÄDERN",
+      "title_line1": "ERKUNDEN",
+      "title_line2": "MEXIKO-STADT",
+      "title_line3": "AUF <strong style=\"color: #8cc63f;\">ZWEI RÄDERN</strong>",
       "subtitle": "Urbane Motorradfahrten durch ikonische Wahrzeichen, Architektur, Grünflächen und lokale Orte in CDMX.",
       "book_button": "FAHRT BUCHEN",
       "route_button": "ROUTE ANZEIGEN"

@@ -10,6 +10,7 @@
     "about": "Nosotros",
     "gallery": "Galería",
     "contact": "Contacto",
+    "faq": "FAQ",
     "book_a_ride": "RESERVAR UN PASEO"
   },
   "pages": {
@@ -24,7 +25,9 @@
   },
   "home": {
     "hero": {
-      "title": "EXPLORA<br>CIUDAD DE MÉXICO<br>EN DOS RUEDAS",
+      "title_line1": "EXPLORA",
+      "title_line2": "CIUDAD DE MÉXICO",
+      "title_line3": "EN <strong style=\"color: #8cc63f;\">DOS RUEDAS</strong>",
       "subtitle": "Paseos urbanos en motocicleta por lugares emblemáticos, arquitectura, áreas verdes y lugares locales en CDMX.",
       "book_button": "RESERVAR UN PASEO",
       "route_button": "VER RUTA"

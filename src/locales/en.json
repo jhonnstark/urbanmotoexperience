@@ -10,6 +10,7 @@
     "about": "About Us",
     "gallery": "Gallery",
     "contact": "Contact",
+    "faq": "FAQ",
     "book_a_ride": "BOOK A RIDE"
   },
   "pages": {
@@ -24,7 +25,9 @@
   },
   "home": {
     "hero": {
-      "title": "EXPLORE<br>MEXICO CITY<br>ON TWO WHEELS",
+      "title_line1": "EXPLORE",
+      "title_line2": "MEXICO CITY",
+      "title_line3": "ON <strong style=\"color: #8cc63f;\">TWO WHEELS</strong>",
       "subtitle": "Urban motorcycle rides through iconic landmarks, architecture, green areas, and local spots in CDMX.",
       "book_button": "BOOK A RIDE",
       "route_button": "VIEW ROUTE"
