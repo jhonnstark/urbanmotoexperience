@@ -1,0 +1,47 @@
+# GitHub Actions CI/CD Pipeline for AWS S3 Deployment
+
+name: Deploy Vue App to S3
+
+on:
+  push:
+    branches:
+      - main # Or your deployment branch
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18' # Or your project's node version
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1 # TODO: CHANGE TO YOUR BUCKET'S REGION
+
+      - name: Deploy to S3
+        run: |
+          aws s3 sync ./dist s3://<YOUR_BUCKET_NAME> --delete
+        env:
+          # TODO: CHANGE THIS TO YOUR S3 BUCKET NAME
+          S3_BUCKET_NAME: <YOUR_BUCKET_NAME>
+
+      - name: Invalidate CloudFront distribution
+        run: |
+          aws cloudfront create-invalidation --distribution-id <YOUR_CLOUDFRONT_DISTRIBUTION_ID> --paths "/*"
+        env:
+          # TODO: CHANGE THIS TO YOUR CLOUDFRONT DISTRIBUTION ID
+          CLOUDFRONT_DISTRIBUTION_ID: <YOUR_CLOUDFRONT_DISTRIBUTION_ID>

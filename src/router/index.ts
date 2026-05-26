@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Home from '@/pages/Home.vue'
-import About from '@/pages/About.vue'
 
 declare module 'vue-router' {
   interface RouteMeta {
@@ -11,36 +10,36 @@ declare module 'vue-router' {
 
 const routes: RouteRecordRaw[] = [
   {
-    path: '/',
+    path: '/:section?',
     name: 'Home',
     component: Home,
-    meta: {
-      title: 'Home',
-      description: 'Welcome to Urban Moto Experience',
-    },
-  },
-  {
-    path: '/about',
-    name: 'About',
-    component: About,
-    meta: {
-      title: 'About',
-      description: 'About Urban Moto Experience',
-    },
+    props: true,
   },
 ]
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
+  scrollBehavior(to, from, savedPosition) {
+    if (to.hash) {
+      return {
+        el: to.hash,
+        behavior: 'smooth',
+      }
+    }
+    if (savedPosition) {
+      return savedPosition
+    }
+    return { left: 0, top: 0 }
+  },
 })
 
 router.beforeEach((to, from, next) => {
   // SEO Meta Tags
-  document.title = `${to.meta.title || 'Urban Moto Experience'} - Urban Moto Experience`
+  document.title = `Urban Moto Experience - ${(to.params.section as string) || 'Home'}`
   const metaDescription = document.querySelector('meta[name="description"]')
   if (metaDescription) {
-    metaDescription.setAttribute('content', to.meta.description as string || '')
+    metaDescription.setAttribute('content', (to.meta.description as string) || '')
   }
   next()
 })
