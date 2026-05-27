@@ -1,0 +1,122 @@
+/* Global scroll-triggered animations */
+
+/* Base state for animated elements - hidden by default */
+.reveal,
+.post,
+.story,
+.stop-card,
+.feature-card,
+.stat-card,
+.gallery-item {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: none;
+}
+
+/* Visible state - triggered by Intersection Observer */
+.reveal.is-visible,
+.post.is-visible,
+.story.is-visible,
+.stop-card.is-visible,
+.feature-card.is-visible,
+.stat-card.is-visible,
+.gallery-item.is-visible {
+  animation: fadeUp 0.7s ease forwards;
+}
+
+/* Staggered animations */
+.s1.is-visible {
+  animation: fadeUp 0.7s ease forwards;
+  animation-delay: 60ms;
+}
+
+.s2.is-visible {
+  animation: fadeUp 0.7s ease forwards;
+  animation-delay: 140ms;
+}
+
+.s3.is-visible {
+  animation: fadeUp 0.7s ease forwards;
+  animation-delay: 220ms;
+}
+
+.s4.is-visible {
+  animation: fadeUp 0.7s ease forwards;
+  animation-delay: 320ms;
+}
+
+.s5.is-visible {
+  animation: fadeUp 0.7s ease forwards;
+  animation-delay: 420ms;
+}
+
+/* Posts with custom delays */
+.post.is-visible {
+  animation: itemIn 0.68s ease forwards;
+  animation-delay: var(--delay, 420ms);
+}
+
+/* Stories with custom delays */
+.story.is-visible {
+  animation: itemIn 0.55s ease forwards;
+  animation-delay: var(--delay, 920ms);
+}
+
+/* Contact section animations */
+.c1.is-visible {
+  animation: fadeUp 0.7s ease forwards;
+  animation-delay: 120ms;
+}
+
+.c2.is-visible {
+  animation: fadeUp 0.7s ease forwards;
+  animation-delay: 230ms;
+}
+
+.c3.is-visible {
+  animation: fadeUp 0.7s ease forwards;
+  animation-delay: 320ms;
+}
+
+.c4.is-visible {
+  animation: fadeUp 0.7s ease forwards;
+  animation-delay: 430ms;
+}
+
+.c5.is-visible {
+  animation: fadeUp 0.7s ease forwards;
+  animation-delay: 560ms;
+}
+
+/* Keyframe animations */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes itemIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Respect user preferences */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .post,
+  .story,
+  .stop-card,
+  .feature-card,
+  .stat-card,
+  .gallery-item,
+  .s1, .s2, .s3, .s4, .s5,
+  .c1, .c2, .c3, .c4, .c5 {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

@@ -1,48 +1,321 @@
 <template>
   <v-app>
-    <v-app-bar color="primary" dark>
-      <v-app-bar-title>{{ $t('app.title') }}</v-app-bar-title>
-      <v-spacer />
-      <v-btn icon @click="toggleTheme">
-        <v-icon>mdi-palette</v-icon>
-      </v-btn>
-      <v-menu>
-        <template #activator="{ props }">
-          <v-btn icon v-bind="props">
-            <v-icon>mdi-translate</v-icon>
-          </v-btn>
-        </template>
-        <v-list>
-          <v-list-item @click="$i18n.locale = 'en'">
-            <v-list-item-title>English</v-list-item-title>
-          </v-list-item>
-          <v-list-item @click="$i18n.locale = 'fr'">
-            <v-list-item-title>Français</v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </v-menu>
+    <v-app-bar app color="white" height="118" flat class="topbar">
+      <div class="topbar-content">
+        <a
+          class="brand"
+          href="#"
+          @click.prevent="scrollTo('home')"
+          aria-label="Urban Moto Experience CDMX home"
+        >
+          <div class="brand-shield">
+            <span class="shield-city">▴▴</span>
+            <span class="shield-road"></span>
+          </div>
+          <div class="brand-copy">
+            <span class="brand-title">Urban Moto</span>
+            <span class="brand-sub">✦ Experience ✦</span>
+            <span class="brand-city">CDMX</span>
+          </div>
+        </a>
+
+        <nav class="nav-links" aria-label="Main navigation">
+          <a class="nav-link" @click="scrollTo('about')" data-testid="nav-experience">{{
+            $t('nav.experience')
+          }}</a>
+          <a class="nav-link" @click="scrollTo('route')" data-testid="nav-route">{{
+            $t('nav.route')
+          }}</a>
+          <a class="nav-link" @click="scrollTo('gallery')" data-testid="nav-gallery">{{
+            $t('nav.gallery')
+          }}</a>
+          <a class="nav-link" @click="scrollTo('socials')" data-testid="nav-socials">{{ $t('nav.socials') }}</a>
+          <a class="nav-cta" @click="scrollTo('contact')" data-testid="nav-book-a-ride">{{
+            $t('nav.book_a_ride')
+          }}</a>
+        </nav>
+      </div>
     </v-app-bar>
 
     <v-main>
       <router-view />
     </v-main>
-
-    <v-footer app>
-      <span>{{ $t('app.footer') }} © 2026</span>
-    </v-footer>
   </v-app>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { useTheme } from 'vuetify'
+import { useRouter } from 'vue-router'
 
-const theme = useTheme()
+const router = useRouter()
 
-const toggleTheme = () => {
-  theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
+const scrollTo = (id: string) => {
+  if (id === 'home') {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+    return
+  }
+  router.push(`/#${id}`)
+  const element = document.getElementById(id)
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' })
+  }
 }
 </script>
 
 <style scoped>
+.topbar {
+  padding: 0 36px 0 46px !important;
+}
+
+.topbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.brand-shield {
+  width: 84px;
+  height: 88px;
+  clip-path: polygon(50% 0, 96% 18%, 86% 76%, 50% 100%, 14% 76%, 4% 18%);
+  border: 3px solid #0e2230;
+  background: linear-gradient(145deg, #eaf0ef 0%, #0a2530 48%, #07150d 100%);
+  position: relative;
+  box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.45);
+}
+
+.shield-city {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  color: white;
+  font-size: 20px;
+  letter-spacing: -8px;
+  opacity: 0.9;
+}
+
+.shield-road {
+  position: absolute;
+  left: 33px;
+  bottom: 11px;
+  width: 14px;
+  height: 56px;
+  border-radius: 999px;
+  background: linear-gradient(#94c943, #eaf3d2);
+  transform: rotate(-32deg);
+  opacity: 0.9;
+}
+
+.brand-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.brand-title {
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  font-family: 'Oswald', sans-serif;
+}
+
+.brand-sub {
+  margin-top: 6px;
+  color: #8cc63f;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 6px;
+  font-family: 'Oswald', sans-serif;
+}
+
+.brand-city {
+  margin-top: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 8px;
+  font-family: 'Oswald', sans-serif;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 54px;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  font-family: 'Oswald', sans-serif;
+}
+
+.nav-link {
+  color: #101820;
+  text-decoration: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  transition: opacity 0.2s ease;
+}
+
+.nav-link:hover {
+  opacity: 0.7;
+}
+
+.nav-cta {
+  margin-left: 6px;
+  padding: 18px 28px;
+  color: white !important;
+  background: #06240f;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.16);
+  cursor: pointer;
+  text-decoration: none;
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  transition: background 0.2s ease;
+  display: inline-block;
+}
+
+.nav-cta:hover {
+  background: #0a3618;
+}
+
+@media (max-width: 1200px) {
+  .nav-links {
+    gap: 28px;
+    font-size: 16px;
+  }
+
+  .nav-link {
+    font-size: 16px;
+  }
+
+  .nav-cta {
+    font-size: 16px;
+    padding: 14px 20px;
+    margin-left: 4px;
+  }
+}
+
+@media (max-width: 900px) {
+  .topbar {
+    height: auto !important;
+    min-height: 80px;
+    padding: 12px 16px !important;
+  }
+
+  .topbar-content {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .brand {
+    gap: 12px;
+  }
+
+  .brand-shield {
+    width: 52px;
+    height: 56px;
+    border: 2px solid #0e2230;
+    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.45);
+  }
+
+  .shield-city {
+    top: 12px;
+    left: 12px;
+    font-size: 16px;
+    letter-spacing: -6px;
+  }
+
+  .shield-road {
+    left: 26px;
+    bottom: 8px;
+    width: 10px;
+    height: 42px;
+  }
+
+  .brand-title {
+    font-size: 24px;
+    letter-spacing: 2px;
+  }
+
+  .brand-sub {
+    font-size: 13px;
+    letter-spacing: 4px;
+    margin-top: 4px;
+  }
+
+  .brand-city {
+    font-size: 14px;
+    letter-spacing: 6px;
+    margin-top: 6px;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: space-between;
+    gap: 8px;
+    font-size: 13px;
+  }
+
+  .nav-link {
+    font-size: 13px;
+    letter-spacing: 0.4px;
+  }
+
+  .nav-cta {
+    font-size: 13px;
+    padding: 10px 16px;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .brand-title {
+    font-size: 20px;
+  }
+
+  .brand-sub {
+    font-size: 11px;
+    letter-spacing: 3px;
+  }
+
+  .brand-city {
+    font-size: 12px;
+    letter-spacing: 4px;
+  }
+
+  .nav-links {
+    font-size: 11px;
+    gap: 6px;
+  }
+
+  .nav-link {
+    font-size: 11px;
+  }
+
+  .nav-cta {
+    font-size: 11px;
+    padding: 8px 12px;
+  }
+}
 </style>
