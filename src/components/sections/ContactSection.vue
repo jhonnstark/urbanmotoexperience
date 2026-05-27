@@ -55,15 +55,26 @@ const contactTitle = computed(() => {
   return `<span>${part1}</span><span><em>${part2}</em></span>`
 })
 
-const quickFeatures = computed(() => {
-  const features = t('contact.features')
-  return Array.isArray(features) ? features : []
-})
+interface Feature {
+  text: string;
+  icon: string;
+}
 
-const benefits = computed(() => {
-  const highlights = t('contact.highlights')
-  return Array.isArray(highlights) ? highlights : []
-})
+interface Benefit {
+  title: string;
+  icon: string;
+  description: string;
+}
+
+const quickFeatures = computed<Feature[]>(() => {
+  const features = t('contact.features') as unknown as Feature[];
+  return Array.isArray(features) ? features : [];
+});
+
+const benefits = computed<Benefit[]>(() => {
+  const highlights = t('contact.highlights') as unknown as Benefit[];
+  return Array.isArray(highlights) ? highlights : [];
+});
 </script>
 
 <style scoped>
