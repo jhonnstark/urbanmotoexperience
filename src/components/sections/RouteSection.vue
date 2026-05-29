@@ -97,20 +97,20 @@ import { computed } from 'vue'
 
 const { t } = useI18n()
 
-type Stop = {
+interface Stop {
   id: number
   title: string
   description: string
   image?: string
 }
 
-type MapPoint = {
+interface MapPoint {
   id: number
   label: string
   image?: string
 }
 
-type Stat = {
+interface Stat {
   icon: string
   label: string
   value: string

@@ -2,6 +2,8 @@
   <div id="home">
     <main class="hero" aria-label="Explore Mexico City on two wheels">
       <div class="hero-overlay"></div>
+      
+      <img src="/images/motos.png" alt="Motorcycles" class="hero-motos" />
 
       <section class="hero-content">
         <h1>
@@ -90,6 +92,26 @@ const scrollTo = (id: string) => {
   background:
     linear-gradient(90deg, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.62) 31%, rgba(0, 0, 0, 0.1) 65%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.08) 55%);
+}
+
+.hero-motos {
+  position: absolute;
+  bottom: 0;
+  right: 5%;
+  max-width: 45%;
+  height: auto;
+  z-index: 1;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
+  opacity: 0;
+  transform: translateX(50px);
+  animation: introMotos 1.2s ease-out 0.5s forwards;
+}
+
+@keyframes introMotos {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero-content {
@@ -202,6 +224,18 @@ const scrollTo = (id: string) => {
   .hero-actions {
     flex-direction: column;
     gap: 16px;
+  }
+
+  .hero-motos {
+    max-width: 60%;
+    right: 2%;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-motos {
+    max-width: 70%;
+    right: 0;
   }
 }
 </style>
