@@ -29,7 +29,9 @@
           <a class="nav-link" @click="scrollTo('gallery')" data-testid="nav-gallery">{{
             $t('nav.gallery')
           }}</a>
-          <a class="nav-link" @click="scrollTo('socials')" data-testid="nav-socials">{{ $t('nav.socials') }}</a>
+          <a class="nav-link" @click="scrollTo('socials')" data-testid="nav-socials">{{
+            $t('nav.socials')
+          }}</a>
           <a class="nav-cta" @click="scrollTo('contact')" data-testid="nav-book-a-ride">{{
             $t('nav.book_a_ride')
           }}</a>
@@ -64,29 +66,29 @@ const scrollTo = (id: string) => {
 <style>
 /* Global styles for sticky header */
 .v-app-bar.topbar {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  z-index: 1000 !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 
 /* Add padding to main content to account for fixed header */
 .v-main {
-  padding-top: 118px !important;
+  padding-top: 118px;
 }
 
 @media (max-width: 900px) {
   .v-main {
-    padding-top: 80px !important;
+    padding-top: 80px;
   }
 }
 </style>
 
 <style scoped>
 .topbar {
-  padding: 0 36px 0 46px !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  padding: 0 36px 0 46px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .topbar-content {
@@ -203,7 +205,7 @@ const scrollTo = (id: string) => {
 .nav-cta {
   margin-left: 6px;
   padding: 18px 28px;
-  color: white !important;
+  color: white;
   background: #06240f;
   border-radius: 8px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.16);
@@ -241,9 +243,9 @@ const scrollTo = (id: string) => {
 
 @media (max-width: 900px) {
   .topbar {
-    height: auto !important;
+    height: auto;
     min-height: 80px;
-    padding: 12px 16px !important;
+    padding: 12px 16px;
   }
 
   .topbar-content {
