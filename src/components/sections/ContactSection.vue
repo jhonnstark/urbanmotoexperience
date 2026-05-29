@@ -129,12 +129,12 @@ const benefits = computed<Benefit[]>(() => {
 }
 .contact-title em {
   font-style: normal;
-  color: #79b83f;
+  color: var(--um-green-primary);
 }
 .accent {
   width: 90px;
   height: 4px;
-  background: #79b83f;
+  background: var(--um-green-primary);
   margin: 34px 0 30px;
 }
 .tagline {
@@ -168,13 +168,20 @@ const benefits = computed<Benefit[]>(() => {
   font-size: 36px;
 }
 .whatsapp {
-  background: #68b936;
+  background: var(--um-green-primary);
   color: white;
 }
+.whatsapp:hover {
+  background: var(--um-green-dark);
+}
 .instagram {
-  border: 2px solid rgba(255, 255, 255, 0.9);
-  color: white;
+  border: 2px solid rgba(245, 245, 242, 0.9);
+  color: var(--um-off-white);
   background: rgba(0, 0, 0, 0.16);
+}
+.instagram:hover {
+  background: white;
+  color: var(--um-navy);
 }
 .quick-features {
   display: grid;
@@ -198,7 +205,7 @@ const benefits = computed<Benefit[]>(() => {
   border-right: 0;
 }
 .quick-features :deep(.v-icon) {
-  color: #79b83f;
+  color: var(--um-green-primary);
 }
 .quick-features strong {
   font-size: 17px;
@@ -236,14 +243,14 @@ const benefits = computed<Benefit[]>(() => {
 .benefit-bar :deep(.v-icon) {
   width: 64px;
   height: 64px;
-  border: 2px solid #79b83f;
+  border: 2px solid var(--um-green-primary);
   border-radius: 999px;
-  color: #79b83f;
+  color: var(--um-green-primary);
   display: grid;
   place-items: center;
 }
 .benefit-bar strong {
-  color: #65a936;
+  color: var(--um-green-dark);
   text-transform: uppercase;
   font-size: 18px;
 }

@@ -118,7 +118,7 @@ const scrollTo = (id: string) => {
   width: 92px;
   height: 4px;
   margin: 34px 0 22px;
-  background: rgb(var(--v-theme-green));
+  background: var(--um-green-primary);
   border-radius: 999px;
 }
 
@@ -153,14 +153,19 @@ const scrollTo = (id: string) => {
 }
 
 .btn-primary {
-  background: rgb(var(--v-theme-green)) !important;
+  background: var(--um-green-primary) !important;
   color: white !important;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+  transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: var(--um-green-dark) !important;
 }
 
 .btn-secondary {
-  color: white !important;
-  border: 2px solid rgba(255, 255, 255, 0.8);
+  color: var(--um-off-white) !important;
+  border: 2px solid rgba(245, 245, 242, 0.78);
   background: rgba(0, 0, 0, 0.18);
 }
 

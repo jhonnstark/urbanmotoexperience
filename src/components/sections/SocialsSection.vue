@@ -60,8 +60,8 @@ const stories = [
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&display=swap');
 .socials-section {
-  --dark: #071a2c;
-  --green: #79b83f;
+  --dark: var(--um-navy);
+  --green: var(--um-green-primary);
   background: #fff;
   color: var(--dark);
   font-family: 'Oswald', system-ui, sans-serif;
@@ -75,7 +75,7 @@ const stories = [
 }
 .eyebrow {
   margin: 0;
-  color: var(--green);
+  color: var(--um-green-primary);
   font-size: 18px;
   font-weight: 900;
   text-transform: uppercase;
@@ -83,7 +83,7 @@ const stories = [
 .line {
   width: 38px;
   height: 2px;
-  background: var(--green);
+  background: var(--um-green-primary);
   margin: 18px auto 22px;
 }
 .title {
@@ -204,7 +204,7 @@ const stories = [
   width: 68px;
   height: 68px;
   border-radius: 999px;
-  border: 2px solid var(--green);
+  border: 2px solid var(--um-green-primary);
   padding: 2px;
   background: linear-gradient(135deg, #c9d8e8, #7aa665);
 }

@@ -196,12 +196,12 @@ const stats = computed<Stat[]>(() => [
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&display=swap');
 
 .route-section {
-  --route-dark: #071a2c;
-  --route-text: #172234;
-  --route-muted: #4f5b66;
-  --route-green: #79b83f;
-  --route-green-dark: #4f9b32;
-  --route-soft: #f6faf2;
+  --route-dark: var(--um-navy);
+  --route-text: var(--um-text-main);
+  --route-muted: var(--um-text-muted);
+  --route-green: var(--um-green-primary);
+  --route-green-dark: var(--um-green-dark);
+  --route-soft: var(--um-off-white);
   --route-line: #e8ece8;
 
   background: #fff;
@@ -222,7 +222,7 @@ const stats = computed<Stat[]>(() => [
 
 .route-eyebrow {
   margin: 0;
-  color: var(--route-green);
+  color: var(--um-green-primary);
   font-size: 21px;
   font-weight: 800;
   letter-spacing: 0.02em;
@@ -233,7 +233,7 @@ const stats = computed<Stat[]>(() => [
   width: 42px;
   height: 2px;
   margin: 18px 0 28px;
-  background: var(--route-green);
+  background: var(--um-green-primary);
 }
 
 .route-title {
@@ -540,9 +540,9 @@ const stats = computed<Stat[]>(() => [
   padding: 18px 22px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  background: rgba(246, 250, 242, 0.96);
+  background: rgba(245, 245, 242, 0.96);
   border-radius: 16px;
-  box-shadow: 0 14px 36px rgba(7, 26, 44, 0.08);
+  box-shadow: var(--um-shadow-soft);
 }
 
 .stat-card {

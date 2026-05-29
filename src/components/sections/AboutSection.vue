@@ -60,10 +60,10 @@ const scrollToExperience = () => {
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&display=swap');
 
 .about-section {
-  --dark: #071a2c;
-  --text: #172234;
-  --green: #79b83f;
-  --line: rgba(7, 26, 44, 0.15);
+  --dark: var(--um-navy);
+  --text: var(--um-text-main);
+  --green: var(--um-green-primary);
+  --line: var(--um-border-soft);
   background: #fff;
   color: var(--text);
   font-family: 'Oswald', system-ui, sans-serif;
@@ -82,7 +82,7 @@ const scrollToExperience = () => {
 
 .eyebrow {
   margin: 0;
-  color: var(--green);
+  color: var(--um-green-primary);
   font-size: 20px;
   font-weight: 800;
   text-transform: uppercase;
@@ -91,7 +91,7 @@ const scrollToExperience = () => {
   width: 43px;
   height: 2px;
   margin: 20px 0 44px;
-  background: var(--green);
+  background: var(--um-green-primary);
 }
 
 .about-title {

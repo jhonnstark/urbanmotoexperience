@@ -4,6 +4,7 @@ import { createI18n } from 'vue-i18n'
 import { createVuetify } from 'vuetify'
 import 'vuetify/styles'
 import './assets/animations.css'
+import './styles/brand.css'
 
 import App from './App.vue'
 import router from './router'
@@ -28,20 +29,26 @@ const i18n = createI18n({
 
 const vuetify = createVuetify({
   theme: {
-    defaultTheme: 'light',
+    defaultTheme: 'urbanMoto',
     themes: {
-      light: {
+      urbanMoto: {
+        dark: false,
         colors: {
-          primary: '#1976D2',
-          secondary: '#424242',
-          accent: '#82B1FF',
+          background: '#F5F5F2',
+          surface: '#FFFFFF',
+          primary: '#7FB239',
+          secondary: '#1B2B17',
+          green: '#7FB239',
+          greenDark: '#4F7A28',
+          greenDeep: '#1B2B17',
+          navy: '#081A2C',
+          charcoal: '#111111',
+          jacaranda: '#6E4AA5',
+          gold: '#C9A23A',
           error: '#FF5252',
           warning: '#FB8C00',
           info: '#2196F3',
-          success: '#4CAF50',
-          green: '#8cc63f',
-          'dark-green': '#06240f',
-          'text-dark': '#0f1f2b',
+          success: '#7FB239',
         },
       },
     },

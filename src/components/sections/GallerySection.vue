@@ -34,8 +34,8 @@ const images = [
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&display=swap');
 .gallery-section {
-  --dark: #071a2c;
-  --green: #79b83f;
+  --dark: var(--um-navy);
+  --green: var(--um-green-primary);
   background: #fff;
   color: var(--dark);
   font-family: 'Oswald', system-ui, sans-serif;
@@ -49,7 +49,7 @@ const images = [
 }
 .eyebrow {
   margin: 0;
-  color: var(--green);
+  color: var(--um-green-primary);
   font-size: 18px;
   font-weight: 900;
   text-transform: uppercase;
@@ -57,7 +57,7 @@ const images = [
 .line {
   width: 38px;
   height: 2px;
-  background: var(--green);
+  background: var(--um-green-primary);
   margin: 18px auto 24px;
 }
 .title {
