@@ -13,7 +13,9 @@
           class="post"
           :style="{ '--delay': `${420 + index * 90}ms` }"
         >
-          <div class="post-placeholder"></div>
+          <div class="post-placeholder">
+            <img :src="post.src" :alt="`Social post ${index + 1}`" class="post-image" />
+          </div>
           <div v-if="post.video" class="play" aria-hidden="true">▶</div>
           <div v-if="post.video" class="video-text">Ride Through <em>CDMX</em></div>
         </article>
@@ -44,7 +46,7 @@
 
 <script setup lang="ts">
 const posts = Array.from({ length: 6 }, (_, index) => ({
-  src: `/images/social-${index + 1}.png`,
+  src: '/images/reforma.png',
   video: index === 5,
 }))
 const stories = [
@@ -120,10 +122,18 @@ const stories = [
   width: 100%;
   height: 100%;
   background: linear-gradient(135deg, #dce9f4, #567655 55%, #243b2e);
+  overflow: hidden;
+}
+
+.post-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   transition: transform 0.5s ease;
 }
-.post:hover .post-placeholder {
-  transform: scale(1.04);
+
+.post:hover .post-image {
+  transform: scale(1.1);
 }
 .play {
   position: absolute;

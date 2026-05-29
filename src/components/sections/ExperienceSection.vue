@@ -185,8 +185,11 @@ const features = computed<Feature[]>(() => [
   width: 100%;
   height: 100%;
   object-fit: cover;
-  animation: imageSettle 0.95s ease forwards;
-  animation-delay: calc(var(--delay) + 80ms);
+  transition: transform 0.5s ease;
+}
+
+.feature-image-wrap:hover .feature-image {
+  transform: scale(1.1);
 }
 
 .feature-content {
@@ -251,15 +254,6 @@ const features = computed<Feature[]>(() => [
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes imageSettle {
-  from {
-    transform: scale(1.045);
-  }
-  to {
-    transform: scale(1);
   }
 }
 

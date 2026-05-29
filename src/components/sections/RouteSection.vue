@@ -300,6 +300,11 @@ const stats = computed<Stat[]>(() => [
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.stop-thumb:hover .stop-thumb-img {
+  transform: scale(1.1);
 }
 
 .stop-number {
@@ -459,6 +464,11 @@ const stats = computed<Stat[]>(() => [
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.point-image:hover .point-image-img {
+  transform: scale(1.1);
 }
 
 .pin {

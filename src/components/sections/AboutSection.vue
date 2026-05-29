@@ -188,7 +188,7 @@ const scrollToExperience = () => {
 .about-image {
   min-height: 890px;
   border-radius: 22px;
-  background-image: url('/images/about-main.png'), linear-gradient(135deg, #8db7d8, #243b2e);
+  background-image: url('/images/reforma.png'), linear-gradient(135deg, #8db7d8, #243b2e);
   background-size: cover;
   background-position: center;
   box-shadow: 0 18px 52px rgba(7, 26, 44, 0.12);
