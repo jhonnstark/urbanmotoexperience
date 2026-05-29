@@ -39,33 +39,28 @@
       "title": "QUÉ ESTÁ INCLUIDO",
       "description": "Nos encargamos de los detalles para que puedas disfrutar de la ciudad, el paseo y la experiencia."
     },
-    "features": [
-      {
+    "features": {
+      "helmet": {
         "title": "CASCO EXTRA",
-        "description": "Cascos de alta calidad para tu seguridad y comodidad.",
-        "icon": "mdi-motorbike-helmet"
+        "description": "Cascos de alta calidad para tu seguridad y comodidad."
       },
-      {
+      "photos": {
         "title": "PARADAS PARA FOTOS",
-        "description": "Hermosos lugares a lo largo de la ruta para tomar fotos increíbles.",
-        "icon": "mdi-camera-outline"
+        "description": "Hermosos lugares a lo largo de la ruta para tomar fotos increíbles."
       },
-      {
+      "stories": {
         "title": "HISTORIAS LOCALES",
-        "description": "Descubre la ciudad a través de historias, historia y conocimientos locales.",
-        "icon": "mdi-microphone-outline"
+        "description": "Descubre la ciudad a través de historias, historia y conocimientos locales."
       },
-      {
+      "driver": {
         "title": "CONDUCTOR INCLUIDO",
-        "description": "Relájate y disfruta del paseo. Nuestros conductores profesionales se encargan de todo.",
-        "icon": "mdi-road-variant"
+        "description": "Relájate y disfruta del paseo. Nuestros conductores profesionales se encargan de todo."
       },
-      {
+      "coffee": {
         "title": "PARADA DE CAFÉ OPCIONAL",
-        "description": "Podemos hacer una parada en un excelente café local si lo deseas.",
-        "icon": "mdi-coffee-outline"
+        "description": "Podemos hacer una parada en un excelente café local si lo deseas."
       }
-    ]
+    }
   },
   "route": {
     "header": {
@@ -98,7 +93,25 @@
         "name": "MONUMENTO A LA REVOLUCIÓN",
         "description": "Terminamos en este impresionante ícono de la historia de México."
       }
-    ]
+    ],
+    "stats": {
+      "duration": {
+        "label": "Duración",
+        "value": "3 – 4 horas"
+      },
+      "distance": {
+        "label": "Distancia",
+        "value": "Aprox. 25 km"
+      },
+      "ride_type": {
+        "label": "Tipo de Paseo",
+        "value": "Urbano y Escénico"
+      },
+      "group_size": {
+        "label": "Tamaño del Grupo",
+        "value": "1 – 2 personas"
+      }
+    }
   },
   "about": {
     "header": {
@@ -151,5 +164,14 @@
         "description": "Más que un tour, es un recuerdo."
       }
     ]
+  },
+  "socials": {
+    "header": {
+      "subtitle": "SIGUE EL PASEO",
+      "title": "SIGUE EL PASEO",
+      "description": "Momentos reales de las calles de la Ciudad de México."
+    },
+    "instagram_handle": "@urbanmotoexperiencecdmx",
+    "follow_button": "Seguir en Instagram"
   }
 }
