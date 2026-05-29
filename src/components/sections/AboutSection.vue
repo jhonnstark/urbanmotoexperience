@@ -64,7 +64,7 @@ const scrollToExperience = () => {
   --text: var(--um-text-main);
   --green: var(--um-green-primary);
   --line: var(--um-border-soft);
-  background: #fff;
+  background: var(--um-white);
   color: var(--text);
   font-family: 'Oswald', system-ui, sans-serif;
   overflow: hidden;
@@ -163,7 +163,7 @@ const scrollToExperience = () => {
   margin-top: 56px;
   border: 2px solid var(--green);
   border-radius: 6px;
-  background: white;
+  background: var(--um-white);
   color: var(--green);
   font: 800 18px 'Oswald', sans-serif;
   text-transform: uppercase;
@@ -177,7 +177,7 @@ const scrollToExperience = () => {
 
 .learn-btn:hover {
   background: var(--green);
-  color: white;
+  color: var(--um-white);
 }
 
 .about-image-wrap {

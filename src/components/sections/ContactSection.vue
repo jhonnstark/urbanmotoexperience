@@ -80,10 +80,10 @@ const benefits = computed<Benefit[]>(() => {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&display=swap');
 .contact-section {
-  background: #fff;
+  background: var(--um-white);
   padding: 44px 8px 72px;
   font-family: 'Oswald', system-ui, sans-serif;
-  color: white;
+  color: var(--um-white);
   overflow: hidden;
 }
 .contact-card {
@@ -169,7 +169,7 @@ const benefits = computed<Benefit[]>(() => {
 }
 .whatsapp {
   background: var(--um-green-primary);
-  color: white;
+  color: var(--um-white);
 }
 .whatsapp:hover {
   background: var(--um-green-dark);
@@ -180,7 +180,7 @@ const benefits = computed<Benefit[]>(() => {
   background: rgba(0, 0, 0, 0.16);
 }
 .instagram:hover {
-  background: white;
+  background: var(--um-white);
   color: var(--um-navy);
 }
 .quick-features {

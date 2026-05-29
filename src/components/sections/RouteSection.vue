@@ -204,7 +204,7 @@ const stats = computed<Stat[]>(() => [
   --route-soft: var(--um-off-white);
   --route-line: #e8ece8;
 
-  background: #fff;
+  background: var(--um-white);
   color: var(--route-text);
   font-family: 'Oswald', system-ui, sans-serif;
   overflow: hidden;
@@ -312,7 +312,7 @@ const stats = computed<Stat[]>(() => [
   place-items: center;
   border-radius: 999px;
   background: var(--route-green);
-  color: white;
+  color: var(--um-white);
   font-size: 18px;
   font-weight: 800;
 }
@@ -411,7 +411,7 @@ const stats = computed<Stat[]>(() => [
   position: absolute;
   top: 14px;
   left: 14px;
-  color: white;
+  color: var(--um-white);
   font-size: 16px;
   letter-spacing: -6px;
   opacity: 0.9;
@@ -476,7 +476,7 @@ const stats = computed<Stat[]>(() => [
   place-items: center;
   border-radius: 999px;
   background: var(--route-green);
-  color: white;
+  color: var(--um-white);
   font-size: 17px;
 }
 

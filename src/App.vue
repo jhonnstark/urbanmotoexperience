@@ -113,7 +113,7 @@ const scrollTo = (id: string) => {
 .nav-cta {
   margin-left: 6px;
   padding: 18px 28px;
-  color: white !important;
+  color: var(--um-white) !important;
   background: var(--um-green-deep);
   border-radius: 8px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.16);

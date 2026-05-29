@@ -36,7 +36,7 @@ const images = [
 .gallery-section {
   --dark: var(--um-navy);
   --green: var(--um-green-primary);
-  background: #fff;
+  background: var(--um-white);
   color: var(--dark);
   font-family: 'Oswald', system-ui, sans-serif;
   padding: 58px 52px 78px;

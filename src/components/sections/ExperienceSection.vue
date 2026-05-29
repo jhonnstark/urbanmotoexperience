@@ -101,9 +101,9 @@ const features = computed<Feature[]>(() => [
   --experience-muted: var(--um-text-muted);
   --experience-green: var(--um-green-primary);
   --experience-green-dark: var(--um-green-dark);
-  --experience-card: #ffffff;
+  --experience-card: var(--um-white);
 
-  background: #fff;
+  background: var(--um-white);
   color: var(--experience-text);
   font-family: 'Oswald', system-ui, sans-serif;
   overflow: hidden;

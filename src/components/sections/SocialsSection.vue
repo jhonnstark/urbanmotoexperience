@@ -62,7 +62,7 @@ const stories = [
 .socials-section {
   --dark: var(--um-navy);
   --green: var(--um-green-primary);
-  background: #fff;
+  background: var(--um-white);
   color: var(--dark);
   font-family: 'Oswald', system-ui, sans-serif;
   padding: 52px 58px 50px;
@@ -131,11 +131,11 @@ const stories = [
   margin: auto;
   width: 90px;
   height: 90px;
-  border: 6px solid white;
+  border: 6px solid var(--um-white);
   border-radius: 999px;
   display: grid;
   place-items: center;
-  color: white;
+  color: var(--um-white);
   font-size: 42px;
   background: rgba(255, 255, 255, 0.08);
   text-indent: 6px;
@@ -144,7 +144,7 @@ const stories = [
   position: absolute;
   right: 30px;
   bottom: 26px;
-  color: white;
+  color: var(--um-white);
   font-family: 'Bebas Neue', Impact, sans-serif;
   font-size: 36px;
   line-height: 0.9;
@@ -178,7 +178,7 @@ const stories = [
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  color: white;
+  color: var(--um-white);
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 900;

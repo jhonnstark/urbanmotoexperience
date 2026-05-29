@@ -154,7 +154,7 @@ const scrollTo = (id: string) => {
 
 .btn-primary {
   background: var(--um-green-primary) !important;
-  color: white !important;
+  color: var(--um-white) !important;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
   transition: background 0.3s ease;
 }
