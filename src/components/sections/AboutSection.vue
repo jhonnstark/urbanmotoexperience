@@ -184,7 +184,10 @@ const scrollToExperience = () => {
   opacity: 0;
   transform: translateX(36px);
   animation: fadeLeft 0.9s ease forwards 360ms;
+  border-radius: 22px;
+  overflow: hidden;
 }
+
 .about-image {
   min-height: 890px;
   border-radius: 22px;
@@ -192,6 +195,11 @@ const scrollToExperience = () => {
   background-size: cover;
   background-position: center;
   box-shadow: 0 18px 52px rgba(7, 26, 44, 0.12);
+  transition: transform 0.5s ease;
+}
+
+.about-image-wrap:hover .about-image {
+  transform: scale(1.05);
 }
 
 .reveal {
