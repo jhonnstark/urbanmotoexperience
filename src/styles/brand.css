@@ -1,0 +1,24 @@
+/* Urban Moto Experience - Brand Color System */
+
+:root {
+  /* Core Brand Colors */
+  --um-green-deep: #1B2B17;
+  --um-green-primary: #7FB239;
+  --um-green-dark: #4F7A28;
+  --um-navy: #081A2C;
+  --um-charcoal: #111111;
+  --um-off-white: #F5F5F2;
+  --um-white: #FFFFFF;
+  --um-jacaranda: #6E4AA5;
+  --um-gold: #C9A23A;
+
+  /* Text Colors */
+  --um-text-main: #081A2C;
+  --um-text-muted: #4F5B66;
+  --um-text-light: #F5F5F2;
+
+  /* UI Tokens */
+  --um-border-soft: rgba(8, 26, 44, 0.12);
+  --um-shadow-soft: 0 18px 55px rgba(8, 26, 44, 0.08);
+  --um-shadow-card: 0 18px 42px rgba(8, 26, 44, 0.065);
+}

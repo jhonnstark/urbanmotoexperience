@@ -3,6 +3,17 @@
     "title": "Urban Moto Experience",
     "footer": "Made with Vue 3, Vuetify & TypeScript"
   },
+  "nav": {
+    "home": "Home",
+    "experience": "Experience",
+    "route": "Route",
+    "about": "About Us",
+    "gallery": "Gallery",
+    "contact": "Contact",
+    "socials": "Socials",
+    "faq": "FAQ",
+    "book_a_ride": "BOOK A RIDE"
+  },
   "pages": {
     "home": {
       "title": "Welcome",
@@ -12,5 +23,156 @@
       "title": "About Us",
       "description": "Learn more about Urban Moto Experience"
     }
+  },
+  "home": {
+    "hero": {
+      "title_line1": "EXPLORE",
+      "title_line2": "MEXICO CITY",
+      "title_line3": "ON <strong style=\"color: #8cc63f;\">TWO WHEELS</strong>",
+      "subtitle": "Urban motorcycle rides through iconic landmarks, architecture, green areas, and local spots in CDMX.",
+      "book_button": "BOOK A RIDE",
+      "route_button": "VIEW ROUTE"
+    }
+  },
+  "experience": {
+    "header": {
+      "subtitle": "Experience Features",
+      "title": "WHAT'S INCLUDED",
+      "description": "We take care of the details so you can enjoy the city, the ride, and the experience."
+    },
+    "features": {
+      "helmet": {
+        "title": "EXTRA HELMET",
+        "description": "High quality helmets for your safety and comfort."
+      },
+      "photos": {
+        "title": "PHOTO STOPS",
+        "description": "Beautiful spots along the route to take amazing pictures."
+      },
+      "stories": {
+        "title": "LOCAL STORIES",
+        "description": "Discover the city through stories, history and local insights."
+      },
+      "driver": {
+        "title": "DRIVER INCLUDED",
+        "description": "Relax and enjoy the ride. Our professional drivers take care of everything."
+      },
+      "coffee": {
+        "title": "OPTIONAL COFFEE STOP",
+        "description": "We can make a stop at a great local coffee spot if you'd like."
+      }
+    }
+  },
+  "route": {
+    "header": {
+      "subtitle": "The Route",
+      "title": "MAIN URBAN ROUTE",
+      "description": "A relaxed urban ride combining architecture, history, parks, and iconic city views."
+    },
+    "stops": [
+      {
+        "name": "PARQUE ESPAÑA",
+        "description": "We start at this vibrant spot in the heart of Condesa."
+      },
+      {
+        "name": "ÁNGEL DE LA INDEPENDENCIA",
+        "description": "Ride down Reforma Avenue to the most iconic monument in the city."
+      },
+      {
+        "name": "CHAPULTEPEC LAKE",
+        "description": "Enjoy the green views and a relaxing stop by the lake."
+      },
+      {
+        "name": "MUSEO DE ANTROPOLOGÍA",
+        "description": "Explore one of Mexico's most important cultural landmarks."
+      },
+      {
+        "name": "PALACIO DE BELLAS ARTES",
+        "description": "Admire the architecture of this stunning historic building."
+      },
+      {
+        "name": "MONUMENTO A LA REVOLUCIÓN",
+        "description": "We finish at this impressive icon of Mexican history."
+      }
+    ],
+    "stats": {
+      "duration": {
+        "label": "Duration",
+        "value": "3 – 4 hours"
+      },
+      "distance": {
+        "label": "Distance",
+        "value": "Approx. 25 km"
+      },
+      "ride_type": {
+        "label": "Ride Type",
+        "value": "Urban & Scenic"
+      },
+      "group_size": {
+        "label": "Group Size",
+        "value": "1 – 2 people"
+      }
+    }
+  },
+  "about": {
+    "header": {
+      "subtitle": "About the Experience",
+      "title": "A DIFFERENT WAY<br>TO EXPLORE <span style=\"color: #4caf50;\">CDMX</span>",
+      "description": "Small-group urban motorcycle experiences through the most iconic parts of Mexico City. Ride through Reforma, Chapultepec, Bellas Artes, and historic streets while discovering the city from a local perspective."
+    },
+    "features": [
+      { "icon": "mdi-account-group-outline", "text": "LOCAL GUIDES" },
+      { "icon": "mdi-motorbike-helmet", "text": "HELMETS INCLUDED" },
+      { "icon": "mdi-camera-outline", "text": "PHOTO STOPS" },
+      { "icon": "mdi-account-multiple", "text": "SMALL GROUPS" },
+      { "icon": "mdi-map-marker-path", "text": "FLEXIBLE PRIVATE RIDES" }
+    ],
+    "learn_more_button": "LEARN MORE"
+  },
+  "gallery": {
+    "header": {
+      "subtitle": "GALLERY",
+      "title": "THE EXPERIENCE",
+      "description": "Moments, places and views from the ride."
+    }
+  },
+  "contact": {
+    "title_part1": "READY TO EXPLORE",
+    "title_part2": "CDMX?",
+    "subtitle": "Ride through the city like a local.",
+    "whatsapp_button": "BOOK YOUR RIDE ON WHATSAPP",
+    "instagram_button": "VIEW INSTAGRAM",
+    "features": [
+      { "icon": "mdi-account-multiple", "text": "SMALL GROUPS" },
+      { "icon": "mdi-calendar-clock", "text": "FLEXIBLE SCHEDULES" },
+      { "icon": "mdi-motorbike-helmet", "text": "HELMETS INCLUDED" },
+      { "icon": "mdi-shield-check-outline", "text": "SAFETY FIRST" }
+    ],
+    "highlights": [
+      {
+        "icon": "mdi-map-marker-account-outline",
+        "title": "LOCAL GUIDES",
+        "description": "Born and raised in CDMX."
+      },
+      {
+        "icon": "mdi-camera-iris",
+        "title": "UNFORGETTABLE STOPS",
+        "description": "Iconic places & hidden gems."
+      },
+      {
+        "icon": "mdi-heart-outline",
+        "title": "AUTHENTIC EXPERIENCE",
+        "description": "More than a tour, it's a memory."
+      }
+    ]
+  },
+  "socials": {
+    "header": {
+      "subtitle": "FOLLOW THE RIDE",
+      "title": "FOLLOW THE RIDE",
+      "description": "Real moments from the streets of Mexico City."
+    },
+    "instagram_handle": "@urbanmotoexperiencecdmx",
+    "follow_button": "Follow On Instagram"
   }
 }

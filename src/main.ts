@@ -3,35 +3,52 @@ import { createPinia } from 'pinia'
 import { createI18n } from 'vue-i18n'
 import { createVuetify } from 'vuetify'
 import 'vuetify/styles'
+import './assets/animations.css'
+import './styles/brand.css'
 
 import App from './App.vue'
 import router from './router'
 import en from './locales/en.json'
+import es from './locales/es.json'
+import ru from './locales/ru.json'
 import fr from './locales/fr.json'
+import de from './locales/de.json'
 
 const i18n = createI18n({
   legacy: false,
-  locale: 'en',
+  locale: navigator.language.split('-')[0] || 'en',
   fallbackLocale: 'en',
   messages: {
     en,
+    es,
+    ru,
     fr,
+    de,
   },
 })
 
 const vuetify = createVuetify({
   theme: {
-    defaultTheme: 'light',
+    defaultTheme: 'urbanMoto',
     themes: {
-      light: {
+      urbanMoto: {
+        dark: false,
         colors: {
-          primary: '#1976D2',
-          secondary: '#424242',
-          accent: '#82B1FF',
+          background: '#F5F5F2',
+          surface: '#FFFFFF',
+          primary: '#7FB239',
+          secondary: '#1B2B17',
+          green: '#7FB239',
+          greenDark: '#4F7A28',
+          greenDeep: '#1B2B17',
+          navy: '#081A2C',
+          charcoal: '#111111',
+          jacaranda: '#6E4AA5',
+          gold: '#C9A23A',
           error: '#FF5252',
           warning: '#FB8C00',
           info: '#2196F3',
-          success: '#4CAF50',
+          success: '#7FB239',
         },
       },
     },

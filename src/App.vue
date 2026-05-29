@@ -1,48 +1,206 @@
 <template>
   <v-app>
-    <v-app-bar color="primary" dark>
-      <v-app-bar-title>{{ $t('app.title') }}</v-app-bar-title>
-      <v-spacer />
-      <v-btn icon @click="toggleTheme">
-        <v-icon>mdi-palette</v-icon>
-      </v-btn>
-      <v-menu>
-        <template #activator="{ props }">
-          <v-btn icon v-bind="props">
-            <v-icon>mdi-translate</v-icon>
-          </v-btn>
-        </template>
-        <v-list>
-          <v-list-item @click="$i18n.locale = 'en'">
-            <v-list-item-title>English</v-list-item-title>
-          </v-list-item>
-          <v-list-item @click="$i18n.locale = 'fr'">
-            <v-list-item-title>Français</v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </v-menu>
+    <v-app-bar app color="white" height="118" flat class="topbar">
+      <div class="topbar-content">
+        <a
+          class="brand"
+          href="#"
+          @click.prevent="scrollTo('home')"
+          aria-label="Urban Moto Experience CDMX home"
+        >
+          <img src="/images/log3.png" alt="Urban Moto Experience CDMX" class="brand-logo" />
+        </a>
+
+        <nav class="nav-links" aria-label="Main navigation">
+          <a class="nav-link" @click="scrollTo('about')" data-testid="nav-experience">{{
+            $t('nav.experience')
+          }}</a>
+          <a class="nav-link" @click="scrollTo('route')" data-testid="nav-route">{{
+            $t('nav.route')
+          }}</a>
+          <a class="nav-link" @click="scrollTo('gallery')" data-testid="nav-gallery">{{
+            $t('nav.gallery')
+          }}</a>
+          <a class="nav-link" @click="scrollTo('socials')" data-testid="nav-socials">{{ $t('nav.socials') }}</a>
+          <a class="nav-cta" @click="scrollTo('contact')" data-testid="nav-book-a-ride">{{
+            $t('nav.book_a_ride')
+          }}</a>
+        </nav>
+      </div>
     </v-app-bar>
 
     <v-main>
       <router-view />
     </v-main>
-
-    <v-footer app>
-      <span>{{ $t('app.footer') }} © 2026</span>
-    </v-footer>
   </v-app>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { useTheme } from 'vuetify'
+import { useRouter } from 'vue-router'
 
-const theme = useTheme()
+const router = useRouter()
 
-const toggleTheme = () => {
-  theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
+const scrollTo = (id: string) => {
+  if (id === 'home') {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+    return
+  }
+  router.push(`/#${id}`)
+  const element = document.getElementById(id)
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' })
+  }
 }
 </script>
 
 <style scoped>
+.topbar {
+  padding: 0 36px 0 46px !important;
+}
+
+.topbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.brand-logo {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 54px;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  font-family: 'Oswald', sans-serif;
+}
+
+.nav-link {
+  color: var(--um-navy);
+  text-decoration: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  transition: opacity 0.2s ease;
+}
+
+.nav-link:hover {
+  opacity: 0.7;
+}
+
+.nav-cta {
+  margin-left: 6px;
+  padding: 18px 28px;
+  color: var(--um-white) !important;
+  background: var(--um-green-deep);
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.16);
+  cursor: pointer;
+  text-decoration: none;
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  transition: background 0.2s ease;
+  display: inline-block;
+}
+
+.nav-cta:hover {
+  background: var(--um-green-dark);
+}
+
+@media (max-width: 1200px) {
+  .nav-links {
+    gap: 28px;
+    font-size: 16px;
+  }
+
+  .nav-link {
+    font-size: 16px;
+  }
+
+  .nav-cta {
+    font-size: 16px;
+    padding: 14px 20px;
+    margin-left: 4px;
+  }
+}
+
+@media (max-width: 900px) {
+  .topbar {
+    height: auto !important;
+    min-height: 80px;
+    padding: 12px 16px !important;
+  }
+
+  .topbar-content {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .brand-logo {
+    height: 50px;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: space-between;
+    gap: 8px;
+    font-size: 13px;
+  }
+
+  .nav-link {
+    font-size: 13px;
+    letter-spacing: 0.4px;
+  }
+
+  .nav-cta {
+    font-size: 13px;
+    padding: 10px 16px;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .brand-logo {
+    height: 44px;
+  }
+
+  .nav-links {
+    font-size: 11px;
+    gap: 6px;
+  }
+
+  .nav-link {
+    font-size: 11px;
+  }
+
+  .nav-cta {
+    font-size: 11px;
+    padding: 8px 12px;
+  }
+}
 </style>
