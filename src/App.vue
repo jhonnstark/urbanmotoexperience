@@ -20,21 +20,17 @@
         </a>
 
         <nav class="nav-links" aria-label="Main navigation">
-          <a class="nav-link" @click="scrollTo('about')" data-testid="nav-experience">{{
+          <a class="nav-link" @click="scrollTo('experience')" data-testid="nav-experience">{{
             $t('nav.experience')
           }}</a>
           <a class="nav-link" @click="scrollTo('route')" data-testid="nav-route">{{
             $t('nav.route')
           }}</a>
-          <a class="nav-link" @click="scrollTo('gallery')" data-testid="nav-gallery">{{
-            $t('nav.gallery')
+          <a class="nav-link" @click="scrollTo('about')" data-testid="nav-about">{{
+            $t('nav.about')
           }}</a>
-          <a class="nav-link" @click="scrollTo('socials')" data-testid="nav-socials">{{
-            $t('nav.socials')
-          }}</a>
-          <a class="nav-cta" @click="scrollTo('contact')" data-testid="nav-book-a-ride">{{
-            $t('nav.book_a_ride')
-          }}</a>
+          <a class="nav-link" @click="scrollTo('faq')" data-testid="nav-faq">{{ $t('nav.faq') }}</a>
+          <v-btn class="nav-cta" @click="scrollTo('contact')">{{ $t('nav.book_a_ride') }}</v-btn>
         </nav>
       </div>
     </v-app-bar>
@@ -206,7 +202,7 @@ const scrollTo = (id: string) => {
   margin-left: 6px;
   padding: 18px 28px;
   color: white;
-  background: #06240f;
+  background-color: #06240f;
   border-radius: 8px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.16);
   cursor: pointer;
@@ -216,12 +212,12 @@ const scrollTo = (id: string) => {
   font-weight: 600;
   letter-spacing: 0.6px;
   text-transform: uppercase;
-  transition: background 0.2s ease;
+  transition: background-color 0.2s ease;
   display: inline-block;
 }
 
 .nav-cta:hover {
-  background: #0a3618;
+  background-color: #0a3618;
 }
 
 @media (max-width: 1200px) {

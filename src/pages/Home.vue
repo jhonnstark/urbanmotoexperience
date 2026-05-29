@@ -17,10 +17,10 @@
         </p>
 
         <div class="hero-actions">
-          <v-btn class="btn btn-primary" @click="scrollTo('book')"
+          <v-btn class="btn btn-primary" height="68" width="242" @click="scrollTo('book')"
             >{{ $t('home.hero.book_button') }} <span>→</span></v-btn
           >
-          <v-btn class="btn btn-secondary" @click="scrollTo('route')"
+          <v-btn class="btn btn-secondary" height="68" width="242" @click="scrollTo('route')"
             >{{ $t('home.hero.route_button') }} <span>→</span></v-btn
           >
         </div>
@@ -153,7 +153,7 @@ const scrollTo = (id: string) => {
 }
 
 .btn-primary {
-  background: rgb(var(--v-theme-green));
+  background-color: rgb(var(--v-theme-green));
   color: white;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
 }
