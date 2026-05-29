@@ -61,9 +61,32 @@ const scrollTo = (id: string) => {
 }
 </script>
 
+<style>
+/* Global styles for sticky header */
+.v-app-bar.topbar {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 1000 !important;
+}
+
+/* Add padding to main content to account for fixed header */
+.v-main {
+  padding-top: 118px !important;
+}
+
+@media (max-width: 900px) {
+  .v-main {
+    padding-top: 80px !important;
+  }
+}
+</style>
+
 <style scoped>
 .topbar {
   padding: 0 36px 0 46px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
 }
 
 .topbar-content {

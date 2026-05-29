@@ -139,7 +139,7 @@ const scrollTo = (id: string) => {
 
 .btn {
   width: 242px;
-  height: 68px !important;
+  height: 68px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -153,13 +153,13 @@ const scrollTo = (id: string) => {
 }
 
 .btn-primary {
-  background: rgb(var(--v-theme-green)) !important;
-  color: white !important;
+  background: rgb(var(--v-theme-green));
+  color: white;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
 }
 
 .btn-secondary {
-  color: white !important;
+  color: white;
   border: 2px solid rgba(255, 255, 255, 0.8);
   background: rgba(0, 0, 0, 0.18);
 }

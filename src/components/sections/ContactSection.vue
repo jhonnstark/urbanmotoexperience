@@ -10,16 +10,18 @@
         <p class="tagline reveal c3">{{ $t('contact.subtitle') }}</p>
 
         <div class="contact-actions reveal c4">
-          <a class="cta whatsapp" href="https://wa.me/" target="_blank" rel="noreferrer"
-            ><span>☏</span> {{ $t('contact.whatsapp_button') }} <b>→</b></a
-          >
+          <a class="cta whatsapp" href="https://wa.me/" target="_blank" rel="noreferrer">
+            <Phone :size="34" :stroke-width="2" />
+            {{ $t('contact.whatsapp_button') }} <b>→</b>
+          </a>
           <a
             class="cta instagram"
             href="https://instagram.com/urbanmotoexperiencecdmx"
             target="_blank"
-            rel="noreferrer"
-            ><span>◎</span> {{ $t('contact.instagram_button') }} <b>→</b></a
-          >
+            rel="noreferrer">
+            <Instagram :size="34" :stroke-width="2" />
+            {{ $t('contact.instagram_button') }} <b>→</b>
+          </a>
         </div>
 
         <div class="quick-features reveal c5">
@@ -46,6 +48,7 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 import { computed } from 'vue'
+import { Phone, Instagram } from 'lucide-vue-next'
 
 const { t } = useI18n()
 
@@ -149,8 +152,8 @@ const benefits = computed(() => {
   font-size: 23px;
   letter-spacing: 0.02em;
 }
-.cta span {
-  font-size: 34px;
+.cta svg {
+  flex-shrink: 0;
 }
 .cta b {
   margin-left: auto;
@@ -187,7 +190,10 @@ const benefits = computed(() => {
   border-right: 0;
 }
 .quick-features :deep(.v-icon) {
-  color: #79b83f;
+  color: #79b83f !important;
+  width: 38px !important;
+  height: 38px !important;
+  font-size: 38px !important;
 }
 .quick-features strong {
   font-size: 17px;
@@ -223,13 +229,14 @@ const benefits = computed(() => {
   border-right: 0;
 }
 .benefit-bar :deep(.v-icon) {
-  width: 64px;
-  height: 64px;
+  width: 64px !important;
+  height: 64px !important;
   border: 2px solid #79b83f;
   border-radius: 999px;
-  color: #79b83f;
+  color: #79b83f !important;
   display: grid;
   place-items: center;
+  font-size: 36px !important;
 }
 .benefit-bar strong {
   color: #65a936;
