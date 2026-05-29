@@ -13,7 +13,7 @@
           class="gallery-item"
           :style="{ '--delay': `${440 + index * 95}ms` }"
         >
-          <div class="gallery-placeholder"></div>
+          <img :src="image" :alt="`Gallery image ${index + 1}`" class="gallery-image" />
         </figure>
       </div>
     </div>
@@ -21,15 +21,22 @@
 </template>
 
 <script setup lang="ts">
-const images = Array.from({ length: 6 }, (_, index) => `/images/gallery-${index + 1}.png`)
+const images = [
+  '/images/experience/angel.png',
+  '/images/experience/bellasartess.png',
+  '/images/experience/chapultepec.png',
+  '/images/experience/girl.png',
+  '/images/experience/jacarandas.png',
+  '/images/experience/pareja.png',
+]
 </script>
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&display=swap');
 .gallery-section {
-  --dark: #071a2c;
-  --green: #79b83f;
-  background: #fff;
+  --dark: var(--um-navy);
+  --green: var(--um-green-primary);
+  background: var(--um-white);
   color: var(--dark);
   font-family: 'Oswald', system-ui, sans-serif;
   padding: 58px 52px 78px;
@@ -42,7 +49,7 @@ const images = Array.from({ length: 6 }, (_, index) => `/images/gallery-${index 
 }
 .eyebrow {
   margin: 0;
-  color: var(--green);
+  color: var(--um-green-primary);
   font-size: 18px;
   font-weight: 900;
   text-transform: uppercase;
@@ -50,7 +57,7 @@ const images = Array.from({ length: 6 }, (_, index) => `/images/gallery-${index 
 .line {
   width: 38px;
   height: 2px;
-  background: var(--green);
+  background: var(--um-green-primary);
   margin: 18px auto 24px;
 }
 .title {
@@ -83,13 +90,13 @@ const images = Array.from({ length: 6 }, (_, index) => `/images/gallery-${index 
   animation: itemIn 0.68s ease forwards;
   animation-delay: var(--delay);
 }
-.gallery-placeholder {
+.gallery-image {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #dce9f4, #567655 55%, #243b2e);
+  object-fit: cover;
   transition: transform 0.5s ease;
 }
-.gallery-item:hover .gallery-placeholder {
+.gallery-item:hover .gallery-image {
   transform: scale(1.045);
 }
 .reveal {

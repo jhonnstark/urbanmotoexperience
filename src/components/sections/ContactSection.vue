@@ -55,24 +55,35 @@ const contactTitle = computed(() => {
   return `<span>${part1}</span><span><em>${part2}</em></span>`
 })
 
-const quickFeatures = computed(() => {
-  const features = t('contact.features')
-  return Array.isArray(features) ? features : []
-})
+interface Feature {
+  text: string;
+  icon: string;
+}
 
-const benefits = computed(() => {
-  const highlights = t('contact.highlights')
-  return Array.isArray(highlights) ? highlights : []
-})
+interface Benefit {
+  title: string;
+  icon: string;
+  description: string;
+}
+
+const quickFeatures = computed<Feature[]>(() => {
+  const features = t('contact.features') as unknown as Feature[];
+  return Array.isArray(features) ? features : [];
+});
+
+const benefits = computed<Benefit[]>(() => {
+  const highlights = t('contact.highlights') as unknown as Benefit[];
+  return Array.isArray(highlights) ? highlights : [];
+});
 </script>
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&display=swap');
 .contact-section {
-  background: #fff;
+  background: var(--um-white);
   padding: 44px 8px 72px;
   font-family: 'Oswald', system-ui, sans-serif;
-  color: white;
+  color: var(--um-white);
   overflow: hidden;
 }
 .contact-card {
@@ -118,12 +129,12 @@ const benefits = computed(() => {
 }
 .contact-title em {
   font-style: normal;
-  color: #79b83f;
+  color: var(--um-green-primary);
 }
 .accent {
   width: 90px;
   height: 4px;
-  background: #79b83f;
+  background: var(--um-green-primary);
   margin: 34px 0 30px;
 }
 .tagline {
@@ -157,13 +168,20 @@ const benefits = computed(() => {
   font-size: 36px;
 }
 .whatsapp {
-  background: #68b936;
-  color: white;
+  background: var(--um-green-primary);
+  color: var(--um-white);
+}
+.whatsapp:hover {
+  background: var(--um-green-dark);
 }
 .instagram {
-  border: 2px solid rgba(255, 255, 255, 0.9);
-  color: white;
+  border: 2px solid rgba(245, 245, 242, 0.9);
+  color: var(--um-off-white);
   background: rgba(0, 0, 0, 0.16);
+}
+.instagram:hover {
+  background: var(--um-white);
+  color: var(--um-navy);
 }
 .quick-features {
   display: grid;
@@ -187,7 +205,7 @@ const benefits = computed(() => {
   border-right: 0;
 }
 .quick-features :deep(.v-icon) {
-  color: #79b83f;
+  color: var(--um-green-primary);
 }
 .quick-features strong {
   font-size: 17px;
@@ -225,14 +243,14 @@ const benefits = computed(() => {
 .benefit-bar :deep(.v-icon) {
   width: 64px;
   height: 64px;
-  border: 2px solid #79b83f;
+  border: 2px solid var(--um-green-primary);
   border-radius: 999px;
-  color: #79b83f;
+  color: var(--um-green-primary);
   display: grid;
   place-items: center;
 }
 .benefit-bar strong {
-  color: #65a936;
+  color: var(--um-green-dark);
   text-transform: uppercase;
   font-size: 18px;
 }

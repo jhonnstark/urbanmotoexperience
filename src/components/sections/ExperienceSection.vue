@@ -24,7 +24,7 @@
           :style="{ '--delay': `${460 + index * 120}ms` }"
         >
           <div class="feature-image-wrap">
-            <div class="feature-image-placeholder"></div>
+            <img :src="feature.image" :alt="feature.title" class="feature-image" />
           </div>
 
           <div class="feature-content">
@@ -50,6 +50,7 @@ type Feature = {
   title: string
   description: string
   icon: typeof ShieldCheck
+  image: string
 }
 
 const features = computed<Feature[]>(() => [
@@ -58,30 +59,35 @@ const features = computed<Feature[]>(() => [
     title: t('experience.features.helmet.title'),
     description: t('experience.features.helmet.description'),
     icon: ShieldCheck,
+    image: '/images/included/cassco.png',
   },
   {
     key: 'photos',
     title: t('experience.features.photos.title'),
     description: t('experience.features.photos.description'),
     icon: Camera,
+    image: '/images/included/angel.png',
   },
   {
     key: 'stories',
     title: t('experience.features.stories.title'),
     description: t('experience.features.stories.description'),
     icon: Mic,
+    image: '/images/included/guia.png',
   },
   {
     key: 'driver',
     title: t('experience.features.driver.title'),
     description: t('experience.features.driver.description'),
     icon: Bike,
+    image: '/images/included/motoreforma.png',
   },
   {
     key: 'coffee',
     title: t('experience.features.coffee.title'),
     description: t('experience.features.coffee.description'),
     icon: Coffee,
+    image: '/images/included/cup.png',
   },
 ])
 </script>
@@ -90,14 +96,14 @@ const features = computed<Feature[]>(() => [
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700;800&display=swap');
 
 .experience-section {
-  --experience-dark: #071a2c;
-  --experience-text: #172234;
-  --experience-muted: #4f5b66;
-  --experience-green: #79b83f;
-  --experience-green-dark: #4f9b32;
-  --experience-card: #ffffff;
+  --experience-dark: var(--um-navy);
+  --experience-text: var(--um-text-main);
+  --experience-muted: var(--um-text-muted);
+  --experience-green: var(--um-green-primary);
+  --experience-green-dark: var(--um-green-dark);
+  --experience-card: var(--um-white);
 
-  background: #fff;
+  background: var(--um-white);
   color: var(--experience-text);
   font-family: 'Oswald', system-ui, sans-serif;
   overflow: hidden;
@@ -117,7 +123,7 @@ const features = computed<Feature[]>(() => [
 
 .experience-eyebrow {
   margin: 0;
-  color: var(--experience-green);
+  color: var(--um-green-primary);
   font-size: 20px;
   font-weight: 800;
   letter-spacing: 0.02em;
@@ -128,7 +134,7 @@ const features = computed<Feature[]>(() => [
   width: 38px;
   height: 2px;
   margin: 18px auto 24px;
-  background: var(--experience-green);
+  background: var(--um-green-primary);
 }
 
 .experience-title {
@@ -161,7 +167,7 @@ const features = computed<Feature[]>(() => [
   overflow: hidden;
   border-radius: 10px;
   background: var(--experience-card);
-  box-shadow: 0 18px 42px rgba(7, 26, 44, 0.065);
+  box-shadow: var(--um-shadow-card);
   opacity: 0;
   transform: translateY(28px);
   animation: featureFadeUp 0.78s ease forwards;
@@ -175,14 +181,15 @@ const features = computed<Feature[]>(() => [
   border-radius: 10px;
 }
 
-.feature-image-placeholder {
+.feature-image {
   width: 100%;
   height: 100%;
-  background:
-    radial-gradient(circle at 32% 20%, rgba(121, 184, 63, 0.35), transparent 28%),
-    linear-gradient(135deg, #dce9f4, #567655 55%, #142a1d);
-  animation: imageSettle 0.95s ease forwards;
-  animation-delay: calc(var(--delay) + 80ms);
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.feature-image-wrap:hover .feature-image {
+  transform: scale(1.1);
 }
 
 .feature-content {
@@ -195,8 +202,8 @@ const features = computed<Feature[]>(() => [
   width: 62px;
   height: 62px;
   margin: 0 auto 24px;
-  color: var(--experience-dark);
-  filter: drop-shadow(3px 3px 0 rgba(121, 184, 63, 0.55));
+  color: var(--um-navy);
+  filter: drop-shadow(3px 3px 0 rgba(127, 178, 57, 0.55));
   opacity: 0;
   transform: translateY(10px) scale(0.9);
   animation: iconPop 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.25) forwards;
@@ -247,15 +254,6 @@ const features = computed<Feature[]>(() => [
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes imageSettle {
-  from {
-    transform: scale(1.045);
-  }
-  to {
-    transform: scale(1);
   }
 }
 

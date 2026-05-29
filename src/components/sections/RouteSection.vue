@@ -20,7 +20,9 @@
             class="route-stop reveal-stop"
             :style="{ '--delay': `${420 + index * 120}ms` }"
           >
-            <div class="stop-thumb" :alt="stop.title"></div>
+            <div class="stop-thumb" :alt="stop.title">
+              <img v-if="stop.image" :src="stop.image" :alt="stop.title" class="stop-thumb-img" />
+            </div>
             <div class="stop-number">{{ stop.id }}</div>
             <div class="stop-body">
               <h3>{{ stop.title }}</h3>
@@ -61,7 +63,9 @@
             <span class="pin" aria-hidden="true"></span>
             <span class="map-number">{{ point.id }}</span>
             <strong>{{ point.label }}</strong>
-            <div class="point-image"></div>
+            <div class="point-image">
+              <img v-if="point.image" :src="point.image" :alt="point.label" class="point-image-img" />
+            </div>
           </div>
         </div>
 
@@ -72,7 +76,10 @@
             class="stat-card"
             :style="{ '--delay': `${1100 + index * 110}ms` }"
           >
-            <span class="stat-icon" aria-hidden="true">{{ stat.icon }}</span>
+            <div class="stat-icon" aria-hidden="true">
+              <img v-if="stat.image" :src="stat.image" :alt="stat.label" class="stat-icon-img" />
+              <span v-else>{{ stat.icon }}</span>
+            </div>
             <div>
               <p>{{ stat.label }}</p>
               <strong>{{ stat.value }}</strong>
@@ -90,67 +97,97 @@ import { computed } from 'vue'
 
 const { t } = useI18n()
 
-type Stop = {
+interface Stop {
   id: number
   title: string
   description: string
+  image?: string
 }
 
-type MapPoint = {
+interface MapPoint {
   id: number
   label: string
+  image?: string
 }
 
-type Stat = {
+interface Stat {
   icon: string
   label: string
   value: string
+  image?: string
 }
 
-const stops = computed<Stop[]>(() => [
-  {
-    id: 1,
-    title: t('route.stops[0].name'),
-    description: t('route.stops[0].description'),
-  },
-  {
-    id: 2,
-    title: t('route.stops[1].name'),
-    description: t('route.stops[1].description'),
-  },
-  {
-    id: 3,
-    title: t('route.stops[2].name'),
-    description: t('route.stops[2].description'),
-  },
-  {
-    id: 4,
-    title: t('route.stops[3].name'),
-    description: t('route.stops[3].description'),
-  },
-  {
-    id: 5,
-    title: t('route.stops[4].name'),
-    description: t('route.stops[4].description'),
-  },
-  {
-    id: 6,
-    title: t('route.stops[5].name'),
-    description: t('route.stops[5].description'),
-  },
-])
+const stops = computed<Stop[]>(() => {
+  const images = [
+    '/images/ruta/parque.png',
+    '/images/ruta/angel.png',
+    '/images/ruta/chapultepec.png',
+    '/images/ruta/museo.png',
+    '/images/experience/bellasartess.png',
+    '/images/ruta/revol.png',
+  ]
+  
+  return [
+    {
+      id: 1,
+      title: t('route.stops[0].name'),
+      description: t('route.stops[0].description'),
+      image: images[0],
+    },
+    {
+      id: 2,
+      title: t('route.stops[1].name'),
+      description: t('route.stops[1].description'),
+      image: images[1],
+    },
+    {
+      id: 3,
+      title: t('route.stops[2].name'),
+      description: t('route.stops[2].description'),
+      image: images[2],
+    },
+    {
+      id: 4,
+      title: t('route.stops[3].name'),
+      description: t('route.stops[3].description'),
+      image: images[3],
+    },
+    {
+      id: 5,
+      title: t('route.stops[4].name'),
+      description: t('route.stops[4].description'),
+      image: images[4],
+    },
+    {
+      id: 6,
+      title: t('route.stops[5].name'),
+      description: t('route.stops[5].description'),
+      image: images[5],
+    },
+  ]
+})
 
-const mapPoints = computed<MapPoint[]>(() =>
-  stops.value.map((stop) => ({
+const mapPoints = computed<MapPoint[]>(() => {
+  const images = [
+    '/images/ruta/parque.png',
+    '/images/ruta/angel.png',
+    '/images/ruta/chapultepec.png',
+    '/images/ruta/museo.png',
+    '/images/experience/bellasartess.png',
+    '/images/ruta/revol.png',
+  ]
+  
+  return stops.value.map((stop, index) => ({
     id: stop.id,
     label: stop.title,
+    image: images[index] || undefined,
   }))
-)
+})
 
 const stats = computed<Stat[]>(() => [
-  { icon: '◷', label: t('route.stats.duration.label'), value: t('route.stats.duration.value') },
-  { icon: '⌁', label: t('route.stats.distance.label'), value: t('route.stats.distance.value') },
-  { icon: '🏍', label: t('route.stats.ride_type.label'), value: t('route.stats.ride_type.value') },
+  { icon: '◷', label: t('route.stats.duration.label'), value: t('route.stats.duration.value'), image: '/images/clock.png' },
+  { icon: '⌁', label: t('route.stats.distance.label'), value: t('route.stats.distance.value'), image: '/images/positionicon.png' },
+  { icon: '🏍', label: t('route.stats.ride_type.label'), value: t('route.stats.ride_type.value'), image: '/images/motoicon.png' },
   { icon: '♙', label: t('route.stats.group_size.label'), value: t('route.stats.group_size.value') },
 ])
 </script>
@@ -159,15 +196,15 @@ const stats = computed<Stat[]>(() => [
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&display=swap');
 
 .route-section {
-  --route-dark: #071a2c;
-  --route-text: #172234;
-  --route-muted: #4f5b66;
-  --route-green: #79b83f;
-  --route-green-dark: #4f9b32;
-  --route-soft: #f6faf2;
+  --route-dark: var(--um-navy);
+  --route-text: var(--um-text-main);
+  --route-muted: var(--um-text-muted);
+  --route-green: var(--um-green-primary);
+  --route-green-dark: var(--um-green-dark);
+  --route-soft: var(--um-off-white);
   --route-line: #e8ece8;
 
-  background: #fff;
+  background: var(--um-white);
   color: var(--route-text);
   font-family: 'Oswald', system-ui, sans-serif;
   overflow: hidden;
@@ -185,7 +222,7 @@ const stats = computed<Stat[]>(() => [
 
 .route-eyebrow {
   margin: 0;
-  color: var(--route-green);
+  color: var(--um-green-primary);
   font-size: 21px;
   font-weight: 800;
   letter-spacing: 0.02em;
@@ -196,7 +233,7 @@ const stats = computed<Stat[]>(() => [
   width: 42px;
   height: 2px;
   margin: 18px 0 28px;
-  background: var(--route-green);
+  background: var(--um-green-primary);
 }
 
 .route-title {
@@ -256,6 +293,18 @@ const stats = computed<Stat[]>(() => [
   border: 3px solid rgba(121, 184, 63, 0.42);
   background: radial-gradient(circle at 40% 35%, #eaf4e5, #a6c4dc 48%, #6b8e54);
   box-shadow: 0 7px 18px rgba(7, 26, 44, 0.14);
+  overflow: hidden;
+}
+
+.stop-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.stop-thumb:hover .stop-thumb-img {
+  transform: scale(1.1);
 }
 
 .stop-number {
@@ -268,7 +317,7 @@ const stats = computed<Stat[]>(() => [
   place-items: center;
   border-radius: 999px;
   background: var(--route-green);
-  color: white;
+  color: var(--um-white);
   font-size: 18px;
   font-weight: 800;
 }
@@ -367,7 +416,7 @@ const stats = computed<Stat[]>(() => [
   position: absolute;
   top: 14px;
   left: 14px;
-  color: white;
+  color: var(--um-white);
   font-size: 16px;
   letter-spacing: -6px;
   opacity: 0.9;
@@ -408,6 +457,18 @@ const stats = computed<Stat[]>(() => [
   border: 5px solid white;
   background: linear-gradient(135deg, #c9d8e8, #7aa665);
   box-shadow: 0 10px 24px rgba(7, 26, 44, 0.18);
+  overflow: hidden;
+}
+
+.point-image-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.point-image:hover .point-image-img {
+  transform: scale(1.1);
 }
 
 .pin {
@@ -425,7 +486,7 @@ const stats = computed<Stat[]>(() => [
   place-items: center;
   border-radius: 999px;
   background: var(--route-green);
-  color: white;
+  color: var(--um-white);
   font-size: 17px;
 }
 
@@ -489,9 +550,9 @@ const stats = computed<Stat[]>(() => [
   padding: 18px 22px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  background: rgba(246, 250, 242, 0.96);
+  background: rgba(245, 245, 242, 0.96);
   border-radius: 16px;
-  box-shadow: 0 14px 36px rgba(7, 26, 44, 0.08);
+  box-shadow: var(--um-shadow-soft);
 }
 
 .stat-card {
@@ -520,6 +581,13 @@ const stats = computed<Stat[]>(() => [
   color: var(--route-green);
   font-size: 38px;
   line-height: 1;
+  flex-shrink: 0;
+}
+
+.stat-icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .stat-card p {
