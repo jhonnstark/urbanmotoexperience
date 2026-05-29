@@ -13,7 +13,7 @@
           class="gallery-item"
           :style="{ '--delay': `${440 + index * 95}ms` }"
         >
-          <div class="gallery-placeholder"></div>
+          <img :src="image" :alt="`Gallery image ${index + 1}`" class="gallery-image" />
         </figure>
       </div>
     </div>
@@ -21,7 +21,14 @@
 </template>
 
 <script setup lang="ts">
-const images = Array.from({ length: 6 }, (_, index) => `/images/gallery-${index + 1}.png`)
+const images = [
+  '/images/experience/angel.png',
+  '/images/experience/bellasartess.png',
+  '/images/experience/chapultepec.png',
+  '/images/experience/girl.png',
+  '/images/experience/jacarandas.png',
+  '/images/experience/pareja.png',
+]
 </script>
 
 <style scoped>
@@ -83,13 +90,13 @@ const images = Array.from({ length: 6 }, (_, index) => `/images/gallery-${index 
   animation: itemIn 0.68s ease forwards;
   animation-delay: var(--delay);
 }
-.gallery-placeholder {
+.gallery-image {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #dce9f4, #567655 55%, #243b2e);
+  object-fit: cover;
   transition: transform 0.5s ease;
 }
-.gallery-item:hover .gallery-placeholder {
+.gallery-item:hover .gallery-image {
   transform: scale(1.045);
 }
 .reveal {

@@ -24,7 +24,7 @@
           :style="{ '--delay': `${460 + index * 120}ms` }"
         >
           <div class="feature-image-wrap">
-            <div class="feature-image-placeholder"></div>
+            <img :src="feature.image" :alt="feature.title" class="feature-image" />
           </div>
 
           <div class="feature-content">
@@ -50,6 +50,7 @@ type Feature = {
   title: string
   description: string
   icon: typeof ShieldCheck
+  image: string
 }
 
 const features = computed<Feature[]>(() => [
@@ -58,30 +59,35 @@ const features = computed<Feature[]>(() => [
     title: t('experience.features.helmet.title'),
     description: t('experience.features.helmet.description'),
     icon: ShieldCheck,
+    image: '/images/included/cassco.png',
   },
   {
     key: 'photos',
     title: t('experience.features.photos.title'),
     description: t('experience.features.photos.description'),
     icon: Camera,
+    image: '/images/included/angel.png',
   },
   {
     key: 'stories',
     title: t('experience.features.stories.title'),
     description: t('experience.features.stories.description'),
     icon: Mic,
+    image: '/images/included/guia.png',
   },
   {
     key: 'driver',
     title: t('experience.features.driver.title'),
     description: t('experience.features.driver.description'),
     icon: Bike,
+    image: '/images/included/motoreforma.png',
   },
   {
     key: 'coffee',
     title: t('experience.features.coffee.title'),
     description: t('experience.features.coffee.description'),
     icon: Coffee,
+    image: '/images/included/cup.png',
   },
 ])
 </script>
@@ -175,12 +181,10 @@ const features = computed<Feature[]>(() => [
   border-radius: 10px;
 }
 
-.feature-image-placeholder {
+.feature-image {
   width: 100%;
   height: 100%;
-  background:
-    radial-gradient(circle at 32% 20%, rgba(121, 184, 63, 0.35), transparent 28%),
-    linear-gradient(135deg, #dce9f4, #567655 55%, #142a1d);
+  object-fit: cover;
   animation: imageSettle 0.95s ease forwards;
   animation-delay: calc(var(--delay) + 80ms);
 }
