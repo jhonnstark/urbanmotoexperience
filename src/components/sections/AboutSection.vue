@@ -62,7 +62,7 @@ const scrollToExperience = () => {
 .about-section {
   --dark: #071a2c;
   --text: #172234;
-  --green: #79b83f;
+  --green: #8cc63f;
   --line: rgba(7, 26, 44, 0.15);
   background: #fff;
   color: var(--text);
@@ -165,7 +165,9 @@ const scrollToExperience = () => {
   border-radius: 6px;
   background: white;
   color: var(--green);
-  font: 800 18px 'Oswald', sans-serif;
+  font:
+    800 18px 'Oswald',
+    sans-serif;
   text-transform: uppercase;
   display: inline-flex;
   align-items: center;
