@@ -8,15 +8,7 @@
           @click.prevent="scrollTo('home')"
           aria-label="Urban Moto Experience CDMX home"
         >
-          <div class="brand-shield">
-            <span class="shield-city">▴▴</span>
-            <span class="shield-road"></span>
-          </div>
-          <div class="brand-copy">
-            <span class="brand-title">Urban Moto</span>
-            <span class="brand-sub">✦ Experience ✦</span>
-            <span class="brand-city">CDMX</span>
-          </div>
+          <img src="/images/log3.png" alt="Urban Moto Experience CDMX" class="brand-logo" />
         </a>
 
         <nav class="nav-links" aria-label="Main navigation">
@@ -98,74 +90,15 @@ const scrollTo = (id: string) => {
 .brand {
   display: flex;
   align-items: center;
-  gap: 18px;
   text-decoration: none;
   color: inherit;
   cursor: pointer;
 }
 
-.brand-shield {
-  width: 84px;
-  height: 88px;
-  clip-path: polygon(50% 0, 96% 18%, 86% 76%, 50% 100%, 14% 76%, 4% 18%);
-  border: 3px solid #0e2230;
-  background: linear-gradient(145deg, #eaf0ef 0%, #0a2530 48%, #07150d 100%);
-  position: relative;
-  box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.45);
-}
-
-.shield-city {
-  position: absolute;
-  top: 18px;
-  left: 18px;
-  color: white;
-  font-size: 20px;
-  letter-spacing: -8px;
-  opacity: 0.9;
-}
-
-.shield-road {
-  position: absolute;
-  left: 33px;
-  bottom: 11px;
-  width: 14px;
-  height: 56px;
-  border-radius: 999px;
-  background: linear-gradient(#94c943, #eaf3d2);
-  transform: rotate(-32deg);
-  opacity: 0.9;
-}
-
-.brand-copy {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  line-height: 1;
-  text-transform: uppercase;
-}
-
-.brand-title {
-  font-size: 38px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  font-family: 'Oswald', sans-serif;
-}
-
-.brand-sub {
-  margin-top: 6px;
-  color: #8cc63f;
-  font-size: 17px;
-  font-weight: 700;
-  letter-spacing: 6px;
-  font-family: 'Oswald', sans-serif;
-}
-
-.brand-city {
-  margin-top: 8px;
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 8px;
-  font-family: 'Oswald', sans-serif;
+.brand-logo {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
 }
 
 .nav-links {
@@ -180,7 +113,7 @@ const scrollTo = (id: string) => {
 }
 
 .nav-link {
-  color: #101820;
+  color: var(--um-navy);
   text-decoration: none;
   cursor: pointer;
   background: none;
@@ -201,8 +134,8 @@ const scrollTo = (id: string) => {
 .nav-cta {
   margin-left: 6px;
   padding: 18px 28px;
-  color: white;
-  background-color: #06240f;
+  color: var(--um-white) !important;
+  background: var(--um-green-deep);
   border-radius: 8px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.16);
   cursor: pointer;
@@ -217,7 +150,7 @@ const scrollTo = (id: string) => {
 }
 
 .nav-cta:hover {
-  background-color: #0a3618;
+  background: var(--um-green-dark);
 }
 
 @media (max-width: 1200px) {
@@ -249,46 +182,8 @@ const scrollTo = (id: string) => {
     gap: 12px;
   }
 
-  .brand {
-    gap: 12px;
-  }
-
-  .brand-shield {
-    width: 52px;
-    height: 56px;
-    border: 2px solid #0e2230;
-    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.45);
-  }
-
-  .shield-city {
-    top: 12px;
-    left: 12px;
-    font-size: 16px;
-    letter-spacing: -6px;
-  }
-
-  .shield-road {
-    left: 26px;
-    bottom: 8px;
-    width: 10px;
-    height: 42px;
-  }
-
-  .brand-title {
-    font-size: 24px;
-    letter-spacing: 2px;
-  }
-
-  .brand-sub {
-    font-size: 13px;
-    letter-spacing: 4px;
-    margin-top: 4px;
-  }
-
-  .brand-city {
-    font-size: 14px;
-    letter-spacing: 6px;
-    margin-top: 6px;
+  .brand-logo {
+    height: 50px;
   }
 
   .nav-links {
@@ -311,18 +206,8 @@ const scrollTo = (id: string) => {
 }
 
 @media (max-width: 600px) {
-  .brand-title {
-    font-size: 20px;
-  }
-
-  .brand-sub {
-    font-size: 11px;
-    letter-spacing: 3px;
-  }
-
-  .brand-city {
-    font-size: 12px;
-    letter-spacing: 4px;
+  .brand-logo {
+    height: 44px;
   }
 
   .nav-links {

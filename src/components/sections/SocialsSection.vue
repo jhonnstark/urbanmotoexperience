@@ -13,7 +13,9 @@
           class="post"
           :style="{ '--delay': `${420 + index * 90}ms` }"
         >
-          <div class="post-placeholder"></div>
+          <div class="post-placeholder">
+            <img :src="post.src" :alt="`Social post ${index + 1}`" class="post-image" />
+          </div>
           <div v-if="post.video" class="play" aria-hidden="true">▶</div>
           <div v-if="post.video" class="video-text">Ride Through <em>CDMX</em></div>
         </article>
@@ -44,7 +46,7 @@
 
 <script setup lang="ts">
 const posts = Array.from({ length: 6 }, (_, index) => ({
-  src: `/images/social-${index + 1}.png`,
+  src: '/images/reforma.png',
   video: index === 5,
 }))
 const stories = [
@@ -60,9 +62,9 @@ const stories = [
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&display=swap');
 .socials-section {
-  --dark: #071a2c;
-  --green: #79b83f;
-  background: #fff;
+  --dark: var(--um-navy);
+  --green: var(--um-green-primary);
+  background: var(--um-white);
   color: var(--dark);
   font-family: 'Oswald', system-ui, sans-serif;
   padding: 52px 58px 50px;
@@ -75,7 +77,7 @@ const stories = [
 }
 .eyebrow {
   margin: 0;
-  color: var(--green);
+  color: var(--um-green-primary);
   font-size: 18px;
   font-weight: 900;
   text-transform: uppercase;
@@ -83,7 +85,7 @@ const stories = [
 .line {
   width: 38px;
   height: 2px;
-  background: var(--green);
+  background: var(--um-green-primary);
   margin: 18px auto 22px;
 }
 .title {
@@ -120,10 +122,18 @@ const stories = [
   width: 100%;
   height: 100%;
   background: linear-gradient(135deg, #dce9f4, #567655 55%, #243b2e);
+  overflow: hidden;
+}
+
+.post-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   transition: transform 0.5s ease;
 }
-.post:hover .post-placeholder {
-  transform: scale(1.04);
+
+.post:hover .post-image {
+  transform: scale(1.1);
 }
 .play {
   position: absolute;
@@ -131,11 +141,11 @@ const stories = [
   margin: auto;
   width: 90px;
   height: 90px;
-  border: 6px solid white;
+  border: 6px solid var(--um-white);
   border-radius: 999px;
   display: grid;
   place-items: center;
-  color: white;
+  color: var(--um-white);
   font-size: 42px;
   background: rgba(255, 255, 255, 0.08);
   text-indent: 6px;
@@ -144,7 +154,7 @@ const stories = [
   position: absolute;
   right: 30px;
   bottom: 26px;
-  color: white;
+  color: var(--um-white);
   font-family: 'Bebas Neue', Impact, sans-serif;
   font-size: 36px;
   line-height: 0.9;
@@ -178,7 +188,7 @@ const stories = [
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  color: white;
+  color: var(--um-white);
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 900;
@@ -204,7 +214,7 @@ const stories = [
   width: 68px;
   height: 68px;
   border-radius: 999px;
-  border: 2px solid var(--green);
+  border: 2px solid var(--um-green-primary);
   padding: 2px;
   background: linear-gradient(135deg, #c9d8e8, #7aa665);
 }

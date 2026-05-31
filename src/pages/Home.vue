@@ -2,6 +2,8 @@
   <div id="home">
     <main class="hero" aria-label="Explore Mexico City on two wheels">
       <div class="hero-overlay"></div>
+      
+      <img src="/images/motos.png" alt="Motorcycles" class="hero-motos" />
 
       <section class="hero-content">
         <h1>
@@ -92,6 +94,26 @@ const scrollTo = (id: string) => {
     linear-gradient(0deg, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.08) 55%);
 }
 
+.hero-motos {
+  position: absolute;
+  bottom: 0;
+  right: 5%;
+  max-width: 45%;
+  height: auto;
+  z-index: 1;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
+  opacity: 0;
+  transform: translateX(50px);
+  animation: introMotos 1.2s ease-out 0.5s forwards;
+}
+
+@keyframes introMotos {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .hero-content {
   position: relative;
   z-index: 1;
@@ -118,7 +140,7 @@ const scrollTo = (id: string) => {
   width: 92px;
   height: 4px;
   margin: 34px 0 22px;
-  background: rgb(var(--v-theme-green));
+  background: var(--um-green-primary);
   border-radius: 999px;
 }
 
@@ -153,13 +175,18 @@ const scrollTo = (id: string) => {
 }
 
 .btn-primary {
-  background-color: rgb(var(--v-theme-green));
-  color: white;
+  background: var(--um-green-primary);
+  color: var(--um-white);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+  transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: var(--um-green-dark) !important;
 }
 
 .btn-secondary {
-  color: white;
+  color: var(--um-white);
   border: 2px solid rgba(255, 255, 255, 0.8);
   background: rgba(0, 0, 0, 0.18);
 }
@@ -197,6 +224,18 @@ const scrollTo = (id: string) => {
   .hero-actions {
     flex-direction: column;
     gap: 16px;
+  }
+
+  .hero-motos {
+    max-width: 60%;
+    right: 2%;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-motos {
+    max-width: 70%;
+    right: 0;
   }
 }
 </style>

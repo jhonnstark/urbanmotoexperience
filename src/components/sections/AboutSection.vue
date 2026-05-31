@@ -60,11 +60,11 @@ const scrollToExperience = () => {
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&display=swap');
 
 .about-section {
-  --dark: #071a2c;
-  --text: #172234;
-  --green: #8cc63f;
-  --line: rgba(7, 26, 44, 0.15);
-  background: #fff;
+  --dark: var(--um-navy);
+  --text: var(--um-text-main);
+  --green: var(--um-green-primary);
+  --line: var(--um-border-soft);
+  background: var(--um-white);
   color: var(--text);
   font-family: 'Oswald', system-ui, sans-serif;
   overflow: hidden;
@@ -82,7 +82,7 @@ const scrollToExperience = () => {
 
 .eyebrow {
   margin: 0;
-  color: var(--green);
+  color: var(--um-green-primary);
   font-size: 20px;
   font-weight: 800;
   text-transform: uppercase;
@@ -91,7 +91,7 @@ const scrollToExperience = () => {
   width: 43px;
   height: 2px;
   margin: 20px 0 44px;
-  background: var(--green);
+  background: var(--um-green-primary);
 }
 
 .about-title {
@@ -163,7 +163,7 @@ const scrollToExperience = () => {
   margin-top: 56px;
   border: 2px solid var(--green);
   border-radius: 6px;
-  background: white;
+  background: var(--um-white);
   color: var(--green);
   font:
     800 18px 'Oswald',
@@ -179,21 +179,29 @@ const scrollToExperience = () => {
 
 .learn-btn:hover {
   background: var(--green);
-  color: white;
+  color: var(--um-white);
 }
 
 .about-image-wrap {
   opacity: 0;
   transform: translateX(36px);
   animation: fadeLeft 0.9s ease forwards 360ms;
+  border-radius: 22px;
+  overflow: hidden;
 }
+
 .about-image {
   min-height: 890px;
   border-radius: 22px;
-  background-image: url('/images/about-main.png'), linear-gradient(135deg, #8db7d8, #243b2e);
+  background-image: url('/images/reforma.png'), linear-gradient(135deg, #8db7d8, #243b2e);
   background-size: cover;
   background-position: center;
   box-shadow: 0 18px 52px rgba(7, 26, 44, 0.12);
+  transition: transform 0.5s ease;
+}
+
+.about-image-wrap:hover .about-image {
+  transform: scale(1.05);
 }
 
 .reveal {

@@ -39,33 +39,28 @@
       "title": "WAS IST INBEGRIFFEN",
       "description": "Wir kümmern uns um die Details, damit Sie die Stadt, die Fahrt und das Erlebnis genießen können."
     },
-    "features": [
-      {
+    "features": {
+      "helmet": {
         "title": "EXTRA HELM",
-        "description": "Hochwertige Helme für Ihre Sicherheit und Ihren Komfort.",
-        "icon": "mdi-motorbike-helmet"
+        "description": "Hochwertige Helme für Ihre Sicherheit und Ihren Komfort."
       },
-      {
+      "photos": {
         "title": "FOTOSTOPPS",
-        "description": "Schöne Orte entlang der Route, um tolle Bilder zu machen.",
-        "icon": "mdi-camera-outline"
+        "description": "Schöne Orte entlang der Route, um tolle Bilder zu machen."
       },
-      {
+      "stories": {
         "title": "LOKALE GESCHICHTEN",
-        "description": "Entdecken Sie die Stadt durch Geschichten, Geschichte und lokale Einblicke.",
-        "icon": "mdi-microphone-outline"
+        "description": "Entdecken Sie die Stadt durch Geschichten, Geschichte und lokale Einblicke."
       },
-      {
+      "driver": {
         "title": "FAHRER INBEGRIFFEN",
-        "description": "Entspannen Sie sich und genießen Sie die Fahrt. Unsere professionellen Fahrer kümmern sich um alles.",
-        "icon": "mdi-road-variant"
+        "description": "Entspannen Sie sich und genießen Sie die Fahrt. Unsere professionellen Fahrer kümmern sich um alles."
       },
-      {
+      "coffee": {
         "title": "OPTIONALER KAFFEESTOPP",
-        "description": "Wir können auf Wunsch einen Stopp in einem großartigen lokalen Café einlegen.",
-        "icon": "mdi-coffee-outline"
+        "description": "Wir können auf Wunsch einen Stopp in einem großartigen lokalen Café einlegen."
       }
-    ]
+    }
   },
   "route": {
     "header": {
@@ -98,7 +93,25 @@
         "name": "MONUMENT DER REVOLUTION",
         "description": "Wir enden an diesem beeindruckenden Symbol der mexikanischen Geschichte."
       }
-    ]
+    ],
+    "stats": {
+      "duration": {
+        "label": "Dauer",
+        "value": "3 – 4 Stunden"
+      },
+      "distance": {
+        "label": "Entfernung",
+        "value": "Ca. 25 km"
+      },
+      "ride_type": {
+        "label": "Fahrttyp",
+        "value": "Urban & Malerisch"
+      },
+      "group_size": {
+        "label": "Gruppengröße",
+        "value": "1 – 2 Personen"
+      }
+    }
   },
   "about": {
     "header": {
@@ -151,5 +164,14 @@
         "description": "Mehr als eine Tour, es ist eine Erinnerung."
       }
     ]
+  },
+  "socials": {
+    "header": {
+      "subtitle": "FOLGEN SIE DER FAHRT",
+      "title": "FOLGEN SIE DER FAHRT",
+      "description": "Echte Momente aus den Straßen von Mexiko-Stadt."
+    },
+    "instagram_handle": "@urbanmotoexperiencecdmx",
+    "follow_button": "Auf Instagram folgen"
   }
 }

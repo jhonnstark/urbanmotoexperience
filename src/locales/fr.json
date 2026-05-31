@@ -39,33 +39,28 @@
       "title": "CE QUI EST INCLUS",
       "description": "Nous nous occupons des détails pour que vous puissiez profiter de la ville, de la balade et de l'expérience."
     },
-    "features": [
-      {
+    "features": {
+      "helmet": {
         "title": "CASQUE SUPPLÉMENTAIRE",
-        "description": "Casques de haute qualité pour votre sécurité et votre confort.",
-        "icon": "mdi-motorbike-helmet"
+        "description": "Casques de haute qualité pour votre sécurité et votre confort."
       },
-      {
+      "photos": {
         "title": "ARRÊTS PHOTO",
-        "description": "De beaux endroits le long du parcours pour prendre des photos incroyables.",
-        "icon": "mdi-camera-outline"
+        "description": "De beaux endroits le long du parcours pour prendre des photos incroyables."
       },
-      {
+      "stories": {
         "title": "HISTOIRES LOCALES",
-        "description": "Découvrez la ville à travers des histoires, l'histoire et des connaissances locales.",
-        "icon": "mdi-microphone-outline"
+        "description": "Découvrez la ville à travers des histoires, l'histoire et des connaissances locales."
       },
-      {
+      "driver": {
         "title": "CHAUFFEUR INCLUS",
-        "description": "Détendez-vous et profitez de la balade. Nos chauffeurs professionnels s'occupent de tout.",
-        "icon": "mdi-road-variant"
+        "description": "Détendez-vous et profitez de la balade. Nos chauffeurs professionnels s'occupent de tout."
       },
-      {
+      "coffee": {
         "title": "ARRÊT CAFÉ OPTIONNEL",
-        "description": "Nous pouvons nousarrêter dans un excellent café local if you'd like.",
-        "icon": "mdi-coffee-outline"
+        "description": "Nous pouvons nous arrêter dans un excellent café local si vous le souhaitez."
       }
-    ]
+    }
   },
   "route": {
     "header": {
@@ -98,7 +93,25 @@
         "name": "MONUMENT À LA RÉVOLUTION",
         "description": "Nous terminons à cette icône impressionnante de l'histoire mexicaine."
       }
-    ]
+    ],
+    "stats": {
+      "duration": {
+        "label": "Durée",
+        "value": "3 – 4 heures"
+      },
+      "distance": {
+        "label": "Distance",
+        "value": "Env. 25 km"
+      },
+      "ride_type": {
+        "label": "Type de balade",
+        "value": "Urbain & Panoramique"
+      },
+      "group_size": {
+        "label": "Taille du groupe",
+        "value": "1 – 2 personnes"
+      }
+    }
   },
   "about": {
     "header": {
@@ -151,5 +164,14 @@
         "description": "Plus qu'un tour, c'est un souvenir."
       }
     ]
+  },
+  "socials": {
+    "header": {
+      "subtitle": "SUIVEZ LA BALADE",
+      "title": "SUIVEZ LA BALADE",
+      "description": "Moments réels des rues de Mexico."
+    },
+    "instagram_handle": "@urbanmotoexperiencecdmx",
+    "follow_button": "Suivre sur Instagram"
   }
 }
