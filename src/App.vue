@@ -21,7 +21,7 @@
           <a class="nav-link" @click="scrollTo('about')" data-testid="nav-about">{{
             $t('nav.about')
           }}</a>
-          <a class="nav-link" @click="scrollTo('faq')" data-testid="nav-faq">{{ $t('nav.faq') }}</a>
+          <a class="nav-link" @click="scrollTo('socials')" data-testid="nav-socials">{{ $t('nav.socials') }}</a>
           <v-btn class="nav-cta" @click="scrollTo('contact')">{{ $t('nav.book_a_ride') }}</v-btn>
         </nav>
       </div>
