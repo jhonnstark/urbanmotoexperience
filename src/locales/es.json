@@ -120,11 +120,31 @@
       "description": "Experiencias de motociclismo urbano en grupos pequeños por los lugares más icónicos de la Ciudad de México. Recorre Reforma, Chapultepec, Bellas Artes y calles históricas mientras descubres la ciudad desde una perspectiva local."
     },
     "features": [
-      { "icon": "mdi-account-group-outline", "text": "GUÍAS LOCALES" },
-      { "icon": "mdi-motorbike-helmet", "text": "CASCOS INCLUIDOS" },
-      { "icon": "mdi-camera-outline", "text": "PARADAS PARA FOTOS" },
-      { "icon": "mdi-account-multiple", "text": "GRUPOS PEQUEÑOS" },
-      { "icon": "mdi-map-marker-path", "text": "PASEOS PRIVADOS FLEXIBLES" }
+      {
+        "icon": "mdi-account-group-outline",
+        "text": "GUÍAS LOCALES",
+        "image": "/images/guias.png"
+      },
+      {
+        "icon": "mdi-motorbike-helmet",
+        "text": "CASCOS INCLUIDOS",
+        "image": "/images/cascos.png"
+      },
+      {
+        "icon": "mdi-camera-outline",
+        "text": "PARADAS PARA FOTOS",
+        "image": "/images/camara.png"
+      },
+      {
+        "icon": "mdi-account-multiple",
+        "text": "GRUPOS PEQUEÑOS",
+        "image": "/images/grupo.png"
+      },
+      {
+        "icon": "mdi-map-marker-path",
+        "text": "PASEOS PRIVADOS FLEXIBLES",
+        "image": "/images/private.png"
+      }
     ],
     "learn_more_button": "SABER MÁS"
   },
@@ -142,10 +162,22 @@
     "whatsapp_button": "RESERVA TU VIAJE EN WHATSAPP",
     "instagram_button": "VER INSTAGRAM",
     "features": [
-      { "icon": "mdi-account-multiple", "text": "GRUPOS PEQUEÑOS" },
-      { "icon": "mdi-calendar-clock", "text": "HORARIOS FLEXIBLES" },
-      { "icon": "mdi-motorbike-helmet", "text": "CASCOS INCLUIDOS" },
-      { "icon": "mdi-shield-check-outline", "text": "LA SEGURIDAD ES PRIMERO" }
+      {
+        "icon": "mdi-account-multiple",
+        "text": "GRUPOS PEQUEÑOS"
+      },
+      {
+        "icon": "mdi-calendar-clock",
+        "text": "HORARIOS FLEXIBLES"
+      },
+      {
+        "icon": "mdi-motorbike-helmet",
+        "text": "CASCOS INCLUIDOS"
+      },
+      {
+        "icon": "mdi-shield-check-outline",
+        "text": "LA SEGURIDAD ES PRIMERO"
+      }
     ],
     "highlights": [
       {

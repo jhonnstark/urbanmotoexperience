@@ -21,7 +21,9 @@
           <a class="nav-link" @click="scrollTo('about')" data-testid="nav-about">{{
             $t('nav.about')
           }}</a>
-          <a class="nav-link" @click="scrollTo('socials')" data-testid="nav-socials">{{ $t('nav.socials') }}</a>
+          <a class="nav-link" @click="scrollTo('socials')" data-testid="nav-socials">{{
+            $t('nav.socials')
+          }}</a>
           <v-btn class="nav-cta" @click="scrollTo('contact')">{{ $t('nav.book_a_ride') }}</v-btn>
         </nav>
       </div>
@@ -85,6 +87,7 @@ const scrollTo = (id: string) => {
   justify-content: space-between;
   width: 100%;
   height: 100%;
+  padding: 0 20px;
 }
 
 .brand {

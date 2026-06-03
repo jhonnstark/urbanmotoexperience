@@ -18,7 +18,14 @@
             class="feature-card"
             :style="{ '--delay': `${520 + index * 90}ms` }"
           >
-            <component :is="getIcon(feature.icon)" class="feature-icon" :size="50" aria-hidden="true" />
+            <img
+              v-if="feature.image"
+              :src="feature.image"
+              :alt="feature.text"
+              class="feature-image"
+              loading="lazy"
+            />
+            <component v-else :is="getIcon(feature.icon)" class="feature-icon" :size="50" aria-hidden="true" />
             <strong>{{ feature.text }}</strong>
           </article>
         </div>
@@ -61,7 +68,7 @@ function getIcon(mdiName: string): LucideIcon {
   return iconMap[mdiName] ?? Users
 }
 
-type Feature = { icon: string; text: string }
+type Feature = { icon: string; image?: string; text: string }
 
 const features = computed<Feature[]>(() => {
   const featuresData = tm('about.features') as unknown as Feature[]
@@ -166,6 +173,12 @@ const scrollToExperience = () => {
 
 .feature-icon {
   color: var(--um-navy);
+  filter: drop-shadow(3px 3px 0 rgba(127, 178, 57, 0.55));
+}
+.feature-image {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
   filter: drop-shadow(3px 3px 0 rgba(127, 178, 57, 0.55));
 }
 .feature-card strong {

@@ -120,11 +120,31 @@
       "description": "Expériences de moto en milieu urbain en petits groupes à travers les parties les plus emblématiques de Mexico. Parcourez Reforma, Chapultepec, Bellas Artes et les rues historiques tout en découvrant la ville d'un point de vue local."
     },
     "features": [
-      { "icon": "mdi-account-group-outline", "text": "GUIDES LOCAUX" },
-      { "icon": "mdi-motorbike-helmet", "text": "CASQUES INCLUS" },
-      { "icon": "mdi-camera-outline", "text": "ARRÊTS PHOTO" },
-      { "icon": "mdi-account-multiple", "text": "PETITS GROUPES" },
-      { "icon": "mdi-map-marker-path", "text": "BALADES PRIVÉES FLEXIBLES" }
+      {
+        "icon": "mdi-account-group-outline",
+        "text": "GUIDES LOCAUX",
+        "image": "/images/guias.png"
+      },
+      {
+        "icon": "mdi-motorbike-helmet",
+        "text": "CASQUES INCLUS",
+        "image": "/images/cascos.png"
+      },
+      {
+        "icon": "mdi-camera-outline",
+        "text": "ARRÊTS PHOTO",
+        "image": "/images/camara.png"
+      },
+      {
+        "icon": "mdi-account-multiple",
+        "text": "PETITS GROUPES",
+        "image": "/images/grupo.png"
+      },
+      {
+        "icon": "mdi-map-marker-path",
+        "text": "BALADES PRIVÉES FLEXIBLES",
+        "image": "/images/private.png"
+      }
     ],
     "learn_more_button": "EN SAVOIR PLUS"
   },
@@ -142,10 +162,22 @@
     "whatsapp_button": "RÉSERVEZ VOTRE BALADE SUR WHATSAPP",
     "instagram_button": "VOIR INSTAGRAM",
     "features": [
-      { "icon": "mdi-account-multiple", "text": "PETITS GROUPES" },
-      { "icon": "mdi-calendar-clock", "text": "HORAIRES FLEXIBLES" },
-      { "icon": "mdi-motorbike-helmet", "text": "CASQUES INCLUS" },
-      { "icon": "mdi-shield-check-outline", "text": "LA SÉCURITÉ D'ABORD" }
+      {
+        "icon": "mdi-account-multiple",
+        "text": "PETITS GROUPES"
+      },
+      {
+        "icon": "mdi-calendar-clock",
+        "text": "HORAIRES FLEXIBLES"
+      },
+      {
+        "icon": "mdi-motorbike-helmet",
+        "text": "CASQUES INCLUS"
+      },
+      {
+        "icon": "mdi-shield-check-outline",
+        "text": "LA SÉCURITÉ D'ABORD"
+      }
     ],
     "highlights": [
       {

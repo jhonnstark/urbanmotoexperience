@@ -121,11 +121,31 @@
       "description": "Small-group urban motorcycle experiences through the most iconic parts of Mexico City. Ride through Reforma, Chapultepec, Bellas Artes, and historic streets while discovering the city from a local perspective."
     },
     "features": [
-      { "icon": "mdi-account-group-outline", "text": "LOCAL GUIDES" },
-      { "icon": "mdi-motorbike-helmet", "text": "HELMETS INCLUDED" },
-      { "icon": "mdi-camera-outline", "text": "PHOTO STOPS" },
-      { "icon": "mdi-account-multiple", "text": "SMALL GROUPS" },
-      { "icon": "mdi-map-marker-path", "text": "FLEXIBLE PRIVATE RIDES" }
+      {
+        "icon": "mdi-account-group-outline",
+        "text": "LOCAL GUIDES",
+        "image": "/images/guias.png"
+      },
+      {
+        "icon": "mdi-motorbike-helmet",
+        "text": "HELMETS INCLUDED",
+        "image": "/images/cascos.png"
+      },
+      {
+        "icon": "mdi-camera-outline",
+        "text": "PHOTO STOPS",
+        "image": "/images/camara.png"
+      },
+      {
+        "icon": "mdi-account-multiple",
+        "text": "SMALL GROUPS",
+        "image": "/images/grupo.png"
+      },
+      {
+        "icon": "mdi-map-marker-path",
+        "text": "FLEXIBLE PRIVATE RIDES",
+        "image": "/images/private.png"
+      }
     ],
     "learn_more_button": "LEARN MORE"
   },
@@ -143,10 +163,22 @@
     "whatsapp_button": "BOOK YOUR RIDE ON WHATSAPP",
     "instagram_button": "VIEW INSTAGRAM",
     "features": [
-      { "icon": "mdi-account-multiple", "text": "SMALL GROUPS" },
-      { "icon": "mdi-calendar-clock", "text": "FLEXIBLE SCHEDULES" },
-      { "icon": "mdi-motorbike-helmet", "text": "HELMETS INCLUDED" },
-      { "icon": "mdi-shield-check-outline", "text": "SAFETY FIRST" }
+      {
+        "icon": "mdi-account-multiple",
+        "text": "SMALL GROUPS"
+      },
+      {
+        "icon": "mdi-calendar-clock",
+        "text": "FLEXIBLE SCHEDULES"
+      },
+      {
+        "icon": "mdi-motorbike-helmet",
+        "text": "HELMETS INCLUDED"
+      },
+      {
+        "icon": "mdi-shield-check-outline",
+        "text": "SAFETY FIRST"
+      }
     ],
     "highlights": [
       {
