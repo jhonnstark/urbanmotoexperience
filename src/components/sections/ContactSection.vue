@@ -18,23 +18,19 @@
             class="cta instagram"
             href="https://instagram.com/urbanmotoexperiencecdmx"
             target="_blank"
-            rel="noreferrer">
+            rel="noreferrer"
+          >
             <Instagram :size="34" :stroke-width="2" />
             {{ $t('contact.instagram_button') }} <b>→</b>
           </a>
-        </div>
-
-        <div class="quick-features reveal c5">
-          <article v-for="item in quickFeatures" :key="item.text">
-            <v-icon :icon="item.icon" size="38"></v-icon>
-            <strong>{{ item.text }}</strong>
-          </article>
         </div>
       </div>
 
       <div class="benefit-bar">
         <article v-for="benefit in benefits" :key="benefit.title">
-          <v-icon :icon="benefit.icon" size="36"></v-icon>
+          <div class="benefit-icon-wrap">
+            <component :is="getIcon(benefit.icon)" :size="28" />
+          </div>
           <div>
             <strong>{{ benefit.title }}</strong>
             <p>{{ benefit.description }}</p>
@@ -48,9 +44,20 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 import { computed } from 'vue'
-import { Phone, Instagram } from 'lucide-vue-next'
+import type { Component } from 'vue'
+import { Phone, Instagram, MapPin, Camera, Heart, ShieldCheck } from 'lucide-vue-next'
 
-const { t } = useI18n()
+const { t, tm } = useI18n()
+
+const iconMap: Record<string, Component> = {
+  'mdi-map-marker-account-outline': MapPin,
+  'mdi-camera-iris': Camera,
+  'mdi-heart-outline': Heart,
+}
+
+function getIcon(mdiName: string): Component {
+  return iconMap[mdiName] ?? ShieldCheck
+}
 
 const contactTitle = computed(() => {
   const part1 = t('contact.title_part1')
@@ -58,26 +65,16 @@ const contactTitle = computed(() => {
   return `<span>${part1}</span><span><em>${part2}</em></span>`
 })
 
-interface Feature {
-  text: string;
-  icon: string;
-}
-
 interface Benefit {
-  title: string;
-  icon: string;
-  description: string;
+  title: string
+  icon: string
+  description: string
 }
-
-const quickFeatures = computed<Feature[]>(() => {
-  const features = t('contact.features') as unknown as Feature[];
-  return Array.isArray(features) ? features : [];
-});
 
 const benefits = computed<Benefit[]>(() => {
-  const highlights = t('contact.highlights') as unknown as Benefit[];
-  return Array.isArray(highlights) ? highlights : [];
-});
+  const highlights = tm('contact.highlights') as unknown as Benefit[]
+  return Array.isArray(highlights) ? highlights : []
+})
 </script>
 
 <style scoped>
@@ -101,7 +98,7 @@ const benefits = computed<Benefit[]>(() => {
 .contact-bg {
   position: absolute;
   inset: 0;
-  background-image: url('/images/contact-bg.png'), linear-gradient(135deg, #111, #4a5f40);
+  background-image: url('/images/fondo contact.png'), linear-gradient(135deg, #111, #4a5f40);
   background-size: cover;
   background-position: center;
   transform: scale(1.04);
@@ -159,7 +156,7 @@ const benefits = computed<Benefit[]>(() => {
   padding: 0 34px;
   text-decoration: none;
   text-transform: uppercase;
-  font-weight: 900;
+  font-weight: 400;
   font-size: 23px;
   letter-spacing: 0.02em;
 }
@@ -185,35 +182,6 @@ const benefits = computed<Benefit[]>(() => {
 .instagram:hover {
   background: var(--um-white);
   color: var(--um-navy);
-}
-.quick-features {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  margin-top: 46px;
-  width: 650px;
-  max-width: calc(100vw - 150px);
-}
-.quick-features article {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 0 20px;
-  border-right: 1px solid rgba(255, 255, 255, 0.38);
-}
-.quick-features article:first-child {
-  padding-left: 0;
-}
-.quick-features article:last-child {
-  border-right: 0;
-}
-.quick-features :deep(.v-icon) {
-  color: var(--um-green-primary);
-}
-.quick-features strong {
-  font-size: 17px;
-  line-height: 1.05;
-  text-transform: uppercase;
 }
 .benefit-bar {
   position: absolute;
@@ -243,20 +211,20 @@ const benefits = computed<Benefit[]>(() => {
 .benefit-bar article:last-child {
   border-right: 0;
 }
-.benefit-bar :deep(.v-icon) {
-  width: 64px;
-  height: 64px;
-  border: 2px solid var(--um-green-primary);
-  border-radius: 999px;
-  color: var(--um-green-primary);
+.benefit-icon-wrap {
+  width: 52px;
+  height: 52px;
   display: grid;
   place-items: center;
-  font-size: 36px !important;
+  flex-shrink: 0;
+  color: var(--um-navy);
+  filter: drop-shadow(3px 3px 0 rgba(127, 178, 57, 0.55));
 }
 .benefit-bar strong {
   color: var(--um-green-dark);
   text-transform: uppercase;
   font-size: 18px;
+  font-weight: 400;
 }
 .benefit-bar p {
   margin: 6px 0 0;
@@ -268,37 +236,18 @@ const benefits = computed<Benefit[]>(() => {
   transform: translateY(25px);
   animation: fadeUp 0.7s ease forwards;
 }
-.c1 {
-  animation-delay: 120ms;
-}
-.c2 {
-  animation-delay: 230ms;
-}
-.c3 {
-  animation-delay: 320ms;
-}
-.c4 {
-  animation-delay: 430ms;
-}
-.c5 {
-  animation-delay: 560ms;
-}
+.c1 { animation-delay: 120ms; }
+.c2 { animation-delay: 230ms; }
+.c3 { animation-delay: 320ms; }
+.c4 { animation-delay: 430ms; }
 @keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  to { opacity: 1; transform: translateY(0); }
 }
 @keyframes benefitIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  to { opacity: 1; transform: translateY(0); }
 }
 @keyframes bgSettle {
-  to {
-    transform: scale(1);
-  }
+  to { transform: scale(1); }
 }
 @media (max-width: 900px) {
   .contact-card {
@@ -307,16 +256,6 @@ const benefits = computed<Benefit[]>(() => {
   .contact-content {
     padding: 90px 28px 0;
     width: auto;
-  }
-  .quick-features {
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 100%;
-    width: auto;
-    gap: 18px;
-  }
-  .quick-features article {
-    border-right: 0;
-    padding: 0;
   }
   .benefit-bar {
     position: relative;
@@ -340,9 +279,7 @@ const benefits = computed<Benefit[]>(() => {
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation: none !important;
     transition: none !important;
     opacity: 1 !important;

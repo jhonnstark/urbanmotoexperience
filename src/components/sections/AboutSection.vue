@@ -18,7 +18,7 @@
             class="feature-card"
             :style="{ '--delay': `${520 + index * 90}ms` }"
           >
-            <v-icon class="feature-icon" :icon="feature.icon" size="50" aria-hidden="true"></v-icon>
+            <component :is="getIcon(feature.icon)" class="feature-icon" :size="50" aria-hidden="true" />
             <strong>{{ feature.text }}</strong>
           </article>
         </div>
@@ -38,17 +38,34 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 import { computed } from 'vue'
+import {
+  Users,
+  HardHat,
+  Camera,
+  UsersRound,
+  MapPin,
+  type LucideIcon,
+} from 'lucide-vue-next'
 
-const { t } = useI18n()
+const { tm } = useI18n()
+
+const iconMap: Record<string, LucideIcon> = {
+  'mdi-account-group-outline': UsersRound,
+  'mdi-motorbike-helmet': HardHat,
+  'mdi-camera-outline': Camera,
+  'mdi-account-multiple': Users,
+  'mdi-map-marker-path': MapPin,
+}
+
+function getIcon(mdiName: string): LucideIcon {
+  return iconMap[mdiName] ?? Users
+}
 
 type Feature = { icon: string; text: string }
 
 const features = computed<Feature[]>(() => {
-  const featuresData = t('about.features')
-  if (Array.isArray(featuresData)) {
-    return featuresData.map((f: any) => ({ icon: f.icon, text: f.text }))
-  }
-  return []
+  const featuresData = tm('about.features') as unknown as Feature[]
+  return Array.isArray(featuresData) ? featuresData : []
 })
 
 const scrollToExperience = () => {
@@ -120,6 +137,7 @@ const scrollToExperience = () => {
 }
 
 .feature-card {
+  --delay: 520ms;
   min-height: 118px;
   display: grid;
   place-items: center;
@@ -147,7 +165,8 @@ const scrollToExperience = () => {
 }
 
 .feature-icon {
-  color: var(--green);
+  color: var(--um-navy);
+  filter: drop-shadow(3px 3px 0 rgba(127, 178, 57, 0.55));
 }
 .feature-card strong {
   color: var(--dark);
