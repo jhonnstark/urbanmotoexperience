@@ -278,6 +278,9 @@ const stats = computed<Stat[]>(() => [
   padding-bottom: 22px;
   opacity: 0;
   transform: translateY(24px);
+}
+.route-stop.is-visible,
+.reveal-stop.is-visible {
   animation: routeFadeUp 0.72s ease forwards;
   animation-delay: var(--delay);
 }
@@ -345,6 +348,9 @@ const stats = computed<Stat[]>(() => [
 .map-wrap {
   opacity: 0;
   transform: translateX(36px);
+}
+.map-wrap.is-visible,
+.reveal-map.is-visible {
   animation: routeFadeLeft 0.9s ease forwards;
   animation-delay: 520ms;
 }
@@ -386,6 +392,8 @@ const stats = computed<Stat[]>(() => [
   stroke-width: 16;
   stroke-dasharray: 980;
   stroke-dashoffset: 980;
+}
+.route-path.is-visible {
   animation: drawRoute 1.3s ease forwards;
   animation-delay: 820ms;
 }
@@ -417,6 +425,8 @@ const stats = computed<Stat[]>(() => [
   text-transform: uppercase;
   opacity: 0;
   transform: scale(0.92) translateY(12px);
+}
+.map-point.is-visible {
   animation: pointIn 0.52s cubic-bezier(0.2, 0.9, 0.3, 1.25) forwards;
   animation-delay: var(--delay);
 }
@@ -535,6 +545,8 @@ const stats = computed<Stat[]>(() => [
   border-right: 1px solid rgba(7, 26, 44, 0.12);
   opacity: 0;
   transform: translateY(16px);
+}
+.stat-card.is-visible {
   animation: routeFadeUp 0.58s ease forwards;
   animation-delay: var(--delay);
 }
@@ -579,6 +591,8 @@ const stats = computed<Stat[]>(() => [
 .reveal {
   opacity: 0;
   transform: translateY(24px);
+}
+.reveal.is-visible {
   animation: routeFadeUp 0.72s ease forwards;
 }
 

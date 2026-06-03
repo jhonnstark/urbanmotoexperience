@@ -170,6 +170,8 @@ const features = computed<Feature[]>(() => [
   box-shadow: var(--um-shadow-card);
   opacity: 0;
   transform: translateY(28px);
+}
+.feature-card.is-visible {
   animation: featureFadeUp 0.78s ease forwards;
   animation-delay: var(--delay);
 }
@@ -206,6 +208,8 @@ const features = computed<Feature[]>(() => [
   filter: drop-shadow(3px 3px 0 rgba(127, 178, 57, 0.55));
   opacity: 0;
   transform: translateY(10px) scale(0.9);
+}
+.feature-card.is-visible .feature-icon {
   animation: iconPop 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.25) forwards;
   animation-delay: calc(var(--delay) + 240ms);
 }
@@ -231,6 +235,8 @@ const features = computed<Feature[]>(() => [
 .reveal {
   opacity: 0;
   transform: translateY(22px);
+}
+.reveal.is-visible {
   animation: featureFadeUp 0.72s ease forwards;
 }
 

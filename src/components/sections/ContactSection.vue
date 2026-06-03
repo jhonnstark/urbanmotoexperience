@@ -102,6 +102,8 @@ const benefits = computed<Benefit[]>(() => {
   background-size: cover;
   background-position: center;
   transform: scale(1.04);
+}
+.contact-card.is-visible .contact-bg {
   animation: bgSettle 1.6s ease forwards;
 }
 .contact-overlay {
@@ -208,6 +210,8 @@ const benefits = computed<Benefit[]>(() => {
   box-shadow: 0 -14px 40px rgba(0, 0, 0, 0.12);
   opacity: 0;
   transform: translateY(34px);
+}
+.benefit-bar.is-visible {
   animation: benefitIn 0.75s ease forwards 780ms;
 }
 .benefit-bar article {
@@ -246,6 +250,8 @@ const benefits = computed<Benefit[]>(() => {
 .reveal {
   opacity: 0;
   transform: translateY(25px);
+}
+.reveal.is-visible {
   animation: fadeUp 0.7s ease forwards;
 }
 .c1 {

@@ -12,14 +12,14 @@
         </a>
 
         <nav class="nav-links" aria-label="Main navigation">
-          <a class="nav-link" @click="scrollTo('experience')" data-testid="nav-experience">{{
-            $t('nav.experience')
+          <a class="nav-link" @click="scrollTo('about')" data-testid="nav-about">{{
+            $t('nav.about')
           }}</a>
           <a class="nav-link" @click="scrollTo('route')" data-testid="nav-route">{{
             $t('nav.route')
           }}</a>
-          <a class="nav-link" @click="scrollTo('about')" data-testid="nav-about">{{
-            $t('nav.about')
+          <a class="nav-link" @click="scrollTo('experience')" data-testid="nav-experience">{{
+            $t('nav.experience')
           }}</a>
           <a class="nav-link" @click="scrollTo('socials')" data-testid="nav-socials">{{
             $t('nav.socials')
@@ -57,6 +57,9 @@ const scrollTo = (id: string) => {
 .topbar {
   padding: 0 36px 0 46px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: sticky !important;
+  top: 0;
+  z-index: 1000;
 }
 
 .topbar-content {
