@@ -6,57 +6,27 @@
       <h2 id="socials-title" class="title reveal s3">{{ $t('socials.header.title') }}</h2>
       <p class="subtitle reveal s4">{{ $t('socials.header.description') }}</p>
 
-      <div class="social-grid">
-        <article
-          v-for="(post, index) in posts"
-          :key="post.src"
-          class="post"
-          :style="{ '--delay': `${420 + index * 90}ms` }"
-        >
-          <div class="post-placeholder">
-            <img :src="post.src" :alt="`Social post ${index + 1}`" class="post-image" />
-          </div>
-          <div v-if="post.video" class="play" aria-hidden="true">▶</div>
-          <div v-if="post.video" class="video-text">Ride Through <em>CDMX</em></div>
-        </article>
-      </div>
-
-      <div class="follow-card reveal s5">
-        <div class="ig-icon">◎</div>
-        <strong>@urbanmotoexperiencecdmx</strong>
-        <a href="https://instagram.com/urbanmotoexperiencecdmx" target="_blank" rel="noreferrer"
-          >▣ Follow On Instagram</a
-        >
-      </div>
-
-      <div class="story-row" aria-label="Instagram highlight categories">
-        <article
-          v-for="(story, index) in stories"
-          :key="story.label"
-          class="story"
-          :style="{ '--delay': `${920 + index * 80}ms` }"
-        >
-          <div class="story-thumb"></div>
-          <strong>{{ story.label }}</strong>
-        </article>
+      <div class="elfsight-feed reveal s5">
+        <div
+          class="elfsight-app-a208b223-714b-4496-8d59-f84bccf72306"
+          data-elfsight-app-lazy
+        ></div>
       </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-const posts = Array.from({ length: 6 }, (_, index) => ({
-  src: '/images/reforma.png',
-  video: index === 5,
-}))
-const stories = [
-  { label: 'Routes', file: 'routes' },
-  { label: 'Riders', file: 'riders' },
-  { label: 'Reviews', file: 'reviews' },
-  { label: 'CDMX', file: 'cdmx' },
-  { label: 'Safety', file: 'safety' },
-  { label: 'Night Ride', file: 'night' },
-]
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  if (!document.querySelector('script[src*="elfsightcdn.com/platform.js"]')) {
+    const script = document.createElement('script')
+    script.src = 'https://elfsightcdn.com/platform.js'
+    script.async = true
+    document.head.appendChild(script)
+  }
+})
 </script>
 
 <style scoped>
@@ -91,7 +61,7 @@ const stories = [
 .title {
   margin: 0;
   font-family: 'Bebas Neue', Impact, sans-serif;
-  font-size: clamp(72px, 6.4vw, 112px);
+  font-size: clamp(70px, 6.6vw, 118px);
   line-height: 0.92;
   letter-spacing: 0.025em;
   text-transform: uppercase;
@@ -101,72 +71,9 @@ const stories = [
   font: 23px system-ui, sans-serif;
   color: #1d2939;
 }
-.social-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-}
-.post {
-  height: 285px;
-  position: relative;
-  margin: 0;
-  border-radius: 6px;
-  overflow: hidden;
-  background: #e8efe2;
-  opacity: 0;
-  transform: translateY(22px) scale(0.98);
-  animation: itemIn 0.68s ease forwards;
-  animation-delay: var(--delay);
-}
-.post-placeholder {
+.elfsight-feed {
   width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #dce9f4, #567655 55%, #243b2e);
-  overflow: hidden;
-}
-
-.post-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.post:hover .post-image {
-  transform: scale(1.1);
-}
-.play {
-  position: absolute;
-  inset: 0;
-  margin: auto;
-  width: 90px;
-  height: 90px;
-  border: 6px solid var(--um-white);
-  border-radius: 999px;
-  display: grid;
-  place-items: center;
-  color: var(--um-white);
-  font-size: 42px;
-  background: rgba(255, 255, 255, 0.08);
-  text-indent: 6px;
-}
-.video-text {
-  position: absolute;
-  right: 30px;
-  bottom: 26px;
-  color: var(--um-white);
-  font-family: 'Bebas Neue', Impact, sans-serif;
-  font-size: 36px;
-  line-height: 0.9;
-  text-align: right;
-  text-transform: uppercase;
-  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.45);
-}
-.video-text em {
-  display: block;
-  color: var(--green);
-  font-style: normal;
-  font-size: 56px;
+  margin: 0 auto 16px;
 }
 .follow-card {
   display: grid;
@@ -192,35 +99,6 @@ const stories = [
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 900;
-}
-.story-row {
-  display: flex;
-  justify-content: center;
-  gap: 56px;
-  overflow-x: auto;
-  padding: 8px 0 0;
-}
-.story {
-  min-width: 92px;
-  display: grid;
-  place-items: center;
-  gap: 8px;
-  opacity: 0;
-  transform: translateY(18px) scale(0.95);
-  animation: itemIn 0.55s ease forwards;
-  animation-delay: var(--delay);
-}
-.story-thumb {
-  width: 68px;
-  height: 68px;
-  border-radius: 999px;
-  border: 2px solid var(--um-green-primary);
-  padding: 2px;
-  background: linear-gradient(135deg, #c9d8e8, #7aa665);
-}
-.story strong {
-  text-transform: uppercase;
-  font-size: 13px;
 }
 .reveal {
   opacity: 0;
@@ -255,31 +133,13 @@ const stories = [
   }
 }
 @media (max-width: 950px) {
-  .social-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
   .socials-section {
     padding: 56px 24px;
   }
-  .post {
-    height: 250px;
-  }
-  .story-row {
-    justify-content: flex-start;
-  }
 }
 @media (max-width: 620px) {
-  .social-grid {
-    grid-template-columns: 1fr;
-  }
-  .post {
-    height: 240px;
-  }
   .subtitle {
     font-size: 18px;
-  }
-  .story-row {
-    gap: 24px;
   }
 }
 @media (prefers-reduced-motion: reduce) {

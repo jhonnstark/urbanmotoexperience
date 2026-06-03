@@ -140,7 +140,7 @@ const features = computed<Feature[]>(() => [
 .experience-title {
   margin: 0;
   font-family: 'Bebas Neue', Impact, sans-serif;
-  font-size: clamp(70px, 6.7vw, 116px);
+  font-size: clamp(70px, 6.6vw, 118px);
   line-height: 0.9;
   letter-spacing: 0.015em;
   color: var(--experience-dark);

@@ -18,7 +18,7 @@
             class="feature-card"
             :style="{ '--delay': `${520 + index * 90}ms` }"
           >
-            <v-icon class="feature-icon" :icon="feature.icon" size="50" aria-hidden="true"></v-icon>
+            <component :is="getIcon(feature.icon)" class="feature-icon" :size="50" aria-hidden="true" />
             <strong>{{ feature.text }}</strong>
           </article>
         </div>
@@ -38,17 +38,34 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 import { computed } from 'vue'
+import {
+  Users,
+  HardHat,
+  Camera,
+  UsersRound,
+  MapPin,
+  type LucideIcon,
+} from 'lucide-vue-next'
 
-const { t } = useI18n()
+const { tm } = useI18n()
+
+const iconMap: Record<string, LucideIcon> = {
+  'mdi-account-group-outline': UsersRound,
+  'mdi-motorbike-helmet': HardHat,
+  'mdi-camera-outline': Camera,
+  'mdi-account-multiple': Users,
+  'mdi-map-marker-path': MapPin,
+}
+
+function getIcon(mdiName: string): LucideIcon {
+  return iconMap[mdiName] ?? Users
+}
 
 type Feature = { icon: string; text: string }
 
 const features = computed<Feature[]>(() => {
-  const featuresData = t('about.features')
-  if (Array.isArray(featuresData)) {
-    return featuresData.map((f: any) => ({ icon: f.icon, text: f.text }))
-  }
-  return []
+  const featuresData = tm('about.features') as unknown as Feature[]
+  return Array.isArray(featuresData) ? featuresData : []
 })
 
 const scrollToExperience = () => {
@@ -97,7 +114,7 @@ const scrollToExperience = () => {
 .about-title {
   margin: 0;
   font-family: 'Bebas Neue', Impact, sans-serif;
-  font-size: clamp(74px, 6.6vw, 118px);
+  font-size: clamp(70px, 6.6vw, 118px);
   line-height: 0.92;
   letter-spacing: 0.015em;
   text-transform: uppercase;
@@ -116,17 +133,18 @@ const scrollToExperience = () => {
   width: min(560px, 100%);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 0;
 }
 
 .feature-card {
+  --delay: 520ms;
   min-height: 118px;
   display: grid;
   place-items: center;
   align-content: center;
   gap: 10px;
   padding: 12px;
-  border-right: 1px solid var(--line);
+  border-right: 0;
   opacity: 0;
   transform: translateY(20px) scale(0.97);
   animation: popIn 0.62s ease forwards;
@@ -137,7 +155,7 @@ const scrollToExperience = () => {
   border-right: 0;
 }
 .feature-card:nth-child(n + 4) {
-  border-top: 1px solid var(--line);
+  border-top: 0;
 }
 .feature-card:nth-child(4) {
   grid-column: 1 / 2;
@@ -147,7 +165,8 @@ const scrollToExperience = () => {
 }
 
 .feature-icon {
-  color: var(--green);
+  color: var(--um-navy);
+  filter: drop-shadow(3px 3px 0 rgba(127, 178, 57, 0.55));
 }
 .feature-card strong {
   color: var(--dark);
@@ -262,7 +281,7 @@ const scrollToExperience = () => {
   .feature-card:nth-child(5) {
     grid-column: auto;
     border-right: 0;
-    border-top: 1px solid var(--line);
+    border-top: 0;
   }
   .feature-card:nth-child(1),
   .feature-card:nth-child(2) {
