@@ -114,7 +114,7 @@ const scrollToExperience = () => {
 .about-title {
   margin: 0;
   font-family: 'Bebas Neue', Impact, sans-serif;
-  font-size: clamp(74px, 6.6vw, 118px);
+  font-size: clamp(70px, 6.6vw, 118px);
   line-height: 0.92;
   letter-spacing: 0.015em;
   text-transform: uppercase;
@@ -133,7 +133,7 @@ const scrollToExperience = () => {
   width: min(560px, 100%);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 0;
 }
 
 .feature-card {
@@ -144,7 +144,7 @@ const scrollToExperience = () => {
   align-content: center;
   gap: 10px;
   padding: 12px;
-  border-right: 1px solid var(--line);
+  border-right: 0;
   opacity: 0;
   transform: translateY(20px) scale(0.97);
   animation: popIn 0.62s ease forwards;
@@ -155,7 +155,7 @@ const scrollToExperience = () => {
   border-right: 0;
 }
 .feature-card:nth-child(n + 4) {
-  border-top: 1px solid var(--line);
+  border-top: 0;
 }
 .feature-card:nth-child(4) {
   grid-column: 1 / 2;
@@ -281,7 +281,7 @@ const scrollToExperience = () => {
   .feature-card:nth-child(5) {
     grid-column: auto;
     border-right: 0;
-    border-top: 1px solid var(--line);
+    border-top: 0;
   }
   .feature-card:nth-child(1),
   .feature-card:nth-child(2) {

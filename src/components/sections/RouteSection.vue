@@ -236,7 +236,7 @@ const stats = computed<Stat[]>(() => [
 .route-title {
   margin: 0;
   font-family: 'Bebas Neue', Impact, sans-serif;
-  font-size: clamp(72px, 7vw, 122px);
+  font-size: clamp(70px, 6.6vw, 118px);
   line-height: 0.9;
   letter-spacing: 0.015em;
   color: var(--route-dark);

@@ -63,7 +63,7 @@ const images = [
 .title {
   margin: 0;
   font-family: 'Bebas Neue', Impact, sans-serif;
-  font-size: clamp(72px, 6.4vw, 112px);
+  font-size: clamp(70px, 6.6vw, 118px);
   line-height: 0.92;
   letter-spacing: 0.025em;
   text-transform: uppercase;
