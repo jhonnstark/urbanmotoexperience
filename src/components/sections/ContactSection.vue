@@ -10,16 +10,18 @@
         <p class="tagline reveal c3">{{ $t('contact.subtitle') }}</p>
 
         <div class="contact-actions reveal c4">
-          <a class="cta whatsapp" href="https://wa.me/" target="_blank" rel="noreferrer"
-            ><span>☏</span> {{ $t('contact.whatsapp_button') }} <b>→</b></a
-          >
+          <a class="cta whatsapp" href="https://wa.me/" target="_blank" rel="noreferrer">
+            <Phone :size="34" :stroke-width="2" />
+            {{ $t('contact.whatsapp_button') }} <b>→</b>
+          </a>
           <a
             class="cta instagram"
             href="https://instagram.com/urbanmotoexperiencecdmx"
             target="_blank"
-            rel="noreferrer"
-            ><span>◎</span> {{ $t('contact.instagram_button') }} <b>→</b></a
-          >
+            rel="noreferrer">
+            <Instagram :size="34" :stroke-width="2" />
+            {{ $t('contact.instagram_button') }} <b>→</b>
+          </a>
         </div>
 
         <div class="quick-features reveal c5">
@@ -46,6 +48,7 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 import { computed } from 'vue'
+import { Phone, Instagram } from 'lucide-vue-next'
 
 const { t } = useI18n()
 
@@ -160,8 +163,8 @@ const benefits = computed<Benefit[]>(() => {
   font-size: 23px;
   letter-spacing: 0.02em;
 }
-.cta span {
-  font-size: 34px;
+.cta svg {
+  flex-shrink: 0;
 }
 .cta b {
   margin-left: auto;
@@ -248,6 +251,7 @@ const benefits = computed<Benefit[]>(() => {
   color: var(--um-green-primary);
   display: grid;
   place-items: center;
+  font-size: 36px !important;
 }
 .benefit-bar strong {
   color: var(--um-green-dark);

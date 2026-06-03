@@ -7,7 +7,7 @@
     "home": "Home",
     "experience": "Experience",
     "route": "Route",
-    "about": "About Us",
+    "about": "About",
     "gallery": "Gallery",
     "contact": "Contact",
     "socials": "Socials",
@@ -117,7 +117,7 @@
   "about": {
     "header": {
       "subtitle": "About the Experience",
-      "title": "A DIFFERENT WAY<br>TO EXPLORE <span style=\"color: #4caf50;\">CDMX</span>",
+      "title": "A DIFFERENT WAY<br>TO EXPLORE <span style=\"color: #8cc63f;\">CDMX</span>",
       "description": "Small-group urban motorcycle experiences through the most iconic parts of Mexico City. Ride through Reforma, Chapultepec, Bellas Artes, and historic streets while discovering the city from a local perspective."
     },
     "features": [

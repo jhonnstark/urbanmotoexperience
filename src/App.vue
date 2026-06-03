@@ -12,19 +12,17 @@
         </a>
 
         <nav class="nav-links" aria-label="Main navigation">
-          <a class="nav-link" @click="scrollTo('about')" data-testid="nav-experience">{{
+          <a class="nav-link" @click="scrollTo('experience')" data-testid="nav-experience">{{
             $t('nav.experience')
           }}</a>
           <a class="nav-link" @click="scrollTo('route')" data-testid="nav-route">{{
             $t('nav.route')
           }}</a>
-          <a class="nav-link" @click="scrollTo('gallery')" data-testid="nav-gallery">{{
-            $t('nav.gallery')
+          <a class="nav-link" @click="scrollTo('about')" data-testid="nav-about">{{
+            $t('nav.about')
           }}</a>
           <a class="nav-link" @click="scrollTo('socials')" data-testid="nav-socials">{{ $t('nav.socials') }}</a>
-          <a class="nav-cta" @click="scrollTo('contact')" data-testid="nav-book-a-ride">{{
-            $t('nav.book_a_ride')
-          }}</a>
+          <v-btn class="nav-cta" @click="scrollTo('contact')">{{ $t('nav.book_a_ride') }}</v-btn>
         </nav>
       </div>
     </v-app-bar>
@@ -53,9 +51,32 @@ const scrollTo = (id: string) => {
 }
 </script>
 
+<style>
+/* Global styles for sticky header */
+.v-app-bar.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+/* Add padding to main content to account for fixed header */
+.v-main {
+  padding-top: 118px;
+}
+
+@media (max-width: 900px) {
+  .v-main {
+    padding-top: 80px;
+  }
+}
+</style>
+
 <style scoped>
 .topbar {
-  padding: 0 36px 0 46px !important;
+  padding: 0 36px 0 46px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .topbar-content {
@@ -124,7 +145,7 @@ const scrollTo = (id: string) => {
   font-weight: 600;
   letter-spacing: 0.6px;
   text-transform: uppercase;
-  transition: background 0.2s ease;
+  transition: background-color 0.2s ease;
   display: inline-block;
 }
 
@@ -151,9 +172,9 @@ const scrollTo = (id: string) => {
 
 @media (max-width: 900px) {
   .topbar {
-    height: auto !important;
+    height: auto;
     min-height: 80px;
-    padding: 12px 16px !important;
+    padding: 12px 16px;
   }
 
   .topbar-content {

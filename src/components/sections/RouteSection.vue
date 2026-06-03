@@ -47,10 +47,7 @@
           </svg>
 
           <div class="map-logo-placeholder" aria-label="Urban Moto Experience">
-            <div class="logo-shield">
-              <span class="logo-city">▴▴</span>
-              <span class="logo-road"></span>
-            </div>
+            <img src="/images/log3.png" alt="Urban Moto Experience" class="map-logo-img" />
           </div>
 
           <div
@@ -398,40 +395,14 @@ const stats = computed<Stat[]>(() => [
   top: 34px;
   right: 54px;
   width: 72px;
-  height: 76px;
+  height: auto;
   filter: drop-shadow(0 10px 14px rgba(7, 26, 44, 0.12));
 }
 
-.logo-shield {
-  width: 72px;
-  height: 76px;
-  clip-path: polygon(50% 0, 96% 18%, 86% 76%, 50% 100%, 14% 76%, 4% 18%);
-  border: 2px solid #0e2230;
-  background: linear-gradient(145deg, #eaf0ef 0%, #0a2530 48%, #07150d 100%);
-  position: relative;
-  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.45);
-}
-
-.logo-city {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  color: var(--um-white);
-  font-size: 16px;
-  letter-spacing: -6px;
-  opacity: 0.9;
-}
-
-.logo-road {
-  position: absolute;
-  left: 28px;
-  bottom: 9px;
-  width: 12px;
-  height: 48px;
-  border-radius: 999px;
-  background: linear-gradient(#94c943, #eaf3d2);
-  transform: rotate(-32deg);
-  opacity: 0.9;
+.map-logo-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .map-point {
@@ -706,13 +677,8 @@ const stats = computed<Stat[]>(() => [
 
   .map-logo-placeholder {
     width: 52px;
-    height: 56px;
+    height: auto;
     right: 20px;
-  }
-
-  .logo-shield {
-    width: 52px;
-    height: 56px;
   }
 
   .map-point {

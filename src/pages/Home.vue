@@ -19,10 +19,10 @@
         </p>
 
         <div class="hero-actions">
-          <v-btn class="btn btn-primary" @click="scrollTo('book')"
+          <v-btn class="btn btn-primary" height="68" width="242" @click="scrollTo('book')"
             >{{ $t('home.hero.book_button') }} <span>→</span></v-btn
           >
-          <v-btn class="btn btn-secondary" @click="scrollTo('route')"
+          <v-btn class="btn btn-secondary" height="68" width="242" @click="scrollTo('route')"
             >{{ $t('home.hero.route_button') }} <span>→</span></v-btn
           >
         </div>
@@ -161,7 +161,7 @@ const scrollTo = (id: string) => {
 
 .btn {
   width: 242px;
-  height: 68px !important;
+  height: 68px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -175,8 +175,8 @@ const scrollTo = (id: string) => {
 }
 
 .btn-primary {
-  background: var(--um-green-primary) !important;
-  color: var(--um-white) !important;
+  background: var(--um-green-primary);
+  color: var(--um-white);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
   transition: background 0.3s ease;
 }
@@ -186,8 +186,8 @@ const scrollTo = (id: string) => {
 }
 
 .btn-secondary {
-  color: var(--um-off-white) !important;
-  border: 2px solid rgba(245, 245, 242, 0.78);
+  color: var(--um-white);
+  border: 2px solid rgba(255, 255, 255, 0.8);
   background: rgba(0, 0, 0, 0.18);
 }
 

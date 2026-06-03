@@ -165,7 +165,9 @@ const scrollToExperience = () => {
   border-radius: 6px;
   background: var(--um-white);
   color: var(--green);
-  font: 800 18px 'Oswald', sans-serif;
+  font:
+    800 18px 'Oswald',
+    sans-serif;
   text-transform: uppercase;
   display: inline-flex;
   align-items: center;
