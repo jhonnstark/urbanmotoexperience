@@ -120,11 +120,31 @@
       "description": "Малогрупповые городские мотоциклетные туры по самым знаковым местам Мехико. Прокатитесь по Реформе, Чапультепеку, Бельяс Артес и историческим улицам, открывая город с местной точки зрения."
     },
     "features": [
-      { "icon": "mdi-account-group-outline", "text": "МЕСТНЫЕ ГИДЫ" },
-      { "icon": "mdi-motorbike-helmet", "text": "ШЛЕМЫ ВКЛЮЧЕНЫ" },
-      { "icon": "mdi-camera-outline", "text": "ОСТАНОВКИ ДЛЯ ФОТО" },
-      { "icon": "mdi-account-multiple", "text": "МАЛЫЕ ГРУППЫ" },
-      { "icon": "mdi-map-marker-path", "text": "ГИБКИЕ ЧАСТНЫЕ ПОЕЗДКИ" }
+      {
+        "icon": "mdi-account-group-outline",
+        "text": "МЕСТНЫЕ ГИДЫ",
+        "image": "/images/guias.png"
+      },
+      {
+        "icon": "mdi-motorbike-helmet",
+        "text": "ШЛЕМЫ ВКЛЮЧЕНЫ",
+        "image": "/images/cascos.png"
+      },
+      {
+        "icon": "mdi-camera-outline",
+        "text": "ОСТАНОВКИ ДЛЯ ФОТО",
+        "image": "/images/camara.png"
+      },
+      {
+        "icon": "mdi-account-multiple",
+        "text": "МАЛЫЕ ГРУППЫ",
+        "image": "/images/grupo.png"
+      },
+      {
+        "icon": "mdi-map-marker-path",
+        "text": "ГИБКИЕ ЧАСТНЫЕ ПОЕЗДКИ",
+        "image": "/images/private.png"
+      }
     ],
     "learn_more_button": "УЗНАТЬ БОЛЬШЕ"
   },
@@ -142,10 +162,22 @@
     "whatsapp_button": "ЗАБРОНИРУЙТЕ ПОЕЗДКУ В WHATSAPP",
     "instagram_button": "ПОСМОТРЕТЬ INSTAGRAM",
     "features": [
-      { "icon": "mdi-account-multiple", "text": "МАЛЫЕ ГРУППЫ" },
-      { "icon": "mdi-calendar-clock", "text": "ГИБКИЕ ГРАФИКИ" },
-      { "icon": "mdi-motorbike-helmet", "text": "ШЛЕМЫ ВКЛЮЧЕНЫ" },
-      { "icon": "mdi-shield-check-outline", "text": "БЕЗОПАСНОСТЬ ПРЕЖДЕ ВСЕГО" }
+      {
+        "icon": "mdi-account-multiple",
+        "text": "МАЛЫЕ ГРУППЫ"
+      },
+      {
+        "icon": "mdi-calendar-clock",
+        "text": "ГИБКИЕ ГРАФИКИ"
+      },
+      {
+        "icon": "mdi-motorbike-helmet",
+        "text": "ШЛЕМЫ ВКЛЮЧЕНЫ"
+      },
+      {
+        "icon": "mdi-shield-check-outline",
+        "text": "БЕЗОПАСНОСТЬ ПРЕЖДЕ ВСЕГО"
+      }
     ],
     "highlights": [
       {

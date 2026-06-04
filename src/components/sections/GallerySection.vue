@@ -87,6 +87,8 @@ const images = [
   background: #e8efe2;
   opacity: 0;
   transform: translateY(22px) scale(0.98);
+}
+.gallery-item.is-visible {
   animation: itemIn 0.68s ease forwards;
   animation-delay: var(--delay);
 }
@@ -102,6 +104,8 @@ const images = [
 .reveal {
   opacity: 0;
   transform: translateY(22px);
+}
+.reveal.is-visible {
   animation: fadeUp 0.7s ease forwards;
 }
 .g1 {

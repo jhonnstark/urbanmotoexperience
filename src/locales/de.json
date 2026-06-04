@@ -120,11 +120,31 @@
       "description": "Kleingruppen-Motorraderlebnisse in der Stadt durch die berühmtesten Teile von Mexiko-Stadt. Fahren Sie durch Reforma, Chapultepec, Bellas Artes und historische Straßen und entdecken Sie die Stadt aus lokaler Perspektive."
     },
     "features": [
-      { "icon": "mdi-account-group-outline", "text": "LOKALE FÜHRER" },
-      { "icon": "mdi-motorbike-helmet", "text": "HELME INBEGRIFFEN" },
-      { "icon": "mdi-camera-outline", "text": "FOTOSTOPPS" },
-      { "icon": "mdi-account-multiple", "text": "KLEINE GRUPPEN" },
-      { "icon": "mdi-map-marker-path", "text": "FLEXIBLE PRIVATE FAHRTEN" }
+      {
+        "icon": "mdi-account-group-outline",
+        "text": "LOKALE FÜHRER",
+        "image": "/images/guias.png"
+      },
+      {
+        "icon": "mdi-motorbike-helmet",
+        "text": "HELME INBEGRIFFEN",
+        "image": "/images/cascos.png"
+      },
+      {
+        "icon": "mdi-camera-outline",
+        "text": "FOTOSTOPPS",
+        "image": "/images/camara.png"
+      },
+      {
+        "icon": "mdi-account-multiple",
+        "text": "KLEINE GRUPPEN",
+        "image": "/images/grupo.png"
+      },
+      {
+        "icon": "mdi-map-marker-path",
+        "text": "FLEXIBLE PRIVATE FAHRTEN",
+        "image": "/images/private.png"
+      }
     ],
     "learn_more_button": "MEHR ERFAHREN"
   },
@@ -142,10 +162,22 @@
     "whatsapp_button": "BUCHEN SIE IHRE FAHRT AUF WHATSAPP",
     "instagram_button": "INSTAGRAM ANZEIGEN",
     "features": [
-      { "icon": "mdi-account-multiple", "text": "KLEINE GRUPPEN" },
-      { "icon": "mdi-calendar-clock", "text": "FLEXIBLE ZEITPLÄNE" },
-      { "icon": "mdi-motorbike-helmet", "text": "HELME INBEGRIFFEN" },
-      { "icon": "mdi-shield-check-outline", "text": "SICHERHEIT ZUERST" }
+      {
+        "icon": "mdi-account-multiple",
+        "text": "KLEINE GRUPPEN"
+      },
+      {
+        "icon": "mdi-calendar-clock",
+        "text": "FLEXIBLE ZEITPLÄNE"
+      },
+      {
+        "icon": "mdi-motorbike-helmet",
+        "text": "HELME INBEGRIFFEN"
+      },
+      {
+        "icon": "mdi-shield-check-outline",
+        "text": "SICHERHEIT ZUERST"
+      }
     ],
     "highlights": [
       {

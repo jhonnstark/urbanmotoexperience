@@ -2,7 +2,7 @@
   <div id="home">
     <main class="hero" aria-label="Explore Mexico City on two wheels">
       <div class="hero-overlay"></div>
-      
+
       <img src="/images/motos.png" alt="Motorcycles" class="hero-motos" />
 
       <section class="hero-content">
@@ -71,8 +71,9 @@ const scrollTo = (id: string) => {
 #home {
   min-height: 100vh;
   overflow-x: hidden;
-  background: #111;
+  background: var(--um-white);
   font-family: 'Oswald', system-ui, sans-serif;
+  padding-top: 96px;
 }
 
 .hero {
@@ -179,6 +180,7 @@ const scrollTo = (id: string) => {
   color: var(--um-white);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
   transition: background 0.3s ease;
+  padding: 10px 20px;
 }
 
 .btn-primary:hover {

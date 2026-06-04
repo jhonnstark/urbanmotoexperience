@@ -103,6 +103,8 @@ onMounted(() => {
 .reveal {
   opacity: 0;
   transform: translateY(22px);
+}
+.reveal.is-visible {
   animation: fadeUp 0.7s ease forwards;
 }
 .s1 {

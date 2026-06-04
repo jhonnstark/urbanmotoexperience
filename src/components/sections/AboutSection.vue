@@ -18,7 +18,14 @@
             class="feature-card"
             :style="{ '--delay': `${520 + index * 90}ms` }"
           >
-            <component :is="getIcon(feature.icon)" class="feature-icon" :size="50" aria-hidden="true" />
+            <img
+              v-if="feature.image"
+              :src="feature.image"
+              :alt="feature.text"
+              class="feature-image"
+              loading="lazy"
+            />
+            <component v-else :is="getIcon(feature.icon)" class="feature-icon" :size="50" aria-hidden="true" />
             <strong>{{ feature.text }}</strong>
           </article>
         </div>
@@ -61,7 +68,7 @@ function getIcon(mdiName: string): LucideIcon {
   return iconMap[mdiName] ?? Users
 }
 
-type Feature = { icon: string; text: string }
+type Feature = { icon: string; image?: string; text: string }
 
 const features = computed<Feature[]>(() => {
   const featuresData = tm('about.features') as unknown as Feature[]
@@ -147,6 +154,8 @@ const scrollToExperience = () => {
   border-right: 0;
   opacity: 0;
   transform: translateY(20px) scale(0.97);
+}
+.feature-card.is-visible {
   animation: popIn 0.62s ease forwards;
   animation-delay: var(--delay);
 }
@@ -166,6 +175,12 @@ const scrollToExperience = () => {
 
 .feature-icon {
   color: var(--um-navy);
+  filter: drop-shadow(3px 3px 0 rgba(127, 178, 57, 0.55));
+}
+.feature-image {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
   filter: drop-shadow(3px 3px 0 rgba(127, 178, 57, 0.55));
 }
 .feature-card strong {
@@ -204,9 +219,11 @@ const scrollToExperience = () => {
 .about-image-wrap {
   opacity: 0;
   transform: translateX(36px);
-  animation: fadeLeft 0.9s ease forwards 360ms;
   border-radius: 22px;
   overflow: hidden;
+}
+.about-image-wrap.is-visible {
+  animation: fadeLeft 0.9s ease forwards 360ms;
 }
 
 .about-image {
@@ -226,6 +243,8 @@ const scrollToExperience = () => {
 .reveal {
   opacity: 0;
   transform: translateY(24px);
+}
+.reveal.is-visible {
   animation: fadeUp 0.72s ease forwards;
 }
 .r1 {
@@ -264,15 +283,68 @@ const scrollToExperience = () => {
 
 @media (max-width: 1050px) {
   .about-shell {
+    position: relative;
     grid-template-columns: 1fr;
-    gap: 44px;
+    gap: 0;
+    min-height: 720px;
     padding: 70px 28px;
+    isolation: isolate;
+    overflow: hidden;
+  }
+  .about-shell::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.94) 0%,
+      rgba(255, 255, 255, 0.86) 48%,
+      rgba(255, 255, 255, 0.58) 100%
+    );
+  }
+  .about-copy {
+    position: relative;
+    z-index: 1;
+  }
+  .about-image-wrap,
+  .about-image-wrap.is-visible {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    border-radius: 0;
+    opacity: 1;
+    transform: none;
+    animation: none;
+    pointer-events: none;
   }
   .about-image {
-    min-height: 560px;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    border-radius: 0;
+    background-position: center;
+    box-shadow: none;
+  }
+  .about-image-wrap:hover .about-image {
+    transform: none;
   }
 }
 @media (max-width: 620px) {
+  .about-shell {
+    min-height: 780px;
+  }
+  .about-shell::before {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.96) 0%,
+      rgba(255, 255, 255, 0.9) 54%,
+      rgba(255, 255, 255, 0.68) 100%
+    );
+  }
+  .about-title {
+    font-size: clamp(58px, 18vw, 82px);
+  }
   .feature-grid {
     grid-template-columns: 1fr 1fr;
   }
