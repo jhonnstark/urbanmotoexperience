@@ -20,6 +20,7 @@ export function useScrollAnimation() {
         '.map-wrap',
         '.reveal-map',
         '.map-point',
+        '.route-map-item',
         '.route-path',
         '.about-image-wrap',
         '.benefit-bar',
