@@ -595,10 +595,6 @@ const stats = computed<Stat[]>(() => [
   transform: scale(1.1);
 }
 
-.pin {
-  display: none;
-}
-
 .map-number {
   width: 34px;
   height: 34px;

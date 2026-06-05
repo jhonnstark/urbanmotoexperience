@@ -257,19 +257,6 @@ const scrollTo = (id: string) => {
   transform: translateY(-1px);
 }
 
-.anim-container {
-  opacity: 0;
-  transform: translateY(40px);
-  transition:
-    opacity 0.8s ease-out,
-    transform 0.8s ease-out;
-}
-
-.anim-container.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 @media (max-width: 900px) {
   #home {
     padding-top: 74px;
