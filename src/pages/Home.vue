@@ -215,6 +215,7 @@ const scrollTo = (id: string) => {
   display: flex;
   gap: 28px;
   margin-top: 46px;
+  margin-bottom: 20px;
 }
 
 .btn {
@@ -287,6 +288,7 @@ const scrollTo = (id: string) => {
   .hero-actions {
     flex-direction: column;
     gap: 16px;
+    margin-top: 27px;
   }
 
   .hero-motos {

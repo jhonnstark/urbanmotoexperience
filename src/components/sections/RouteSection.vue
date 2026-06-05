@@ -485,7 +485,7 @@ const stats = computed<Stat[]>(() => [
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: url('/images/route-map-bg.svg') center / cover no-repeat;
+  background: url('/images/route-map-bg.png') center / cover no-repeat;
   opacity: 0.42;
   filter: saturate(0.92);
 }
@@ -842,7 +842,7 @@ const stats = computed<Stat[]>(() => [
     padding: 24px;
     background:
       linear-gradient(rgba(247, 250, 244, 0.9), rgba(247, 250, 244, 0.92)),
-      url('/images/route-map-bg.svg') center / cover no-repeat,
+      url('/images/route-map-bg.png') center / cover no-repeat,
       #f7faf4;
   }
 

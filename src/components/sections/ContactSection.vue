@@ -10,7 +10,12 @@
         <p class="tagline reveal c3">{{ $t('contact.subtitle') }}</p>
 
         <div class="contact-actions reveal c4">
-          <a class="cta whatsapp" href="https://wa.me/525611777736?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Urban%20Moto%20Experience%20CDMX" target="_blank" rel="noopener noreferrer">
+          <a
+            class="cta whatsapp"
+            href="https://wa.me/525611777736?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Urban%20Moto%20Experience%20CDMX"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Phone :size="34" :stroke-width="2" />
             {{ $t('contact.whatsapp_button') }} <b>→</b>
           </a>
@@ -98,9 +103,7 @@ const benefits = computed<Benefit[]>(() => {
 .contact-bg {
   position: absolute;
   inset: 0;
-  background-image:
-    url('/images/fondo contact.png'),
-    linear-gradient(135deg, #111, #4a5f40);
+  background-image: url('/images/fondo contact.png'), linear-gradient(135deg, #111, #4a5f40);
   background-size: cover;
   background-position: center;
   transform: scale(1.04);
@@ -310,6 +313,11 @@ const benefits = computed<Benefit[]>(() => {
   }
   .benefit-bar article {
     border-right: 0;
+    padding: 0 9px;
+  }
+  .benefit-bar p {
+    font-size: 15px;
+    margin: 3px 0 0;
   }
   .cta {
     font-size: 18px;
