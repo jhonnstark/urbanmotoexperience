@@ -40,19 +40,143 @@
         }}</a>
         <v-btn class="nav-cta" @click="scrollTo('contact')">{{ $t('nav.book_a_ride') }}</v-btn>
       </nav>
+
+      <nav class="mobile-section-nav" aria-label="Mobile section navigation">
+        <button
+          class="mobile-nav-arrow"
+          :class="{ 'mobile-nav-arrow--hidden': !hasPreviousSection }"
+          type="button"
+          :aria-label="`Ir a ${previousSectionLabel}`"
+          :aria-hidden="!hasPreviousSection"
+          :tabindex="hasPreviousSection ? 0 : -1"
+          @click="navigateSection(-1)"
+        >
+          <ChevronLeft :size="28" :stroke-width="2.4" aria-hidden="true" />
+        </button>
+
+        <button
+          class="mobile-section-current"
+          type="button"
+          :aria-label="currentSectionId === 'home' ? 'Urban Moto Experience CDMX home' : currentSectionLabel"
+          @click="scrollTo(currentSectionId)"
+        >
+          <span class="mobile-logo-frame" :class="{ 'is-hidden': currentSectionId !== 'home' }">
+            <img
+              src="/images/log3-1x.png"
+              srcset="/images/log3-1x.png 1x, /images/log3.png 2x"
+              alt="Urban Moto Experience CDMX"
+              class="mobile-brand-logo"
+              width="371"
+              height="356"
+              decoding="async"
+            />
+          </span>
+          <span
+            :key="currentSectionId"
+            class="mobile-section-title"
+            :class="{ 'is-visible': currentSectionId !== 'home' }"
+          >
+            {{ currentSectionLabel }}
+          </span>
+        </button>
+
+        <button
+          class="mobile-nav-arrow"
+          :class="{ 'mobile-nav-arrow--hidden': !hasNextSection }"
+          type="button"
+          :aria-label="`Ir a ${nextSectionLabel}`"
+          :aria-hidden="!hasNextSection"
+          :tabindex="hasNextSection ? 0 : -1"
+          @click="navigateSection(1)"
+        >
+          <ChevronRight :size="28" :stroke-width="2.4" aria-hidden="true" />
+        </button>
+      </nav>
     </div>
   </v-app-bar>
 </template>
 
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, ref } from 'vue'
+import { ChevronLeft, ChevronRight } from 'lucide-vue-next'
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
+const { t, te } = useI18n()
 const isScrolled = ref(false)
+const currentSectionId = ref('home')
+
+const sectionOrder = ['home', 'about', 'route', 'experience', 'gallery', 'socials', 'contact'] as const
+type SectionId = (typeof sectionOrder)[number]
+
+const sectionTitleKeys: Record<SectionId, string> = {
+  home: 'nav.home',
+  about: 'nav.about',
+  route: 'nav.route',
+  experience: 'nav.experience',
+  gallery: 'nav.gallery',
+  socials: 'nav.socials',
+  contact: 'nav.contact',
+}
+
+const sectionFallbackLabels: Record<SectionId, string> = {
+  home: 'Inicio',
+  about: 'Acerca de',
+  route: 'Ruta',
+  experience: 'Experiencia',
+  gallery: 'Galeria',
+  socials: 'Socials',
+  contact: 'Contacto',
+}
+
+const getSectionLabel = (id: SectionId) => {
+  const key = sectionTitleKeys[id]
+  return te(key) ? t(key) : sectionFallbackLabels[id]
+}
+
+const currentSectionIndex = computed(() =>
+  Math.max(0, sectionOrder.indexOf(currentSectionId.value as SectionId)),
+)
+const currentSectionLabel = computed(() => getSectionLabel(sectionOrder[currentSectionIndex.value]))
+const hasPreviousSection = computed(() => currentSectionIndex.value > 0)
+const hasNextSection = computed(() => currentSectionIndex.value < sectionOrder.length - 1)
+const previousSectionLabel = computed(() =>
+  hasPreviousSection.value ? getSectionLabel(sectionOrder[currentSectionIndex.value - 1]) : '',
+)
+const nextSectionLabel = computed(() =>
+  hasNextSection.value ? getSectionLabel(sectionOrder[currentSectionIndex.value + 1]) : '',
+)
+
+const getSectionElement = (id: SectionId) => {
+  if (id === 'home') {
+    return document.querySelector<HTMLElement>('.hero')
+  }
+
+  return document.getElementById(id)
+}
 
 const updateTopbarState = () => {
   isScrolled.value = window.scrollY > 4
+}
+
+const updateActiveSection = () => {
+  const marker = window.scrollY + window.innerHeight * 0.34
+  let active: SectionId = 'home'
+
+  sectionOrder.forEach((id) => {
+    const element = getSectionElement(id)
+    if (!element) {
+      return
+    }
+
+    const top = element.getBoundingClientRect().top + window.scrollY
+    if (top <= marker) {
+      active = id
+    }
+  })
+
+  currentSectionId.value = active
 }
 
 const scrollTo = (id: string) => {
@@ -68,13 +192,27 @@ const scrollTo = (id: string) => {
   }
 }
 
+const navigateSection = (direction: -1 | 1) => {
+  const nextIndex = currentSectionIndex.value + direction
+  if (nextIndex < 0 || nextIndex >= sectionOrder.length) {
+    return
+  }
+
+  scrollTo(sectionOrder[nextIndex])
+}
+
 onMounted(() => {
   updateTopbarState()
+  updateActiveSection()
   window.addEventListener('scroll', updateTopbarState, { passive: true })
+  window.addEventListener('scroll', updateActiveSection, { passive: true })
+  window.addEventListener('resize', updateActiveSection, { passive: true })
 })
 
 onBeforeUnmount(() => {
   window.removeEventListener('scroll', updateTopbarState)
+  window.removeEventListener('scroll', updateActiveSection)
+  window.removeEventListener('resize', updateActiveSection)
 })
 </script>
 
@@ -219,6 +357,10 @@ onBeforeUnmount(() => {
   background: var(--um-green-dark);
 }
 
+.mobile-section-nav {
+  display: none;
+}
+
 @media (max-width: 1200px) {
   .nav-links {
     gap: 28px;
@@ -252,104 +394,197 @@ onBeforeUnmount(() => {
 
 @media (max-width: 900px) {
   .topbar {
-    height: auto;
-    min-height: 80px;
-    padding: 12px 16px;
+    height: 76px !important;
+    min-height: 76px;
+    padding: 10px 14px;
   }
 
   .topbar--scrolled {
-    min-height: 72px;
-    padding: 8px 16px;
+    height: 70px !important;
+    min-height: 70px;
+    padding: 8px 14px;
   }
 
   .topbar-content {
-    flex-wrap: wrap;
-    gap: 12px;
+    justify-content: center;
+    padding: 0;
   }
 
-  .brand {
-    width: 76px;
-    height: 50px;
-  }
-
-  .brand-logo {
-    height: 50px;
-  }
-
-  .topbar--scrolled .brand-logo {
-    height: 42px;
-    transform: translate(-50%, -50%) scale(0.98);
-  }
-
+  .brand,
   .nav-links {
-    width: 100%;
-    justify-content: space-between;
+    display: none;
+  }
+
+  .mobile-section-nav {
+    width: min(100%, 420px);
+    height: 54px;
+    display: grid;
+    grid-template-columns: 54px minmax(0, 1fr) 54px;
+    align-items: center;
     gap: 8px;
-    font-size: 13px;
   }
 
-  .topbar--scrolled .nav-links {
-    gap: 8px;
-    font-size: 12px;
+  .mobile-nav-arrow {
+    width: 46px;
+    height: 46px;
+    border: 0;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    justify-self: center;
+    background: rgba(7, 26, 44, 0.06);
+    color: var(--um-navy);
+    cursor: pointer;
+    transition:
+      background 0.2s ease,
+      color 0.2s ease,
+      opacity 0.2s ease,
+      transform 0.2s ease;
   }
 
-  .nav-link {
-    font-size: 13px;
-    letter-spacing: 0.4px;
+  .mobile-nav-arrow:hover,
+  .mobile-nav-arrow:focus-visible {
+    background: var(--um-green-primary);
+    color: var(--um-white);
+    transform: translateY(-1px);
   }
 
-  .topbar--scrolled .nav-link {
-    font-size: 12px;
+  .mobile-nav-arrow:focus-visible {
+    outline: 3px solid rgba(121, 184, 63, 0.36);
+    outline-offset: 2px;
   }
 
-  .nav-cta {
-    margin-left: 0;
-    padding: 10px 16px;
-    font-size: 13px;
+  .mobile-nav-arrow--hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.86);
   }
 
-  .topbar--scrolled .nav-cta {
-    padding: 8px 14px;
-    font-size: 12px;
+  .mobile-section-current {
+    position: relative;
+    height: 54px;
+    min-width: 0;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--um-navy);
+    cursor: pointer;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+  }
+
+  .mobile-logo-frame {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+    transition:
+      opacity 0.32s ease,
+      transform 0.42s cubic-bezier(0.22, 0.85, 0.2, 1);
+  }
+
+  .mobile-logo-frame.is-hidden {
+    opacity: 0;
+    transform: translateY(-26px) rotateX(58deg);
+  }
+
+  .mobile-brand-logo {
+    width: auto;
+    height: 52px;
+    object-fit: contain;
+    filter: drop-shadow(0 6px 10px rgba(7, 26, 44, 0.1));
+  }
+
+  .mobile-section-title {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 0 10px;
+    opacity: 0;
+    color: var(--um-navy);
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    transform: translateY(28px) rotateX(-62deg);
+    transform-origin: center;
+    text-align: center;
+  }
+
+  .mobile-section-title.is-visible {
+    animation: mobileTitleReel 0.46s cubic-bezier(0.22, 0.85, 0.2, 1) forwards;
   }
 }
 
 @media (max-width: 600px) {
-  .brand {
-    width: 68px;
-    height: 44px;
+  .topbar {
+    height: 70px !important;
+    min-height: 70px;
+    padding-inline: 10px;
   }
 
-  .brand-logo {
-    height: 44px;
+  .mobile-section-nav {
+    grid-template-columns: 48px minmax(0, 1fr) 48px;
+    gap: 4px;
   }
 
-  .topbar--scrolled .brand-logo {
-    height: 38px;
-    transform: translate(-50%, -50%) scale(0.98);
+  .mobile-nav-arrow {
+    width: 42px;
+    height: 42px;
   }
 
-  .nav-links {
-    gap: 6px;
-    font-size: 11px;
+  .mobile-brand-logo {
+    height: 48px;
   }
 
-  .nav-link {
-    font-size: 11px;
+  .mobile-section-title {
+    font-size: 18px;
+  }
+}
+
+@keyframes mobileTitleReel {
+  0% {
+    opacity: 0;
+    filter: blur(4px);
+    transform: translateY(28px) rotateX(-62deg);
   }
 
-  .topbar--scrolled .nav-link {
-    font-size: 10px;
+  62% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(-4px) rotateX(8deg);
   }
 
-  .nav-cta {
-    padding: 8px 12px;
-    font-size: 11px;
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) rotateX(0deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-logo-frame,
+  .mobile-logo-frame.is-hidden,
+  .mobile-section-title,
+  .mobile-section-title.is-visible {
+    animation: none !important;
+    filter: none !important;
+    transform: none !important;
   }
 
-  .topbar--scrolled .nav-cta {
-    padding: 7px 10px;
-    font-size: 10px;
+  .mobile-logo-frame.is-hidden {
+    opacity: 0;
+  }
+
+  .mobile-section-title.is-visible {
+    opacity: 1;
   }
 }
 </style>
