@@ -21,7 +21,15 @@
             :style="{ '--delay': `${420 + index * 120}ms` }"
           >
             <div class="stop-thumb" :alt="stop.title">
-              <img v-if="stop.image" :src="stop.image" :alt="stop.title" class="stop-thumb-img" />
+              <img
+                v-if="stop.image"
+                :src="image1x(stop.image)"
+                :srcset="retinaSrcSet(stop.image)"
+                :alt="stop.title"
+                class="stop-thumb-img"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
             <div class="stop-number">{{ stop.id }}</div>
             <div class="stop-body">
@@ -36,35 +44,91 @@
         <div class="map-card" aria-label="Illustrated route map">
           <div class="map-grid" aria-hidden="true"></div>
 
-          <svg class="route-svg" viewBox="0 0 620 620" role="img" aria-label="Green route line">
+          <svg
+            class="route-svg"
+            viewBox="0 0 1000 560"
+            preserveAspectRatio="xMidYMid meet"
+            role="img"
+            aria-label="Stylized Google Maps route through CDMX"
+          >
             <path
               class="route-path"
-              d="M242 78 L312 96 L291 186 L358 260 L478 346 L397 411 L420 505 L260 555 L212 458 L166 372"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              d="M455 475 L440 405 L465 315 L410 275 L335 300 L275 310 L210 300 L135 285 L120 230 L170 205 L250 215 L325 250 L420 260 L520 230 L630 205 L735 185 L840 170 L925 165 L895 95 L760 115 L645 145"
             />
           </svg>
 
-          <div class="map-logo-placeholder" aria-label="Urban Moto Experience">
-            <img src="/images/log3.png" alt="Urban Moto Experience" class="map-logo-img" />
-          </div>
-
-          <div
-            v-for="point in mapPoints"
-            :key="point.id"
-            class="map-point"
-            :class="`point-${point.id}`"
-            :style="{ '--delay': `${900 + point.id * 110}ms` }"
+          <a
+            class="map-logo-placeholder"
+            :href="googleMapsRouteUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Ver ruta en Google Maps"
+            aria-label="Ver ruta en Google Maps"
           >
-            <span class="pin" aria-hidden="true"></span>
-            <span class="map-number">{{ point.id }}</span>
-            <strong>{{ point.label }}</strong>
-            <div class="point-image">
-              <img v-if="point.image" :src="point.image" :alt="point.label" class="point-image-img" />
+            <img
+              src="/images/log3-1x.png"
+              srcset="/images/log3-1x.png 1x, /images/log3.png 2x"
+              alt="Urban Moto Experience"
+              class="map-logo-img"
+              loading="lazy"
+              decoding="async"
+            />
+          </a>
+
+          <template v-for="point in mapPoints" :key="point.id">
+            <div
+              class="map-point route-map-item"
+              :style="{
+                '--delay': `${860 + point.id * 90}ms`,
+                left: `${point.left}%`,
+                top: `${point.top}%`,
+              }"
+            >
+              <span class="map-number">{{ point.id }}</span>
             </div>
-          </div>
+
+            <div
+              class="point-image route-map-item"
+              :class="`point-image-${point.id}`"
+              :style="{
+                '--delay': `${900 + point.id * 90}ms`,
+                left: `${point.imageLeft}%`,
+                top: `${point.imageTop}%`,
+              }"
+            >
+              <img
+                v-if="point.image"
+                :src="image1x(point.image)"
+                :srcset="retinaSrcSet(point.image)"
+                :alt="point.label"
+                class="point-image-img"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+
+            <strong
+              class="map-label route-map-item"
+              :class="`map-label-${point.id}`"
+              :style="{
+                '--delay': `${940 + point.id * 90}ms`,
+                left: `${point.labelLeft}%`,
+                top: `${point.labelTop}%`,
+              }"
+            >
+              {{ point.label }}
+            </strong>
+          </template>
         </div>
+
+        <a
+          class="route-google-btn"
+          :href="googleMapsRouteUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Abrir ruta en Google Maps
+        </a>
 
         <div class="route-stats">
           <article
@@ -74,7 +138,14 @@
             :style="{ '--delay': `${1100 + index * 110}ms` }"
           >
             <div class="stat-icon" aria-hidden="true">
-              <img v-if="stat.image" :src="stat.image" :alt="stat.label" class="stat-icon-img" />
+              <img
+                v-if="stat.image"
+                :src="stat.image"
+                :alt="stat.label"
+                class="stat-icon-img"
+                loading="lazy"
+                decoding="async"
+              />
               <span v-else>{{ stat.icon }}</span>
             </div>
             <div>
@@ -91,8 +162,12 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 import { computed } from 'vue'
+import { image1x, retinaSrcSet } from '@/utils/responsiveImages'
 
 const { t } = useI18n()
+
+const googleMapsRouteUrl =
+  'https://www.google.com/maps/dir/Parque+España,+CDMX/Ángel+de+la+Independencia,+CDMX/Lago+de+Chapultepec,+CDMX/Museo+Nacional+de+Antropología,+CDMX/Palacio+de+Bellas+Artes,+CDMX/Monumento+a+la+Revolución,+CDMX'
 
 interface Stop {
   id: number
@@ -105,6 +180,12 @@ interface MapPoint {
   id: number
   label: string
   image?: string
+  left: number
+  top: number
+  labelLeft: number
+  labelTop: number
+  imageLeft: number
+  imageTop: number
 }
 
 interface Stat {
@@ -123,7 +204,7 @@ const stops = computed<Stop[]>(() => {
     '/images/experience/bellasartess.png',
     '/images/ruta/revol.png',
   ]
-  
+
   return [
     {
       id: 1,
@@ -173,18 +254,48 @@ const mapPoints = computed<MapPoint[]>(() => {
     '/images/experience/bellasartess.png',
     '/images/ruta/revol.png',
   ]
-  
+
+  const routeStopPositions = [
+    { x: 430, y: 455, labelX: 471, labelY: 485, imageX: 472, imageY: 422 },
+    { x: 505, y: 300, labelX: 525, labelY: 200, imageX: 479, imageY: 258 },
+    { x: 245, y: 305, labelX: 300, labelY: 390, imageX: 212, imageY: 348 },
+    { x: 150, y: 250, labelX: 280, labelY: 210, imageX: 114, imageY: 211 },
+    { x: 870, y: 240, labelX: 773, labelY: 314, imageX: 840, imageY: 280 },
+    { x: 680, y: 175, labelX: 735, labelY: 140, imageX: 635, imageY: 110 },
+  ]
+
   return stops.value.map((stop, index) => ({
     id: stop.id,
     label: stop.title,
     image: images[index] || undefined,
+    left: (routeStopPositions[index].x / 1000) * 100,
+    top: (routeStopPositions[index].y / 560) * 100,
+    labelLeft: (routeStopPositions[index].labelX / 1000) * 100,
+    labelTop: (routeStopPositions[index].labelY / 560) * 100,
+    imageLeft: (routeStopPositions[index].imageX / 1000) * 100,
+    imageTop: (routeStopPositions[index].imageY / 560) * 100,
   }))
 })
 
 const stats = computed<Stat[]>(() => [
-  { icon: '◷', label: t('route.stats.duration.label'), value: t('route.stats.duration.value'), image: '/images/clock.png' },
-  { icon: '⌁', label: t('route.stats.distance.label'), value: t('route.stats.distance.value'), image: '/images/positionicon.png' },
-  { icon: '🏍', label: t('route.stats.ride_type.label'), value: t('route.stats.ride_type.value'), image: '/images/motoicon.png' },
+  {
+    icon: '◷',
+    label: t('route.stats.duration.label'),
+    value: t('route.stats.duration.value'),
+    image: '/images/clock.png',
+  },
+  {
+    icon: '⌁',
+    label: t('route.stats.distance.label'),
+    value: t('route.stats.distance.value'),
+    image: '/images/positionicon.png',
+  },
+  {
+    icon: '🏍',
+    label: t('route.stats.ride_type.label'),
+    value: t('route.stats.ride_type.value'),
+    image: '/images/motoicon.png',
+  },
   { icon: '♙', label: t('route.stats.group_size.label'), value: t('route.stats.group_size.value') },
 ])
 </script>
@@ -357,54 +468,91 @@ const stats = computed<Stat[]>(() => [
 
 .map-card {
   position: relative;
-  min-height: 730px;
-  border-radius: 26px;
+  min-height: 620px;
+  border-radius: 28px;
   overflow: hidden;
+  isolation: isolate;
   background:
-    linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)),
-    radial-gradient(circle at 28% 18%, rgba(121, 184, 63, 0.22), transparent 17%),
-    radial-gradient(circle at 62% 48%, rgba(121, 184, 63, 0.16), transparent 20%),
-    linear-gradient(135deg, #f7faf4, #edf3ea);
+    linear-gradient(rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.86)),
+    radial-gradient(circle at 20% 35%, rgba(121, 184, 63, 0.18), transparent 18%),
+    radial-gradient(circle at 70% 20%, rgba(121, 184, 63, 0.12), transparent 18%),
+    #f7faf4;
   box-shadow: 0 18px 55px rgba(7, 26, 44, 0.08);
+}
+
+.map-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url('/images/route-map-bg.svg') center / cover no-repeat;
+  opacity: 0.42;
+  filter: saturate(0.92);
 }
 
 .map-grid {
   position: absolute;
-  inset: -20px;
-  opacity: 0.42;
+  inset: 0;
+  opacity: 0.26;
   background-image:
-    linear-gradient(30deg, transparent 0 47%, rgba(160, 175, 164, 0.34) 48% 50%, transparent 51%),
-    linear-gradient(120deg, transparent 0 46%, rgba(160, 175, 164, 0.28) 47% 50%, transparent 51%),
-    linear-gradient(80deg, transparent 0 48%, rgba(160, 175, 164, 0.22) 49% 51%, transparent 52%);
-  background-size: 145px 118px, 170px 140px, 210px 130px;
+    linear-gradient(25deg, transparent 0 47%, rgba(150, 165, 155, 0.45) 49% 50%, transparent 51%),
+    linear-gradient(115deg, transparent 0 47%, rgba(150, 165, 155, 0.35) 49% 50%, transparent 51%),
+    linear-gradient(0deg, transparent 0 96%, rgba(150, 165, 155, 0.25) 97% 100%);
+  background-size:
+    145px 115px,
+    180px 140px,
+    100px 100px;
 }
 
 .route-svg {
   position: absolute;
-  inset: 7% 11% 8% 13%;
-  width: 76%;
-  height: 78%;
-  filter: drop-shadow(0 7px 2px rgba(79, 155, 50, 0.12));
+  inset: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 
 .route-path {
+  fill: none;
   stroke: var(--route-green-dark);
-  stroke-width: 16;
-  stroke-dasharray: 980;
-  stroke-dashoffset: 980;
+  stroke-width: 14;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 4px 5px rgba(0, 0, 0, 0.16));
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 1200;
 }
 .route-path.is-visible {
-  animation: drawRoute 1.3s ease forwards;
-  animation-delay: 820ms;
+  animation: drawRoute 2.4s ease forwards;
 }
 
 .map-logo-placeholder {
   position: absolute;
   top: 34px;
   right: 54px;
+  z-index: 10;
   width: 72px;
   height: auto;
+  display: block;
+  border-radius: 8px;
+  cursor: pointer;
   filter: drop-shadow(0 10px 14px rgba(7, 26, 44, 0.12));
+  pointer-events: auto;
+  transition:
+    filter 0.2s ease,
+    transform 0.2s ease;
+}
+
+.map-logo-placeholder:hover,
+.map-logo-placeholder:focus-visible {
+  filter: drop-shadow(0 12px 18px rgba(7, 26, 44, 0.2));
+  transform: translateY(-2px) scale(1.04);
+}
+
+.map-logo-placeholder:focus-visible {
+  outline: 3px solid var(--route-green);
+  outline-offset: 4px;
 }
 
 .map-logo-img {
@@ -413,27 +561,22 @@ const stats = computed<Stat[]>(() => [
   object-fit: contain;
 }
 
-.map-point {
+.route-map-item {
   position: absolute;
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  color: var(--route-dark);
-  font-size: 18px;
-  line-height: 1;
-  font-weight: 900;
-  text-transform: uppercase;
+  z-index: 5;
   opacity: 0;
-  transform: scale(0.92) translateY(12px);
+  transform: translate(-50%, -50%) scale(0.92);
 }
-.map-point.is-visible {
+
+.route-map-item.is-visible {
   animation: pointIn 0.52s cubic-bezier(0.2, 0.9, 0.3, 1.25) forwards;
   animation-delay: var(--delay);
 }
 
 .point-image {
-  width: 104px;
-  height: 104px;
+  z-index: 6;
+  width: 88px;
+  height: 88px;
   border-radius: 999px;
   border: 5px solid white;
   background: linear-gradient(135deg, #c9d8e8, #7aa665);
@@ -453,76 +596,85 @@ const stats = computed<Stat[]>(() => [
 }
 
 .pin {
-  width: 24px;
-  height: 24px;
-  border-radius: 999px 999px 999px 0;
-  background: var(--route-dark);
-  transform: rotate(-45deg);
+  display: none;
 }
 
 .map-number {
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   display: grid;
   place-items: center;
   border-radius: 999px;
   background: var(--route-green);
   color: var(--um-white);
   font-size: 17px;
+  font-weight: 900;
+  box-shadow: 0 8px 18px rgba(7, 26, 44, 0.16);
 }
 
-.point-1 {
-  top: 66px;
-  left: 146px;
+.map-point {
+  z-index: 8;
 }
 
-.point-1 .point-image {
-  order: -1;
+.map-label {
+  z-index: 7;
+  max-width: 170px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(247, 250, 244, 0.78);
+  color: var(--route-dark);
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1.05;
+  text-transform: uppercase;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.65);
 }
 
-.point-2 {
-  top: 210px;
-  left: 300px;
+.map-label-2 {
+  max-width: 190px;
 }
 
-.point-2 strong {
+.map-label-3,
+.map-label-4 {
+  max-width: 165px;
+}
+
+.map-label-5 {
   max-width: 150px;
+  text-align: right;
 }
 
-.point-3 {
-  top: 348px;
-  right: 86px;
+.route-google-btn {
+  width: fit-content;
+  min-height: 48px;
+  margin: 22px auto 0;
+  padding: 0 28px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--route-green);
+  color: var(--um-white);
+  font-size: 17px;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  text-transform: uppercase;
+  box-shadow: 0 12px 24px rgba(7, 26, 44, 0.14);
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
-.point-3 .point-image {
-  order: 4;
+.route-google-btn:hover,
+.route-google-btn:focus-visible {
+  background: var(--route-green-dark);
+  transform: translateY(-2px);
 }
 
-.point-4 {
-  bottom: 245px;
-  left: 88px;
-}
-
-.point-4 strong {
-  max-width: 152px;
-}
-
-.point-5 {
-  bottom: 140px;
-  right: 96px;
-}
-
-.point-5 .point-image {
-  order: 4;
-}
-
-.point-6 {
-  bottom: 52px;
-  left: 220px;
-}
-
-.point-6 .point-image {
-  order: -1;
+.route-google-btn:focus-visible {
+  outline: 3px solid var(--route-dark);
+  outline-offset: 4px;
 }
 
 .route-stats {
@@ -635,7 +787,7 @@ const stats = computed<Stat[]>(() => [
 @keyframes pointIn {
   to {
     opacity: 1;
-    transform: scale(1) translateY(0);
+    transform: translate(-50%, -50%) scale(1);
   }
 }
 
@@ -649,7 +801,7 @@ const stats = computed<Stat[]>(() => [
   }
 
   .map-card {
-    min-height: 650px;
+    min-height: 560px;
   }
 }
 
@@ -686,7 +838,12 @@ const stats = computed<Stat[]>(() => [
   }
 
   .map-card {
-    min-height: 520px;
+    min-height: auto;
+    padding: 24px;
+    background:
+      linear-gradient(rgba(247, 250, 244, 0.9), rgba(247, 250, 244, 0.92)),
+      url('/images/route-map-bg.svg') center / cover no-repeat,
+      #f7faf4;
   }
 
   .map-logo-placeholder {
@@ -695,20 +852,46 @@ const stats = computed<Stat[]>(() => [
     right: 20px;
   }
 
+  .map-grid,
+  .route-svg {
+    display: none;
+  }
+
+  .route-map-item {
+    position: relative;
+    top: auto !important;
+    left: auto !important;
+    transform: none;
+    opacity: 0;
+  }
+
+  .route-map-item.is-visible {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
   .map-point {
-    font-size: 12px;
-    gap: 5px;
+    display: inline-flex;
+    margin: 0 10px 18px 0;
+    vertical-align: top;
   }
 
   .point-image {
     width: 62px;
     height: 62px;
     border-width: 3px;
+    display: inline-block;
+    margin: 0 12px 18px 0;
   }
 
-  .pin {
-    width: 17px;
-    height: 17px;
+  .map-label {
+    display: inline-block;
+    max-width: calc(100% - 112px);
+    margin-top: 14px;
+    font-size: 15px;
+    text-align: left;
+    vertical-align: top;
   }
 
   .map-number {

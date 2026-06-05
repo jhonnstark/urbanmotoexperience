@@ -98,7 +98,9 @@ const benefits = computed<Benefit[]>(() => {
 .contact-bg {
   position: absolute;
   inset: 0;
-  background-image: url('/images/fondo contact.png'), linear-gradient(135deg, #111, #4a5f40);
+  background-image:
+    url('/images/fondo contact.png'),
+    linear-gradient(135deg, #111, #4a5f40);
   background-size: cover;
   background-position: center;
   transform: scale(1.04);
@@ -314,6 +316,9 @@ const benefits = computed<Benefit[]>(() => {
     padding: 0 22px;
   }
   .contact-bg {
+    background-image:
+      image-set(url('/images/fondo contact-1x.png') 1x, url('/images/fondo contact.png') 2x),
+      linear-gradient(135deg, #111, #4a5f40);
     background-position: 65% center;
   }
 }

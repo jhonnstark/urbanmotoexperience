@@ -24,7 +24,14 @@
           :style="{ '--delay': `${460 + index * 120}ms` }"
         >
           <div class="feature-image-wrap">
-            <img :src="feature.image" :alt="feature.title" class="feature-image" />
+            <img
+              :src="image1x(feature.image)"
+              :srcset="retinaSrcSet(feature.image)"
+              :alt="feature.title"
+              class="feature-image"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
 
           <div class="feature-content">
@@ -42,6 +49,7 @@
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { Bike, Camera, Coffee, Mic, ShieldCheck } from 'lucide-vue-next'
+import { image1x, retinaSrcSet } from '@/utils/responsiveImages'
 
 const { t } = useI18n()
 

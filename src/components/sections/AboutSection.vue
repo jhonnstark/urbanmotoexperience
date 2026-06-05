@@ -20,10 +20,12 @@
           >
             <img
               v-if="feature.image"
-              :src="feature.image"
+              :src="image1x(feature.image)"
+              :srcset="retinaSrcSet(feature.image)"
               :alt="feature.text"
               class="feature-image"
               loading="lazy"
+              decoding="async"
             />
             <component v-else :is="getIcon(feature.icon)" class="feature-icon" :size="50" aria-hidden="true" />
             <strong>{{ feature.text }}</strong>
@@ -53,6 +55,7 @@ import {
   MapPin,
   type LucideIcon,
 } from 'lucide-vue-next'
+import { image1x, retinaSrcSet } from '@/utils/responsiveImages'
 
 const { tm } = useI18n()
 
@@ -229,7 +232,9 @@ const scrollToExperience = () => {
 .about-image {
   min-height: 890px;
   border-radius: 22px;
-  background-image: url('/images/reforma.png'), linear-gradient(135deg, #8db7d8, #243b2e);
+  background-image:
+    url('/images/reforma.png'),
+    linear-gradient(135deg, #8db7d8, #243b2e);
   background-size: cover;
   background-position: center;
   box-shadow: 0 18px 52px rgba(7, 26, 44, 0.12);
@@ -331,6 +336,12 @@ const scrollToExperience = () => {
   }
 }
 @media (max-width: 620px) {
+  .about-image {
+    background-image:
+      image-set(url('/images/reforma-1x.png') 1x, url('/images/reforma.png') 2x),
+      linear-gradient(135deg, #8db7d8, #243b2e);
+  }
+
   .about-shell {
     min-height: 780px;
   }
