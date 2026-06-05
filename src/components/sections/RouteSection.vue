@@ -447,7 +447,7 @@ const stats = computed<Stat[]>(() => [
   overflow: hidden;
   isolation: isolate;
   background:
-    linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.9)),
+    linear-gradient(rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.86)),
     radial-gradient(circle at 20% 35%, rgba(121, 184, 63, 0.18), transparent 18%),
     radial-gradient(circle at 70% 20%, rgba(121, 184, 63, 0.12), transparent 18%),
     #f7faf4;
@@ -460,8 +460,8 @@ const stats = computed<Stat[]>(() => [
   inset: 0;
   z-index: -1;
   background: url('/images/route-map-bg.svg') center / cover no-repeat;
-  opacity: 0.28;
-  filter: saturate(0.8);
+  opacity: 0.42;
+  filter: saturate(0.92);
 }
 
 .map-grid {
