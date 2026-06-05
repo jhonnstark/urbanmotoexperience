@@ -1,0 +1,5 @@
+if [ -d /e/ms-playwright ]; then
+  export PLAYWRIGHT_BROWSERS_PATH="${PLAYWRIGHT_BROWSERS_PATH:-E:/ms-playwright}"
+fi
+
+npm run validate
