@@ -270,6 +270,10 @@ const scrollTo = (id: string) => {
 }
 
 @media (max-width: 900px) {
+  #home {
+    padding-top: 74px;
+  }
+
   .hero {
     min-height: calc(100vh - 96px);
     background-position: 62% center;
