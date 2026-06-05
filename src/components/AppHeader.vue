@@ -14,7 +14,15 @@
         @click.prevent="scrollTo('home')"
         aria-label="Urban Moto Experience CDMX home"
       >
-        <img src="/images/log3.png" alt="Urban Moto Experience CDMX" class="brand-logo" />
+        <img
+          src="/images/log3-1x.png"
+          srcset="/images/log3-1x.png 1x, /images/log3.png 2x"
+          alt="Urban Moto Experience CDMX"
+          class="brand-logo"
+          width="371"
+          height="356"
+          decoding="async"
+        />
       </a>
 
       <nav class="nav-links" aria-label="Main navigation">

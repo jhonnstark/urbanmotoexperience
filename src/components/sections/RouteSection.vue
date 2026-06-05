@@ -21,7 +21,15 @@
             :style="{ '--delay': `${420 + index * 120}ms` }"
           >
             <div class="stop-thumb" :alt="stop.title">
-              <img v-if="stop.image" :src="stop.image" :alt="stop.title" class="stop-thumb-img" />
+              <img
+                v-if="stop.image"
+                :src="image1x(stop.image)"
+                :srcset="retinaSrcSet(stop.image)"
+                :alt="stop.title"
+                class="stop-thumb-img"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
             <div class="stop-number">{{ stop.id }}</div>
             <div class="stop-body">
@@ -57,7 +65,14 @@
             title="Ver ruta en Google Maps"
             aria-label="Ver ruta en Google Maps"
           >
-            <img src="/images/log3.png" alt="Urban Moto Experience" class="map-logo-img" />
+            <img
+              src="/images/log3-1x.png"
+              srcset="/images/log3-1x.png 1x, /images/log3.png 2x"
+              alt="Urban Moto Experience"
+              class="map-logo-img"
+              loading="lazy"
+              decoding="async"
+            />
           </a>
 
           <template v-for="point in mapPoints" :key="point.id">
@@ -83,9 +98,12 @@
             >
               <img
                 v-if="point.image"
-                :src="point.image"
+                :src="image1x(point.image)"
+                :srcset="retinaSrcSet(point.image)"
                 :alt="point.label"
                 class="point-image-img"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -120,7 +138,14 @@
             :style="{ '--delay': `${1100 + index * 110}ms` }"
           >
             <div class="stat-icon" aria-hidden="true">
-              <img v-if="stat.image" :src="stat.image" :alt="stat.label" class="stat-icon-img" />
+              <img
+                v-if="stat.image"
+                :src="stat.image"
+                :alt="stat.label"
+                class="stat-icon-img"
+                loading="lazy"
+                decoding="async"
+              />
               <span v-else>{{ stat.icon }}</span>
             </div>
             <div>
@@ -137,6 +162,7 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 import { computed } from 'vue'
+import { image1x, retinaSrcSet } from '@/utils/responsiveImages'
 
 const { t } = useI18n()
 

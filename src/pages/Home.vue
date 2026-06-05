@@ -3,7 +3,16 @@
     <main class="hero" :class="{ 'is-ready': isHeroReady }" aria-label="Explore Mexico City on two wheels">
       <div class="hero-overlay"></div>
 
-      <img src="/images/motos.png" alt="Motorcycles" class="hero-motos" />
+      <img
+        src="/images/motos-1x.png"
+        srcset="/images/motos-1x.png 1x, /images/motos.png 2x"
+        alt="Motorcycles"
+        class="hero-motos"
+        width="768"
+        height="512"
+        fetchpriority="high"
+        decoding="async"
+      />
 
       <section class="hero-content">
         <h1 class="hero-title">
@@ -89,7 +98,7 @@ const scrollTo = (id: string) => {
   position: relative;
   display: flex;
   align-items: center;
-  background-image: url('/images/background.png');
+  background-image: image-set(url('/images/background-1x.png') 1x, url('/images/background.png') 2x);
   background-size: cover;
   background-position: center 52%;
   color: white;

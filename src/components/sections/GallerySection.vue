@@ -13,7 +13,14 @@
           class="gallery-item"
           :style="{ '--delay': `${440 + index * 95}ms` }"
         >
-          <img :src="image" :alt="`Gallery image ${index + 1}`" class="gallery-image" />
+          <img
+            :src="image1x(image)"
+            :srcset="retinaSrcSet(image)"
+            :alt="`Gallery image ${index + 1}`"
+            class="gallery-image"
+            loading="lazy"
+            decoding="async"
+          />
         </figure>
       </div>
     </div>
@@ -21,6 +28,8 @@
 </template>
 
 <script setup lang="ts">
+import { image1x, retinaSrcSet } from '@/utils/responsiveImages'
+
 const images = [
   '/images/experience/angel.png',
   '/images/experience/bellasartess.png',
