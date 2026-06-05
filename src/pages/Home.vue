@@ -98,7 +98,7 @@ const scrollTo = (id: string) => {
   position: relative;
   display: flex;
   align-items: center;
-  background-image: image-set(url('/images/background-1x.png') 1x, url('/images/background.png') 2x);
+  background-image: url('/images/background.png');
   background-size: cover;
   background-position: center 52%;
   color: white;
@@ -288,6 +288,10 @@ const scrollTo = (id: string) => {
 }
 
 @media (max-width: 600px) {
+  .hero {
+    background-image: image-set(url('/images/background-1x.png') 1x, url('/images/background.png') 2x);
+  }
+
   .hero-motos {
     max-width: 70%;
     right: 0;

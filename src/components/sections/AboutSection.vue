@@ -233,7 +233,7 @@ const scrollToExperience = () => {
   min-height: 890px;
   border-radius: 22px;
   background-image:
-    image-set(url('/images/reforma-1x.png') 1x, url('/images/reforma.png') 2x),
+    url('/images/reforma.png'),
     linear-gradient(135deg, #8db7d8, #243b2e);
   background-size: cover;
   background-position: center;
@@ -336,6 +336,12 @@ const scrollToExperience = () => {
   }
 }
 @media (max-width: 620px) {
+  .about-image {
+    background-image:
+      image-set(url('/images/reforma-1x.png') 1x, url('/images/reforma.png') 2x),
+      linear-gradient(135deg, #8db7d8, #243b2e);
+  }
+
   .about-shell {
     min-height: 780px;
   }
