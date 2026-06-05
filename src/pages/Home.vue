@@ -1,6 +1,10 @@
 <template>
   <div id="home">
-    <main class="hero" :class="{ 'is-ready': isHeroReady }" aria-label="Explore Mexico City on two wheels">
+    <main
+      class="hero"
+      :class="{ 'is-ready': isHeroReady }"
+      aria-label="Explore Mexico City on two wheels"
+    >
       <div class="hero-overlay"></div>
 
       <img
@@ -39,8 +43,8 @@
     </main>
     <AboutSection />
     <RouteSection />
-    <GallerySection />
     <ExperienceSection />
+    <GallerySection />
     <SocialsSection />
     <ContactSection />
   </div>
@@ -289,7 +293,10 @@ const scrollTo = (id: string) => {
 
 @media (max-width: 600px) {
   .hero {
-    background-image: image-set(url('/images/background-1x.png') 1x, url('/images/background.png') 2x);
+    background-image: image-set(
+      url('/images/background-1x.png') 1x,
+      url('/images/background.png') 2x
+    );
   }
 
   .hero-motos {
