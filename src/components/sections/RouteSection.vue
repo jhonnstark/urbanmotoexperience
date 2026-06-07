@@ -866,66 +866,59 @@ const stats = computed<Stat[]>(() => [
   }
 
   .map-card {
-    min-height: auto;
-    padding: 24px;
-    background:
-      linear-gradient(rgba(247, 250, 244, 0.9), rgba(247, 250, 244, 0.92)),
-      url('/images/route-map-bg.png') center / cover no-repeat,
-      #f7faf4;
+    width: 680px;
+    max-width: none;
+    min-height: 0;
+    aspect-ratio: 1000 / 560;
+    border-radius: 18px;
   }
 
   .map-logo-placeholder {
-    width: 52px;
+    top: 18px;
+    right: 22px;
+    width: 48px;
     height: auto;
-    right: 20px;
   }
 
-  .map-grid,
-  .route-svg {
-    display: none;
+  .map-wrap {
+    margin-inline: -22px;
+    padding: 0 22px 8px;
+    overflow-x: auto;
+    overflow-y: visible;
+    scrollbar-width: thin;
   }
 
   .route-map-item {
-    position: relative;
-    top: auto !important;
-    left: auto !important;
-    transform: none;
+    position: absolute;
     opacity: 0;
   }
 
   .route-map-item.is-visible {
-    opacity: 1;
-    transform: none;
-    animation: none;
+    animation: pointIn 0.52s cubic-bezier(0.2, 0.9, 0.3, 1.25) forwards;
+    animation-delay: var(--delay);
   }
 
   .map-point {
-    display: inline-flex;
-    margin: 0 10px 18px 0;
-    vertical-align: top;
+    display: block;
   }
 
   .point-image {
-    width: 62px;
-    height: 62px;
+    width: 58px;
+    height: 58px;
     border-width: 3px;
-    display: inline-block;
-    margin: 0 12px 18px 0;
   }
 
   .map-label {
-    display: inline-block;
-    max-width: calc(100% - 112px);
-    margin-top: 14px;
-    font-size: 15px;
-    text-align: left;
-    vertical-align: top;
+    max-width: 118px;
+    padding: 3px 6px;
+    font-size: 12px;
+    line-height: 1;
   }
 
   .map-number {
     width: 24px;
     height: 24px;
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .route-stats {
