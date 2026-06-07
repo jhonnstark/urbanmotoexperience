@@ -1,152 +1,164 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="896" viewBox="0 0 1000 560" role="img" aria-label="Stylized CDMX map background">
+<svg xmlns="http://www.w3.org/2000/svg" width="3200" height="1800" viewBox="0 0 1600 900" role="img" aria-label="Stylized light map background of central Mexico City">
   <defs>
-    <linearGradient id="paper" x1="0" x2="1" y1="0" y2="1">
-      <stop offset="0" stop-color="#fbfcf8"/>
-      <stop offset="0.48" stop-color="#f4f7f2"/>
-      <stop offset="1" stop-color="#eef5ea"/>
-    </linearGradient>
-    <filter id="softShadow" x="-25%" y="-25%" width="150%" height="150%">
-      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#071a2c" flood-opacity="0.08"/>
-    </filter>
     <style>
-      .minor{fill:none;stroke:#dfe7e3;stroke-width:2.2;stroke-linecap:round;opacity:.78}
-      .minor2{fill:none;stroke:#e8eeeb;stroke-width:1.7;stroke-linecap:round;opacity:.82}
-      .major{fill:none;stroke:#c3d0cb;stroke-width:12;stroke-linecap:round;opacity:.68}
-      .major-core{fill:none;stroke:#edf2ef;stroke-width:6;stroke-linecap:round;opacity:.86}
-      .avenue{fill:none;stroke:#b6c7d3;stroke-width:15;stroke-linecap:round;opacity:.62}
-      .avenue-core{fill:none;stroke:#eef4f8;stroke-width:7;stroke-linecap:round;opacity:.88}
-      .label{fill:#71808a;font-family:Arial,Helvetica,sans-serif;font-size:16px;font-weight:700;letter-spacing:1.4px;opacity:.54}
-      .street{fill:#8b969b;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:600;opacity:.44}
-      .park-label{fill:#6aa54a;font-family:Arial,Helvetica,sans-serif;font-size:16px;font-weight:700;opacity:.64}
+      .local{fill:none;stroke:#dadada;stroke-width:2.2;stroke-linecap:round;opacity:.48}
+      .local-soft{fill:none;stroke:#e5e3df;stroke-width:1.4;stroke-linecap:round;opacity:.68}
+      .secondary{fill:none;stroke:#d0d0cc;stroke-width:5.2;stroke-linecap:round;opacity:.62}
+      .primary{fill:none;stroke:#c6c6c6;stroke-width:13;stroke-linecap:round;stroke-linejoin:round;opacity:.72}
+      .primary-core{fill:none;stroke:#f3f2ee;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;opacity:.88}
+      .reforma{fill:none;stroke:#b8c1c4;stroke-width:24;stroke-linecap:round;stroke-linejoin:round;opacity:.78}
+      .reforma-core{fill:none;stroke:#f5f5f1;stroke-width:12;stroke-linecap:round;stroke-linejoin:round;opacity:.96}
+      .reforma-median{fill:none;stroke:#c9dcc4;stroke-width:4;stroke-linecap:round;stroke-dasharray:16 18;opacity:.88}
+      .label{font-family:Arial,Helvetica,sans-serif;fill:#65717a;font-size:25px;font-weight:700;letter-spacing:2px;opacity:.52}
+      .small-label{font-family:Arial,Helvetica,sans-serif;fill:#6c747b;font-size:18px;font-weight:600;opacity:.46}
+      .park-label{font-family:Arial,Helvetica,sans-serif;fill:#4e8e60;font-size:22px;font-weight:700;opacity:.62}
+      .water-label{font-family:Arial,Helvetica,sans-serif;fill:#4d8aa6;font-size:18px;font-weight:700;opacity:.55}
+      .icon-line{fill:none;stroke:#86939a;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;opacity:.66}
+      .icon-fill{fill:#fffaf2;stroke:#86939a;stroke-width:3;opacity:.72}
     </style>
   </defs>
 
-  <rect width="1000" height="560" fill="url(#paper)"/>
+  <rect width="1600" height="900" fill="#f8f7f4"/>
 
-  <g opacity="0.86">
-    <path d="M0 322 C94 289 154 276 229 292 C320 313 399 318 497 281 C617 236 736 205 1000 185 L1000 560 L0 560 Z" fill="#e7f2df"/>
-    <path d="M-35 388 C72 353 188 350 294 369 C405 389 511 355 628 309 C753 260 872 260 1036 250" fill="none" stroke="#cde2c5" stroke-width="35" opacity=".72" stroke-linecap="round"/>
-    <path d="M-20 431 C82 391 185 384 293 399 C414 417 498 386 620 335 C750 281 874 280 1038 270" fill="none" stroke="#d7ead0" stroke-width="17" opacity=".78" stroke-linecap="round"/>
-    <ellipse cx="88" cy="374" rx="72" ry="43" fill="#d7f1e6" opacity=".8"/>
-    <ellipse cx="132" cy="328" rx="54" ry="30" fill="#d5efdf" opacity=".76"/>
+  <g opacity=".78">
+    <path d="M0 322 C116 288 210 292 326 326 C426 356 511 360 618 331 C717 304 819 268 938 254 L1600 177 L1600 900 L0 900 Z" fill="#f1f3ee"/>
+    <path d="M978 0 L970 900 M1110 0 L1048 900 M1260 0 L1160 900 M1440 0 L1338 900" class="secondary"/>
+    <path d="M-20 182 C178 214 344 245 516 280 C754 329 1021 329 1624 264" class="secondary"/>
+    <path d="M-20 434 C192 435 363 461 590 442 C831 421 1043 384 1626 346" class="secondary"/>
+    <path d="M242 -20 L286 920 M602 -20 L568 920 M139 -20 L188 920" class="secondary"/>
+  </g>
+
+  <g opacity=".9">
+    <path d="M52 38 H1548" class="local-soft"/>
+    <path d="M0 88 H1600" class="local"/>
+    <path d="M24 136 H1574" class="local-soft"/>
+    <path d="M0 188 H1600" class="local"/>
+    <path d="M18 238 H1584" class="local-soft"/>
+    <path d="M0 292 H1600" class="local"/>
+    <path d="M30 346 H1568" class="local-soft"/>
+    <path d="M0 402 H1600" class="local"/>
+    <path d="M22 458 H1580" class="local-soft"/>
+    <path d="M0 516 H1600" class="local"/>
+    <path d="M38 574 H1560" class="local-soft"/>
+    <path d="M0 632 H1600" class="local"/>
+    <path d="M26 690 H1576" class="local-soft"/>
+    <path d="M0 748 H1600" class="local"/>
+    <path d="M40 806 H1548" class="local-soft"/>
+    <path d="M0 862 H1600" class="local"/>
+
+    <path d="M68 0 V900" class="local-soft"/>
+    <path d="M138 0 V900" class="local"/>
+    <path d="M212 0 V900" class="local-soft"/>
+    <path d="M288 0 V900" class="local"/>
+    <path d="M364 0 V900" class="local-soft"/>
+    <path d="M440 0 V900" class="local"/>
+    <path d="M518 0 V900" class="local-soft"/>
+    <path d="M596 0 V900" class="local"/>
+    <path d="M676 0 V900" class="local-soft"/>
+    <path d="M756 0 V900" class="local"/>
+    <path d="M836 0 V900" class="local-soft"/>
+    <path d="M918 0 V900" class="local"/>
+    <path d="M1002 0 V900" class="local-soft"/>
+    <path d="M1086 0 V900" class="local"/>
+    <path d="M1172 0 V900" class="local-soft"/>
+    <path d="M1258 0 V900" class="local"/>
+    <path d="M1344 0 V900" class="local-soft"/>
+    <path d="M1430 0 V900" class="local"/>
+    <path d="M1516 0 V900" class="local-soft"/>
+  </g>
+
+  <g opacity=".72">
+    <path d="M-45 116 L246 220 L466 284 L740 300 L1078 270 L1642 212" class="local"/>
+    <path d="M-38 250 L280 310 L562 356 L896 348 L1248 312 L1635 278" class="local-soft"/>
+    <path d="M-46 388 L262 398 L558 422 L908 400 L1260 376 L1648 334" class="local"/>
+    <path d="M-42 552 L216 494 L522 452 L844 384 L1214 228 L1578 24" class="local"/>
+    <path d="M56 920 L296 672 L502 534 L726 400 L924 224 L1088 -18" class="local"/>
+    <path d="M260 920 L458 712 L680 552 L910 404 L1168 230 L1530 -24" class="local-soft"/>
+    <path d="M490 -24 L676 178 L880 336 L1140 498 L1518 850" class="local"/>
+    <path d="M736 -24 L918 144 L1150 246 L1626 398" class="local-soft"/>
+    <path d="M1040 -20 L1196 96 L1620 170" class="local"/>
   </g>
 
   <g>
-    <path class="minor2" d="M14 24 H978"/>
-    <path class="minor2" d="M0 55 H964"/>
-    <path class="minor" d="M22 86 H1000"/>
-    <path class="minor2" d="M0 118 H984"/>
-    <path class="minor" d="M28 151 H1000"/>
-    <path class="minor2" d="M0 184 H972"/>
-    <path class="minor" d="M11 217 H1000"/>
-    <path class="minor2" d="M0 251 H962"/>
-    <path class="minor" d="M20 286 H1000"/>
-    <path class="minor2" d="M0 321 H986"/>
-    <path class="minor" d="M31 356 H1000"/>
-    <path class="minor2" d="M0 392 H970"/>
-    <path class="minor" d="M12 428 H1000"/>
-    <path class="minor2" d="M0 464 H984"/>
-    <path class="minor" d="M35 500 H1000"/>
-    <path class="minor2" d="M0 535 H965"/>
-
-    <path class="minor" d="M62 0 V560"/>
-    <path class="minor2" d="M106 0 V560"/>
-    <path class="minor" d="M150 0 V560"/>
-    <path class="minor2" d="M196 0 V560"/>
-    <path class="minor" d="M241 0 V560"/>
-    <path class="minor2" d="M287 0 V560"/>
-    <path class="minor" d="M333 0 V560"/>
-    <path class="minor2" d="M379 0 V560"/>
-    <path class="minor" d="M426 0 V560"/>
-    <path class="minor2" d="M473 0 V560"/>
-    <path class="minor" d="M521 0 V560"/>
-    <path class="minor2" d="M568 0 V560"/>
-    <path class="minor" d="M616 0 V560"/>
-    <path class="minor2" d="M664 0 V560"/>
-    <path class="minor" d="M711 0 V560"/>
-    <path class="minor2" d="M758 0 V560"/>
-    <path class="minor" d="M806 0 V560"/>
-    <path class="minor2" d="M854 0 V560"/>
-    <path class="minor" d="M902 0 V560"/>
-    <path class="minor2" d="M949 0 V560"/>
+    <path d="M0 312 C120 282 226 284 330 318 C432 350 524 354 640 320 L704 394 C628 448 541 484 432 492 C322 500 224 476 128 504 C76 519 34 544 0 576 Z" fill="#dcead8"/>
+    <path d="M0 606 C112 552 230 545 360 590 C472 629 586 616 704 558 L704 900 L0 900 Z" fill="#dcead8"/>
+    <path d="M8 402 C120 362 247 350 354 384 C472 422 578 412 690 352" fill="none" stroke="#c8dfc3" stroke-width="30" stroke-linecap="round" opacity=".72"/>
+    <path d="M56 516 C180 452 302 450 414 486 C520 520 610 494 718 438" fill="none" stroke="#cfe4ca" stroke-width="18" stroke-linecap="round" opacity=".7"/>
+    <path d="M102 513 C158 535 231 528 315 491 C377 464 448 466 528 487" fill="none" stroke="#b9d9b4" stroke-width="7" stroke-linecap="round" opacity=".6"/>
+    <path d="M76 614 C176 564 274 568 374 612 C486 662 604 645 708 594" fill="none" stroke="#b9d9b4" stroke-width="6" stroke-linecap="round" opacity=".5"/>
+    <ellipse cx="145" cy="550" rx="94" ry="48" fill="#cfe6f5" opacity=".86"/>
+    <ellipse cx="214" cy="486" rx="72" ry="36" fill="#cfe6f5" opacity=".82"/>
+    <ellipse cx="306" cy="570" rx="53" ry="26" fill="#d7edf7" opacity=".7"/>
+    <ellipse cx="74" cy="468" rx="46" ry="24" fill="#d7edf7" opacity=".66"/>
   </g>
 
   <g>
-    <path class="minor" d="M-40 23 L260 188 L560 278 L1040 220"/>
-    <path class="minor2" d="M-25 80 L206 198 L522 305 L1028 276"/>
-    <path class="minor" d="M30 -20 L226 132 L438 234 L848 560"/>
-    <path class="minor2" d="M146 -20 L353 150 L593 254 L1018 424"/>
-    <path class="minor" d="M390 -18 L603 98 L1000 176"/>
-    <path class="minor2" d="M518 -20 L742 90 L1025 126"/>
-    <path class="minor" d="M-20 512 L318 346 L598 247 L1024 98"/>
-    <path class="minor2" d="M-35 470 L282 322 L570 214 L1005 48"/>
-    <path class="minor" d="M245 560 L402 408 L579 301 L845 0"/>
-    <path class="minor2" d="M395 560 L520 416 L692 311 L968 0"/>
+    <path d="M-40 300 C156 260 313 250 514 284 C698 315 869 314 1085 258 C1262 212 1438 193 1648 176" class="primary"/>
+    <path d="M-40 300 C156 260 313 250 514 284 C698 315 869 314 1085 258 C1262 212 1438 193 1648 176" class="primary-core"/>
+    <path d="M-36 526 C142 528 307 548 514 526 C723 504 916 450 1156 414 C1324 388 1466 384 1640 362" class="primary"/>
+    <path d="M-36 526 C142 528 307 548 514 526 C723 504 916 450 1156 414 C1324 388 1466 384 1640 362" class="primary-core"/>
+    <path d="M838 -20 L798 918" class="primary"/>
+    <path d="M838 -20 L798 918" class="primary-core"/>
+    <path d="M282 -20 L330 918" class="primary"/>
+    <path d="M282 -20 L330 918" class="primary-core"/>
+
+    <path d="M70 224 C260 287 430 330 644 344 C866 358 1056 317 1264 276 C1398 250 1494 242 1582 238" class="reforma"/>
+    <path d="M70 224 C260 287 430 330 644 344 C866 358 1056 317 1264 276 C1398 250 1494 242 1582 238" class="reforma-core"/>
+    <path d="M70 224 C260 287 430 330 644 344 C866 358 1056 317 1264 276 C1398 250 1494 242 1582 238" class="reforma-median"/>
+  </g>
+
+  <g opacity=".62">
+    <path d="M1036 300 h22 M1047 289 v22" stroke="#e27742" stroke-width="6" stroke-linecap="round"/>
+    <rect x="1029" y="282" width="36" height="36" rx="8" fill="none" stroke="#e27742" stroke-width="4"/>
+    <path d="M1238 198 h22 M1249 187 v22" stroke="#e27742" stroke-width="6" stroke-linecap="round"/>
+    <rect x="1231" y="180" width="36" height="36" rx="8" fill="none" stroke="#e27742" stroke-width="4"/>
+    <path d="M1396 296 h22 M1407 285 v22" stroke="#e27742" stroke-width="6" stroke-linecap="round"/>
+    <rect x="1389" y="278" width="36" height="36" rx="8" fill="none" stroke="#e27742" stroke-width="4"/>
   </g>
 
   <g>
-    <path class="major" d="M-35 247 C116 238 254 236 390 252 C547 271 716 246 1036 216"/>
-    <path class="major-core" d="M-35 247 C116 238 254 236 390 252 C547 271 716 246 1036 216"/>
-    <path class="major" d="M-18 303 C125 302 250 320 391 315 C570 309 742 273 1036 251"/>
-    <path class="major-core" d="M-18 303 C125 302 250 320 391 315 C570 309 742 273 1036 251"/>
-    <path class="major" d="M118 -20 L173 560"/>
-    <path class="major-core" d="M118 -20 L173 560"/>
-    <path class="major" d="M514 -20 L484 560"/>
-    <path class="major-core" d="M514 -20 L484 560"/>
-    <path class="major" d="M892 -20 L850 560"/>
-    <path class="major-core" d="M892 -20 L850 560"/>
-    <path class="avenue" d="M42 113 C186 174 286 203 411 224 C543 246 690 235 964 205"/>
-    <path class="avenue-core" d="M42 113 C186 174 286 203 411 224 C543 246 690 235 964 205"/>
-  </g>
-
-  <g opacity=".68">
-    <path d="M73 341 C118 359 164 360 225 346" fill="none" stroke="#83b3cc" stroke-width="14" stroke-linecap="round"/>
-    <path d="M96 370 C134 381 176 381 226 365" fill="none" stroke="#97c5dc" stroke-width="8" stroke-linecap="round"/>
-    <path d="M54 389 C87 404 130 405 176 390" fill="none" stroke="#9ccdde" stroke-width="5" stroke-linecap="round"/>
-  </g>
-
-  <g opacity=".7">
-    <rect x="548" y="328" width="20" height="20" rx="4" fill="#f28748"/>
-    <path d="M554 333 h8 M554 338 h8 M554 343 h8" stroke="#fff" stroke-width="2"/>
-    <rect x="860" y="105" width="20" height="20" rx="4" fill="#f28748"/>
-    <path d="M866 110 h8 M866 115 h8 M866 120 h8" stroke="#fff" stroke-width="2"/>
-    <rect x="706" y="252" width="20" height="20" rx="4" fill="#f28748"/>
-    <path d="M712 257 h8 M712 262 h8 M712 267 h8" stroke="#fff" stroke-width="2"/>
-    <circle cx="805" cy="156" r="13" fill="#4aa6df"/>
-    <path d="M798 156 h14 M805 149 v14" stroke="#fff" stroke-width="3"/>
-    <circle cx="928" cy="250" r="13" fill="#4aa6df"/>
-    <path d="M921 250 h14 M928 243 v14" stroke="#fff" stroke-width="3"/>
+    <g transform="translate(980 318)">
+      <circle class="icon-fill" cx="0" cy="0" r="17"/>
+      <path class="icon-line" d="M0 -24 L0 -6 M-9 3 H9 M-6 14 H6"/>
+    </g>
+    <g transform="translate(1184 194)">
+      <path class="icon-fill" d="M-24 18 H24 L17 -14 L0 -28 L-17 -14 Z"/>
+      <path class="icon-line" d="M-13 18 V-6 M0 18 V-18 M13 18 V-6"/>
+    </g>
+    <g transform="translate(1438 260)">
+      <path class="icon-fill" d="M-34 20 H34 L26 2 L17 -20 H-17 L-26 2 Z"/>
+      <path class="icon-line" d="M-22 20 V2 H22 V20 M-10 2 V-13 M10 2 V-13"/>
+    </g>
   </g>
 
   <g class="label">
-    <text x="48" y="116">POLANCO</text>
-    <text x="53" y="253">CHAPULTEPEC</text>
-    <text x="455" y="371">ROMA NTE.</text>
-    <text x="795" y="126">CENTRO</text>
-    <text x="756" y="393">DOCTORES</text>
-    <text x="230" y="40">GRANADA</text>
-  </g>
-
-  <g class="street">
-    <text x="126" y="150" transform="rotate(74 126 150)">Mariano Escobedo</text>
-    <text x="360" y="214" transform="rotate(12 360 214)">Paseo de la Reforma</text>
-    <text x="598" y="306" transform="rotate(-9 598 306)">Av. Chapultepec</text>
-    <text x="487" y="438" transform="rotate(-86 487 438)">Insurgentes</text>
-    <text x="828" y="328" transform="rotate(-84 828 328)">Eje Central</text>
-    <text x="308" y="345" transform="rotate(-22 308 345)">Durango</text>
+    <text x="70" y="145">POLANCO</text>
+    <text x="260" y="708">CONDESA</text>
+    <text x="710" y="632">ROMA NORTE</text>
+    <text x="1284" y="178">CENTRO HISTORICO</text>
+    <text x="1080" y="104">SAN RAFAEL</text>
   </g>
 
   <g class="park-label">
-    <text x="73" y="393">Bosque de Chapultepec</text>
-    <text x="118" y="448">Parque Mexico</text>
+    <text x="112" y="628">Bosque de Chapultepec</text>
+    <text x="438" y="682">Parque Espana</text>
   </g>
 
-  <g filter="url(#softShadow)">
-    <circle cx="520" cy="300" r="10" fill="#fdfefe" stroke="#91a4ad" stroke-width="3"/>
-    <circle cx="870" cy="240" r="9" fill="#fdfefe" stroke="#91a4ad" stroke-width="3"/>
-    <circle cx="680" cy="175" r="9" fill="#fdfefe" stroke="#91a4ad" stroke-width="3"/>
-    <circle cx="150" cy="250" r="9" fill="#fdfefe" stroke="#91a4ad" stroke-width="3"/>
-    <circle cx="245" cy="305" r="9" fill="#fdfefe" stroke="#91a4ad" stroke-width="3"/>
-    <circle cx="430" cy="455" r="9" fill="#fdfefe" stroke="#91a4ad" stroke-width="3"/>
+  <g class="water-label">
+    <text x="122" y="534">Lago de Chapultepec</text>
+  </g>
+
+  <g class="small-label">
+    <text x="622" y="332" transform="rotate(6 622 332)">Av. Paseo de la Reforma</text>
+    <text x="802" y="458" transform="rotate(-88 802 458)">Insurgentes</text>
+    <text x="356" y="232" transform="rotate(86 356 232)">Constituyentes</text>
+    <text x="600" y="524" transform="rotate(-9 600 524)">Av. Chapultepec</text>
+    <text x="1248" y="414" transform="rotate(-6 1248 414)">Juarez</text>
+  </g>
+
+  <g class="small-label" opacity=".82">
+    <text x="996" y="366">Angel de la Independencia</text>
+    <text x="1190" y="244">Monumento a la Revolucion</text>
+    <text x="1370" y="340">Palacio de Bellas Artes</text>
   </g>
 </svg>

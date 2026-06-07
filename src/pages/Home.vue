@@ -215,6 +215,7 @@ const scrollTo = (id: string) => {
   display: flex;
   gap: 28px;
   margin-top: 46px;
+  margin-bottom: 20px;
 }
 
 .btn {
@@ -256,20 +257,11 @@ const scrollTo = (id: string) => {
   transform: translateY(-1px);
 }
 
-.anim-container {
-  opacity: 0;
-  transform: translateY(40px);
-  transition:
-    opacity 0.8s ease-out,
-    transform 0.8s ease-out;
-}
-
-.anim-container.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 @media (max-width: 900px) {
+  #home {
+    padding-top: 74px;
+  }
+
   .hero {
     min-height: calc(100vh - 96px);
     background-position: 62% center;
@@ -283,6 +275,7 @@ const scrollTo = (id: string) => {
   .hero-actions {
     flex-direction: column;
     gap: 16px;
+    margin-top: 27px;
   }
 
   .hero-motos {

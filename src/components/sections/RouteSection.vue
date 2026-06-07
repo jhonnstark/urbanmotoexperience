@@ -51,10 +51,22 @@
             role="img"
             aria-label="Stylized Google Maps route through CDMX"
           >
-            <path
-              class="route-path"
-              d="M455 475 L440 405 L465 315 L410 275 L335 300 L275 310 L210 300 L135 285 L120 230 L170 205 L250 215 L325 250 L420 260 L520 230 L630 205 L735 185 L840 170 L925 165 L895 95 L760 115 L645 145"
-            />
+            <g class="route-lines">
+              <path
+                class="route-path segment-1"
+                d="M430 455 C410 420 410 370 455 335 C480 315 500 305 505 300"
+              />
+              <path
+                class="route-path segment-2"
+                d="M505 300 C440 300 360 305 245 305 C205 305 178 285 160 250"
+              />
+              <path
+                class="route-path segment-3"
+                d="M160 250 C190 280 220 300 245 305 C345 310 430 305 505 300"
+              />
+              <path class="route-path segment-4" d="M505 300 C600 270 720 240 870 235" />
+              <path class="route-path segment-5" d="M870 235 C790 220 720 190 690 145" />
+            </g>
           </svg>
 
           <a
@@ -256,12 +268,12 @@ const mapPoints = computed<MapPoint[]>(() => {
   ]
 
   const routeStopPositions = [
-    { x: 430, y: 455, labelX: 471, labelY: 485, imageX: 472, imageY: 422 },
-    { x: 505, y: 300, labelX: 525, labelY: 200, imageX: 479, imageY: 258 },
-    { x: 245, y: 305, labelX: 300, labelY: 390, imageX: 212, imageY: 348 },
-    { x: 150, y: 250, labelX: 280, labelY: 210, imageX: 114, imageY: 211 },
-    { x: 870, y: 240, labelX: 773, labelY: 314, imageX: 840, imageY: 280 },
-    { x: 680, y: 175, labelX: 735, labelY: 140, imageX: 635, imageY: 110 },
+    { x: 430, y: 455, labelX: 468, labelY: 492, imageX: 382, imageY: 420 },
+    { x: 505, y: 300, labelX: 565, labelY: 365, imageX: 470, imageY: 255 },
+    { x: 245, y: 305, labelX: 315, labelY: 352, imageX: 210, imageY: 260 },
+    { x: 160, y: 250, labelX: 150, labelY: 304, imageX: 118, imageY: 205 },
+    { x: 870, y: 235, labelX: 790, labelY: 200, imageX: 820, imageY: 275 },
+    { x: 705, y: 172, labelX: 750, labelY: 132, imageX: 642, imageY: 92 },
   ]
 
   return stops.value.map((stop, index) => ({
@@ -485,7 +497,7 @@ const stats = computed<Stat[]>(() => [
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: url('/images/route-map-bg.svg') center / cover no-repeat;
+  background: url('/images/route-map-bg.png') center / cover no-repeat;
   opacity: 0.42;
   filter: saturate(0.92);
 }
@@ -525,6 +537,26 @@ const stats = computed<Stat[]>(() => [
 }
 .route-path.is-visible {
   animation: drawRoute 2.4s ease forwards;
+}
+
+.segment-1.is-visible {
+  animation-delay: 0ms;
+}
+
+.segment-2.is-visible {
+  animation-delay: 350ms;
+}
+
+.segment-3.is-visible {
+  animation-delay: 700ms;
+}
+
+.segment-4.is-visible {
+  animation-delay: 1050ms;
+}
+
+.segment-5.is-visible {
+  animation-delay: 1400ms;
 }
 
 .map-logo-placeholder {
@@ -593,10 +625,6 @@ const stats = computed<Stat[]>(() => [
 
 .point-image:hover .point-image-img {
   transform: scale(1.1);
-}
-
-.pin {
-  display: none;
 }
 
 .map-number {
@@ -842,7 +870,7 @@ const stats = computed<Stat[]>(() => [
     padding: 24px;
     background:
       linear-gradient(rgba(247, 250, 244, 0.9), rgba(247, 250, 244, 0.92)),
-      url('/images/route-map-bg.svg') center / cover no-repeat,
+      url('/images/route-map-bg.png') center / cover no-repeat,
       #f7faf4;
   }
 

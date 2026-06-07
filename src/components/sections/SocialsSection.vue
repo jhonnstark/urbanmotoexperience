@@ -75,31 +75,6 @@ onMounted(() => {
   width: 100%;
   margin: 0 auto 16px;
 }
-.follow-card {
-  display: grid;
-  place-items: center;
-  gap: 10px;
-  margin: 24px auto 34px;
-}
-.ig-icon {
-  font-size: 34px;
-}
-.follow-card strong {
-  font-size: 21px;
-}
-.follow-card a {
-  height: 42px;
-  padding: 0 24px;
-  border-radius: 4px;
-  background: var(--green);
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--um-white);
-  text-decoration: none;
-  text-transform: uppercase;
-  font-weight: 900;
-}
 .reveal {
   opacity: 0;
   transform: translateY(22px);
@@ -126,12 +101,6 @@ onMounted(() => {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-@keyframes itemIn {
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
   }
 }
 @media (max-width: 950px) {

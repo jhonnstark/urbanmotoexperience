@@ -36,7 +36,7 @@ test.describe('Urban Moto Experience - Single Page Navigation', () => {
   })
 
   test('should have a "BOOK A RIDE" button in the navigation', async ({ page }) => {
-    const bookButton = page.getByTestId('nav-book-a-ride')
+    const bookButton = page.locator('.nav-cta')
     await expect(bookButton).toBeVisible()
   })
 })
