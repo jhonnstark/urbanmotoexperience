@@ -41,96 +41,98 @@
       </div>
 
       <div class="map-wrap reveal-map">
-        <div class="map-card" aria-label="Illustrated route map">
-          <div class="map-grid" aria-hidden="true"></div>
+        <div class="map-scroll">
+          <div class="map-card" aria-label="Illustrated route map">
+            <div class="map-grid" aria-hidden="true"></div>
 
-          <svg
-            class="route-svg"
-            viewBox="0 0 1000 560"
-            preserveAspectRatio="xMidYMid meet"
-            role="img"
-            aria-label="Stylized Google Maps route through CDMX"
-          >
-            <g class="route-lines">
-              <path
-                class="route-path segment-1"
-                d="M430 455 C410 420 410 370 455 335 C480 315 500 305 505 300"
-              />
-              <path
-                class="route-path segment-2"
-                d="M505 300 C440 300 360 305 245 305 C205 305 178 285 160 250"
-              />
-              <path
-                class="route-path segment-3"
-                d="M160 250 C190 280 220 300 245 305 C345 310 430 305 505 300"
-              />
-              <path class="route-path segment-4" d="M505 300 C600 270 720 240 870 235" />
-              <path class="route-path segment-5" d="M870 235 C790 220 720 190 690 145" />
-            </g>
-          </svg>
-
-          <a
-            class="map-logo-placeholder"
-            :href="googleMapsRouteUrl"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Ver ruta en Google Maps"
-            aria-label="Ver ruta en Google Maps"
-          >
-            <img
-              src="/images/log3-1x.png"
-              srcset="/images/log3-1x.png 1x, /images/log3.png 2x"
-              alt="Urban Moto Experience"
-              class="map-logo-img"
-              loading="lazy"
-              decoding="async"
-            />
-          </a>
-
-          <template v-for="point in mapPoints" :key="point.id">
-            <div
-              class="map-point route-map-item"
-              :style="{
-                '--delay': `${860 + point.id * 90}ms`,
-                left: `${point.left}%`,
-                top: `${point.top}%`,
-              }"
+            <svg
+              class="route-svg"
+              viewBox="0 0 1000 560"
+              preserveAspectRatio="xMidYMid meet"
+              role="img"
+              aria-label="Stylized Google Maps route through CDMX"
             >
-              <span class="map-number">{{ point.id }}</span>
-            </div>
+              <g class="route-lines">
+                <path
+                  class="route-path segment-1"
+                  d="M430 455 C410 420 410 370 455 335 C480 315 500 305 505 300"
+                />
+                <path
+                  class="route-path segment-2"
+                  d="M505 300 C440 300 360 305 245 305 C205 305 178 285 160 250"
+                />
+                <path
+                  class="route-path segment-3"
+                  d="M160 250 C190 280 220 300 245 305 C345 310 430 305 505 300"
+                />
+                <path class="route-path segment-4" d="M505 300 C600 270 720 240 870 235" />
+                <path class="route-path segment-5" d="M870 235 C790 220 720 190 690 145" />
+              </g>
+            </svg>
 
-            <div
-              class="point-image route-map-item"
-              :class="`point-image-${point.id}`"
-              :style="{
-                '--delay': `${900 + point.id * 90}ms`,
-                left: `${point.imageLeft}%`,
-                top: `${point.imageTop}%`,
-              }"
+            <a
+              class="map-logo-placeholder"
+              :href="googleMapsRouteUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Ver ruta en Google Maps"
+              aria-label="Ver ruta en Google Maps"
             >
               <img
-                v-if="point.image"
-                :src="image1x(point.image)"
-                :srcset="retinaSrcSet(point.image)"
-                :alt="point.label"
-                class="point-image-img"
+                src="/images/log3-1x.png"
+                srcset="/images/log3-1x.png 1x, /images/log3.png 2x"
+                alt="Urban Moto Experience"
+                class="map-logo-img"
                 loading="lazy"
                 decoding="async"
               />
-            </div>
+            </a>
 
-            <strong
-              class="map-label route-map-item"
-              :class="`map-label-${point.id}`"
-              :style="{
-                '--delay': `${940 + point.id * 90}ms`,
-                left: `${point.labelLeft}%`,
-                top: `${point.labelTop}%`,
-              }"
-            >
-              {{ point.label }}
-            </strong>
-          </template>
+            <template v-for="point in mapPoints" :key="point.id">
+              <div
+                class="map-point route-map-item"
+                :style="{
+                  '--delay': `${860 + point.id * 90}ms`,
+                  left: `${point.left}%`,
+                  top: `${point.top}%`,
+                }"
+              >
+                <span class="map-number">{{ point.id }}</span>
+              </div>
+
+              <div
+                class="point-image route-map-item"
+                :class="`point-image-${point.id}`"
+                :style="{
+                  '--delay': `${900 + point.id * 90}ms`,
+                  left: `${point.imageLeft}%`,
+                  top: `${point.imageTop}%`,
+                }"
+              >
+                <img
+                  v-if="point.image"
+                  :src="image1x(point.image)"
+                  :srcset="retinaSrcSet(point.image)"
+                  :alt="point.label"
+                  class="point-image-img"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+
+              <strong
+                class="map-label route-map-item"
+                :class="`map-label-${point.id}`"
+                :style="{
+                  '--delay': `${940 + point.id * 90}ms`,
+                  left: `${point.labelLeft}%`,
+                  top: `${point.labelTop}%`,
+                }"
+              >
+                {{ point.label }}
+              </strong>
+            </template>
+          </div>
         </div>
 
         <a
@@ -268,12 +270,12 @@ const mapPoints = computed<MapPoint[]>(() => {
   ]
 
   const routeStopPositions = [
-    { x: 430, y: 455, labelX: 468, labelY: 492, imageX: 382, imageY: 420 },
+    { x: 430, y: 455, labelX: 395, labelY: 492, imageX: 382, imageY: 420 },
     { x: 505, y: 300, labelX: 565, labelY: 365, imageX: 470, imageY: 255 },
-    { x: 245, y: 305, labelX: 315, labelY: 352, imageX: 210, imageY: 260 },
-    { x: 160, y: 250, labelX: 150, labelY: 304, imageX: 118, imageY: 205 },
-    { x: 870, y: 235, labelX: 790, labelY: 200, imageX: 820, imageY: 275 },
-    { x: 705, y: 172, labelX: 750, labelY: 132, imageX: 642, imageY: 92 },
+    { x: 245, y: 305, labelX: 220, labelY: 388, imageX: 205, imageY: 345 },
+    { x: 160, y: 250, labelX: 258, labelY: 215, imageX: 118, imageY: 212 },
+    { x: 870, y: 258, labelX: 790, labelY: 358, imageX: 870, imageY: 315 },
+    { x: 690, y: 175, labelX: 720, labelY: 132, imageX: 642, imageY: 92 },
   ]
 
   return stops.value.map((stop, index) => ({
@@ -476,6 +478,10 @@ const stats = computed<Stat[]>(() => [
 .reveal-map.is-visible {
   animation: routeFadeLeft 0.9s ease forwards;
   animation-delay: 520ms;
+}
+
+.map-scroll {
+  width: 100%;
 }
 
 .map-card {
@@ -866,71 +872,85 @@ const stats = computed<Stat[]>(() => [
   }
 
   .map-card {
-    min-height: auto;
-    padding: 24px;
-    background:
-      linear-gradient(rgba(247, 250, 244, 0.9), rgba(247, 250, 244, 0.92)),
-      url('/images/route-map-bg.png') center / cover no-repeat,
-      #f7faf4;
+    width: 680px;
+    max-width: none;
+    min-height: 0;
+    aspect-ratio: 1000 / 560;
+    border-radius: 18px;
   }
 
   .map-logo-placeholder {
-    width: 52px;
+    top: 18px;
+    right: 22px;
+    width: 48px;
     height: auto;
-    right: 20px;
   }
 
-  .map-grid,
-  .route-svg {
-    display: none;
+  .map-scroll {
+    width: calc(100% + 44px);
+    max-width: calc(100% + 44px);
+    margin-inline: -22px;
+    padding: 0 22px 8px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+  }
+
+  .map-wrap {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: clip;
   }
 
   .route-map-item {
-    position: relative;
-    top: auto !important;
-    left: auto !important;
-    transform: none;
+    position: absolute;
     opacity: 0;
   }
 
   .route-map-item.is-visible {
-    opacity: 1;
-    transform: none;
-    animation: none;
+    animation: pointIn 0.52s cubic-bezier(0.2, 0.9, 0.3, 1.25) forwards;
+    animation-delay: var(--delay);
   }
 
   .map-point {
-    display: inline-flex;
-    margin: 0 10px 18px 0;
-    vertical-align: top;
+    display: block;
   }
 
   .point-image {
-    width: 62px;
-    height: 62px;
+    width: 58px;
+    height: 58px;
     border-width: 3px;
-    display: inline-block;
-    margin: 0 12px 18px 0;
   }
 
   .map-label {
-    display: inline-block;
-    max-width: calc(100% - 112px);
-    margin-top: 14px;
-    font-size: 15px;
-    text-align: left;
-    vertical-align: top;
+    max-width: 118px;
+    padding: 3px 6px;
+    font-size: 12px;
+    line-height: 1;
   }
 
   .map-number {
     width: 24px;
     height: 24px;
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .route-stats {
+    width: calc(100vw - 44px);
+    max-width: calc(100vw - 44px);
     grid-template-columns: repeat(2, 1fr);
     gap: 8px;
+  }
+
+  .route-google-btn {
+    width: calc(100vw - 44px);
+    max-width: calc(100vw - 44px);
+    min-height: 50px;
+    padding: 0 16px;
+    font-size: 15px;
+    text-align: center;
+    white-space: normal;
   }
 
   .stat-card {
